@@ -1,0 +1,331 @@
+html {
+	background-color: #F6F6F6;
+}
+
+ul {
+    display: block;
+    list-style-type: none;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+#services ul {
+	-webkit-margin-start: -11px;
+}
+
+
+p, li {
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: .5em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+div {
+  display:inline-block;
+}
+
+a, body {
+	color: #3C3C3C;
+}
+
+form {
+	margin: 0px;
+}
+
+body, input, li span {
+	font-family: 'Open Sans', sans-serif;	
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: 0.1px;
+	line-height: 24px;
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+body {
+	width: 720px;
+	margin: 36px auto 0px;
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	line-height: 12px;
+	padding-bottom: 18px;
+}
+
+input {
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+#top {
+	background-color: #FFFFFF;
+}
+
+#top, #bottom {
+	width: 432;
+    padding: 0 144px;
+}
+
+#hello {
+	margin: 72px 72px 0;
+	display: flex;
+	justify-content: center;
+}
+
+#hello-grad {
+	width: 288px;
+	height: 84px;
+}
+
+#hello-white {
+	display: none;
+}
+
+#intro {
+	margin: 30px 0 0;
+	width: 100%;
+}
+
+#more, #services {
+	margin: 30px 0 36px;
+	width: 50%;
+	float: left;
+}
+
+#bottom {
+	background-color: #FCE990;
+}
+
+#bottom {
+	font-size: 14px;
+}
+
+#contact {
+	margin: 30px 0 0;
+}
+
+#contact p {
+
+}
+
+#multiColumn {
+    -moz-column-count: 2;
+    -moz-column-gap: 0px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 0px;
+    column-count: 2;
+    -webkit-column-width: 216px;
+    -moz-column-width: 216px;
+    column-width: 216px;
+    column-gap: 0px;
+}
+
+#newsletter {
+	margin: 30px 0 36px;
+}
+
+#mailchimp {
+	clear: left; 
+	width: 450px;
+	margin-left: -18px;
+}
+
+#subscribe {
+	float: right;
+}
+
+#mc-subscribe {
+
+}
+
+.button {
+	width: 126px;
+	border: 1px solid #3C3C3C;
+	padding: 12px 0px 10px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-size: 14px;
+	text-align: center;
+	background-color: transparent;
+}
+
+.button:hover {
+
+}
+
+.button:active {
+	color:none;
+}
+
+#mc-email {
+
+}
+
+
+.email {
+	text-indent: 18px;
+	width: 306px;
+	height: 48px;
+	border: none;
+	font-size: 14px;
+	background-color: #FFFFFF;
+}
+
+
+footer {
+	/*opacity: 0.3;*/
+	color: #CCCCCC;
+	letter-spacing: 1;
+	font-weight: 800;
+	font-size: 14px;
+	line-height: 24px;
+	text-align: center;
+	margin: 30px 0 0;
+}
+
+
+
+
+@media screen and (max-width:414px) {
+
+	body {
+		font-weight: 600;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0;
+
+	}
+
+	a, body {
+		color: white;
+	}
+
+	h1 {
+
+	}
+
+	#gradient {
+		width: 100%;
+    	height: 736px;
+		position: absolute;
+		z-index: -1;
+		background: -webkit-linear-gradient(#FF7F3E, #FF5EF2);
+		background: -o-linear-gradient(#FF7F3E, #FF5EF2);
+		background: -moz-linear-gradient(#FF7F3E, #FF5EF2);
+		background: linear-gradient(#FF7F3E, #FF5EF2);
+	}
+
+	#solid {
+		background-color: #FF5EF2;
+		z-index: -2;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		position: fixed;
+	}
+
+
+	#top, #bottom {
+		width: 80%;
+		padding: 10%;
+	    margin: auto;
+		font-size: 16px;
+
+	}
+
+	#top {
+		background: none;
+	}
+
+	#bottom {
+		background-color: transparent;
+	}
+
+	#bottom a {
+		color: black;
+	}
+
+	#contact {
+		margin: 0 0 108px;
+	}
+
+	#hello {
+		margin: 45% 0 50%;
+	}
+
+	#hello-grad {
+		display: none;
+	}
+
+	#hello-white {
+		display: inherit;
+		width: 100%;
+	}
+
+	#more, #services {
+		float: right;
+		width: 100%;
+		margin-bottom: 72px;
+	}
+
+	#services {
+		margin-bottom: 180px;
+	}
+
+	#intro {
+		margin-bottom: 24px;
+	}
+
+	#newsletter {
+		width: 100%;
+		margin-bottom: 0px;
+	}
+
+	footer {
+		font-size: 16px;
+		color: white;
+		padding: 144px 0 72px;
+		background: -webkit-linear-gradient(#FF5EF2, #FCE990);
+		background: -o-linear-gradient(#FF5EF2, #FCE990);
+		background: -moz-linear-gradient(#FF5EF2, #FCE990);
+		background: linear-gradient(#FF5EF2, #FCE990);*/
+	}
+
+	#mailchimp {
+		width: 100%;
+	}
+
+	.email {
+		width: 100%;
+		margin: 0 0 30px;
+		background-color: #F6F6F6;
+	}
+
+	#subscribe {
+		float: left;
+	}
+
+	.button {
+		width: 104px;
+		color: white;
+		border: 1px solid white;
+	}
+}
