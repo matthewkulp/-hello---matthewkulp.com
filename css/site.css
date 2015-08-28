@@ -159,9 +159,9 @@ button:focus {
 	width: 792px;
 	height: 528px;
 	margin: 0 0 0 -180px;
-	-webkit-box-shadow: 17px 17px 0px 0px rgba(0, 0, 0, 0.08);
-	-moz-box-shadow: 17px 17px 0px 0px rgba(0, 0, 0, 0.08);
-	box-shadow: 17px 17px 0px 0px rgba(0, 0, 0, 0.08);
+	-webkit-box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 0.08);
+	-moz-box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 0.08);
+	box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 0.08);
 }
 
 #work img {
@@ -279,10 +279,16 @@ footer {
 		position: absolute;
 	}
 
-	#about, #communicate, #greeting {
+	#about, #communicate, #caption {
 		width: 80%;
 		padding: 10%;
-	  margin: auto;
+		margin: auto;
+	}
+
+	#services, #details, #contact, #newsletter {
+		margin-left: 36px;
+		width: 65%;
+		width: calc(100% - 36px);
 	}
 
 	#gradient {
@@ -299,9 +305,8 @@ footer {
 	}
 
 	#greeting {
-		/*width: 70%;
-		padding: 15%;
-		margin: auto;*/
+		width: 100%;
+		padding: 0;
 	}
 
 	#communicate {
@@ -313,13 +318,7 @@ footer {
 	}
 
 	#contact {
-		margin: 0 0 108px;
-	}
 
-	#details, #services {
-		float: right;
-		width: 100%;
-		margin-bottom: 72px;
 	}
 
 	#services {
@@ -328,11 +327,6 @@ footer {
 
 	#intro {
 		margin-bottom: 24px;
-	}
-
-	#newsletter {
-		width: 100%;
-		margin-bottom: 0px;
 	}
 
 	footer {
@@ -345,9 +339,9 @@ footer {
 
 	.email {
 		width: 100%;
-		margin: 0 0 30px;
-		background-color: #F6F6F6;
-		width: calc(100% + 18px);
+		margin: auto auto 30px;
+		/*background-color: #F6F6F6;*/
+		width: calc(100% + 36px);
 	}
 
 	#subscribe {
