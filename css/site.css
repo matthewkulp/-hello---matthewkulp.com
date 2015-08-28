@@ -268,11 +268,9 @@ footer {
 	}
 
 	#work {
+		position: relative;
 		margin: 0;
 		width: calc(100% - 12px);
-		max-width: 402px;
-		left: 0;
-    position: absolute;
 		height: 0px;
     padding-bottom: 66%;
 	}
