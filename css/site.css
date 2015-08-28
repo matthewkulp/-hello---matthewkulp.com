@@ -12,10 +12,6 @@ ul {
     -webkit-padding-start: 0px;
 }
 
-#services ul {
-	/*-webkit-margin-start: -11px;*/
-}
-
 img {
 	border-style: none;
 }
@@ -161,11 +157,11 @@ button:focus {
 
 #work {
 	width: 792px;
-	height: 515px;
+	height: 528px;
 	margin: 0 0 0 -180px;
-	-webkit-box-shadow: 15px 15px 0px -5px rgba(0, 0, 0, 0.08);
-	-moz-box-shadow: 15px 15px 0px -5px rgba(0, 0, 0, 0.08);
-	box-shadow: 15px 15px 0px -5px rgba(0, 0, 0, 0.08);
+	-webkit-box-shadow: 17px 17px 0px 0px rgba(0, 0, 0, 0.08);
+	-moz-box-shadow: 17px 17px 0px 0px rgba(0, 0, 0, 0.08);
+	box-shadow: 17px 17px 0px 0px rgba(0, 0, 0, 0.08);
 }
 
 #work img {
@@ -179,10 +175,6 @@ button:focus {
 	align-items: baseline;
 	justify-content: space-between;
 	padding: 60px 0 0;
-}
-
-#count {
-	/*padding: 72px 0 0 0;*/
 }
 
 #description {
@@ -206,10 +198,6 @@ button:focus {
 	margin: 30px 0 0;
 }
 
-#contact p {
-
-}
-
 #credit {
 	font-size: 10;
 	font-weight: 400;
@@ -229,10 +217,6 @@ button:focus {
 	float: right;
 }
 
-#mc-subscribe {
-
-}
-
 .button {
 	width: 126px;
 	border: 1px solid #3C3C3C;
@@ -248,18 +232,9 @@ button:focus {
 	border: 2px solid white;
 }
 
-.button:hover {
-
-}
-
 .button:active {
 	color:none;
 }
-
-#mc-email {
-
-}
-
 
 .email {
 	text-indent: 36px;
@@ -270,50 +245,65 @@ button:focus {
 	background-color: #FFFFFF;
 }
 
-
 footer {
 	color: #CCCCCC;
-	/*letter-spacing: 1;*/
-	/*font-weight: 700;*/
-	/*font-size: 14px;*/
-	/*line-height: 24px;*/
 	text-align: center;
 	padding: 72px 0 72px;
 }
 
 
 
-
 @media screen and (max-width:414px) {
-
 	body {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		margin: 0;
-		just
-
+		/*background-color: red;*/
 	}
 
 	a, body {
 		color: white;
 	}
 
-	h1 {
-
+	#work {
+		margin: 0;
+		width: calc(100% - 12px);
+		max-width: 402px;
+		left: 0;
+    position: absolute;
+		height: 0px;
+    padding-bottom: 66%;
 	}
 
+	#work img {
+		position: absolute;
+	}
 
-	#about, #communicate {
+	#about, #communicate, #greeting {
 		width: 80%;
 		padding: 10%;
 	  margin: auto;
 	}
 
-	#about {
-		/*background: none;*/
-		/*padding-bottom: 132px;*/
+	#gradient {
+    position: fixed;
+    left: 0;
+    top: 0px;
+		height: 100%;
+		width: 100%;
+		margin: 0;
+	}
+
+	#solid {
+		display: none;
+	}
+
+	#greeting {
+		/*width: 70%;
+		padding: 15%;
+		margin: auto;*/
 	}
 
 	#communicate {
@@ -327,10 +317,6 @@ footer {
 	#contact {
 		margin: 0 0 108px;
 	}
-
-	/*#hello {
-
-	}*/
 
 	#details, #services {
 		float: right;
