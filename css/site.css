@@ -1,5 +1,5 @@
 html {
-	background-color: #F6F6F6;
+	background-color: #EDEDE8;
 }
 
 ul {
@@ -112,7 +112,7 @@ button:focus {
 	outline: none;
 }
 
-#about, #greeting {
+#about, #greeting, #caption {
 	width: 432;
   padding: 0 144px;
 }
@@ -239,13 +239,9 @@ footer {
 	float: left;
 }
 
-@media screen and (max-width:792px;) {
 
-}
-
-
-/*468*/
-@media screen and (max-width:504px) {
+/*504*/
+@media screen and (max-width:792px) {
 	body {
 		width: 100%;
 		display: flex;
@@ -271,7 +267,7 @@ footer {
 	}
 
 	#about, #caption {
-		width: 80%;
+		/*width: 80%;*/
 		padding: 10%;
 		margin: auto;
 	}
@@ -342,5 +338,13 @@ footer {
 
 	.button {
 		width: 140px;
+	}
+}
+
+@media screen and (max-width:504px) {
+	#about, #caption {
+		width: 80%;
+		padding: 10%;
+		margin: auto;
 	}
 }
