@@ -117,37 +117,22 @@ button:focus {
   padding: 0 144px;
 }
 
+#aboutBG {
+	width: 100%;
+	text-align: center;
+	background: -webkit-linear-gradient(#42DC84, #37A8C0 30%);
+	background: -o-linear-gradient(#42DC84, #37A8C0 30%);
+	background: -moz-linear-gradient(#42DC84, #37A8C0 30%);
+	background: linear-gradient(#42DC84, #37A8C0 30%);
+}
+
 #about {
-	padding-bottom: 142px;
+	text-align: justify;
 }
 
 #greeting {
 	background-color: white;
 	color: #595959;
-}
-
-#solid {
-	background-color: #37A8C0;
-}
-
-#gradient, #solid {
-	position: absolute;
-	margin-left: -144px;
-	width: 720px;
-}
-
-#gradient {
-	height: 520px;
-	z-index: -2;
-	background: -webkit-linear-gradient(#42DC84, #37A8C0);
-	background: -o-linear-gradient(#42DC84, #37A8C0);
-	background: -moz-linear-gradient(#42DC84, #37A8C0);
-	background: linear-gradient(#42DC84, #37A8C0);
-}
-
-#solid {
-	height: 215%;
-	z-index: -3;
 }
 
 #work {
@@ -179,7 +164,7 @@ button:focus {
 }
 
 #intro {
-	margin: 30px 0 0;
+	padding: 0 0 102px;
 	width: 100%;
 }
 
@@ -233,14 +218,12 @@ footer {
 }
 
 .block {
-	padding: 102px 0 0;
+	padding: 0 0 102px;
 	margin-left: 36px;
 	width: 100%;
 	float: left;
 }
 
-
-/*504*/
 @media screen and (max-width:792px) {
 	body {
 		width: 100%;
@@ -267,8 +250,7 @@ footer {
 	}
 
 	#about, #caption {
-		/*width: 80%;*/
-		padding: 10%;
+		padding: 0;
 		margin: auto;
 	}
 
@@ -340,6 +322,7 @@ footer {
 		width: 140px;
 	}
 }
+
 
 @media screen and (max-width:504px) {
 	#about, #caption {
