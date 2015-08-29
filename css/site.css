@@ -112,7 +112,7 @@ button:focus {
 	outline: none;
 }
 
-#about, #communicate, #greeting {
+#about, #greeting {
 	width: 432;
   padding: 0 144px;
 }
@@ -126,12 +126,7 @@ button:focus {
 	color: #595959;
 }
 
-#communicate {
-	font-size: 14px;
-	padding-bottom: 132px;
-}
-
-#communicate, #solid {
+#solid {
 	background-color: #37A8C0;
 }
 
@@ -151,7 +146,7 @@ button:focus {
 }
 
 #solid {
-	height: 1200px;
+	height: 215%;
 	z-index: -3;
 }
 
@@ -188,28 +183,14 @@ button:focus {
 	width: 100%;
 }
 
-#details, #services {
-	padding-top: 42px;
-	width: 100%;
-	float: left;
-}
-
-#contact {
-	margin: 30px 0 0;
-}
-
 #credit {
 	font-size: 10;
 	font-weight: 400;
 }
 
-#newsletter {
-	margin: 30px 0 36px;
-}
-
 #mailchimp {
 	clear: left;
-	width: 468px;
+	width: 432px;
 	margin-left: -36px;
 }
 
@@ -238,7 +219,7 @@ button:focus {
 
 .email {
 	text-indent: 36px;
-	width: 324px;
+	width: 288px;
 	height: 48px;
 	border: none;
 	font-size: 14px;
@@ -246,21 +227,31 @@ button:focus {
 }
 
 footer {
-	color: #CCCCCC;
+	color: #000000;
 	text-align: center;
 	padding: 72px 0 72px;
 }
 
+.block {
+	padding: 102px 0 0;
+	margin-left: 36px;
+	width: 100%;
+	float: left;
+}
+
+@media screen and (max-width:792px;) {
+
+}
 
 
-@media screen and (max-width:414px) {
+/*468*/
+@media screen and (max-width:504px) {
 	body {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		margin: 0;
-		/*background-color: red;*/
 	}
 
 	a, body {
@@ -279,58 +270,60 @@ footer {
 		position: absolute;
 	}
 
-	#about, #communicate, #caption {
+	#about, #caption {
 		width: 80%;
 		padding: 10%;
 		margin: auto;
 	}
 
-	#services, #details, #contact, #newsletter {
-		margin-left: 36px;
-		width: 65%;
-		width: calc(100% - 36px);
+	#caption {
+		padding: 36px 30px;
 	}
 
-	#gradient {
-    position: fixed;
-    left: 0;
-    top: 0px;
-		height: 100%;
+	.block {
+		width: calc(100% - 36px);
+
+	}
+
+	#solid, #gradient {
+		position: absolute;
+		left: 0;
 		width: 100%;
 		margin: 0;
 	}
 
+	#gradient {
+		height: 100%;
+	}
+
 	#solid {
-		display: none;
+		height: 240%;
 	}
 
 	#greeting {
 		width: 100%;
 		padding: 0;
+		background-color: transparent;
 	}
 
-	#communicate {
-		background: none;
+	#page {
+		background-color: white;
+		position: absolute;
+		height: 1000px;
+		width: calc(100% - 24px);
+		left: 50%;
+		transform: translateX(-50%);
+		top:12px;
+		z-index: -3;
 	}
 
-	#communicate a {
-		color: #FFFFFF;
-	}
-
-	#contact {
-
-	}
-
-	#services {
-		margin-bottom: 180px;
+	#description{
+		width: 100%;
+		padding-bottom: 36px;
 	}
 
 	#intro {
 		margin-bottom: 24px;
-	}
-
-	footer {
-		color: white;
 	}
 
 	#mailchimp {
@@ -340,7 +333,6 @@ footer {
 	.email {
 		width: 100%;
 		margin: auto auto 30px;
-		/*background-color: #F6F6F6;*/
 		width: calc(100% + 36px);
 	}
 
