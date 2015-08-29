@@ -1,5 +1,5 @@
 html {
-	background-color: #F6F6F6;
+	background-color: #EDEDE8;
 }
 
 ul {
@@ -12,10 +12,9 @@ ul {
     -webkit-padding-start: 0px;
 }
 
-#services ul {
-	-webkit-margin-start: -11px;
+img {
+	border-style: none;
 }
-
 
 p, li {
     -webkit-margin-before: 0px;
@@ -37,7 +36,7 @@ form {
 }
 
 body, input, li span {
-	font-family: 'Istok Web', sans-serif;;	
+	font-family: 'Istok Web', sans-serif;;
 	font-size: 16px;
 	font-weight: 400;
 	letter-spacing: 0.1px;
@@ -52,15 +51,54 @@ body {
 	z-index: 1;
 }
 
-h2 {
+.subheader {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: flex-end;
+	position: relative;
+	padding-bottom: 18px;
+	margin-left: -36px;
+}
+
+.subheader img {
+	opacity: .6;
+}
+
+h1, h2, h3 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+	letter-spacing: -6;
+	font-size: 89px;
+	font-weight: 800;
+	line-height: normal;
+	display: flex;
+	flex-flow; column wrap;
+	justify-content: center;
+
+}
+
+h2, h3 {
 	opacity: .5;
-	font-weight: 700;
+	font-weight: 800;
 	font-size: 10px;
 	text-transform: uppercase;
 	letter-spacing: 5px;
 	line-height: 12px;
-	padding-bottom: 18px;
+	margin: 0;
 }
+
+.subheader h2 {
+	position: absolute;
+	left: 36px;
+	padding-top: 3px;
+}
+
+h3 {
+	opacity: 1;
+}
+
 
 input {
 	-webkit-appearance: none;
@@ -74,100 +112,75 @@ button:focus {
 	outline: none;
 }
 
-#top {
-	background: -webkit-linear-gradient(#FF7F3E, #FF6F95);
-	background: -o-linear-gradient(#FF7F3E, #FF6F95);
-	background: -moz-linear-gradient(#FF7F3E, #FF6F95);
-	background: linear-gradient(#FF7F3E, #FF6F95);
+#about, #greeting, #caption {
+	width: 432;
+  padding: 0 144px;
 }
 
-#top, #bottom {
-	width: 432;
-    padding: 0 144px;
+#aboutBG {
+	width: 100%;
+	text-align: center;
+	background: -webkit-linear-gradient(#42DC84, #37A8C0 30%);
+	background: -o-linear-gradient(#42DC84, #37A8C0 30%);
+	background: -moz-linear-gradient(#42DC84, #37A8C0 30%);
+	background: linear-gradient(#42DC84, #37A8C0 30%);
+}
+
+#about {
+	text-align: justify;
 }
 
 #greeting {
-
+	background-color: white;
+	color: #595959;
 }
 
-
-h1, h2 {
-	font-family: 'Open Sans', sans-serif;
+#work {
+	width: 792px;
+	height: 528px;
+	margin: 0 0 0 -180px;
+	-webkit-box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 0.08);
+	-moz-box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 0.08);
+	box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 0.08);
 }
 
-h1 {
-	letter-spacing: -6;
-	font-size: 89px;
-	font-weight: 800;
-	line-height: normal;
-
+#work img {
+	width: 100%;
+	height: 100%;
 }
 
-#hello {
-	margin: 72px auto 24px;
+#caption {
 	display: flex;
-	flex-flow; column wrap;
-	justify-content: center;
+	flex-flow: row wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	padding: 60px 0 0;
 }
 
-#illo {
-	display: flex;
-	flex-flow; column wrap;
-	justify-content: center;
+#description {
+	font-size: 14px;
+	padding: 0 0 132px;
+	width: 360px;
 }
 
 #intro {
-	margin: 30px 0 0;
+	padding: 0 0 102px;
 	width: 100%;
 }
 
-#more, #services {
-	margin: 30px 0 36px;
-	width: 50%;
-	float: left;
-}
-
-#bottom {
-	font-size: 14px;
-	background-color: #FF6F95;
-}
-
-#contact {
-	margin: 30px 0 0;
-}
-
-#contact p {
-
-}
-
-#multiColumn {
-/*    -moz-column-count: 2;
-    -moz-column-gap: 0px;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 0px;
-    column-count: 2;
-    -webkit-column-width: 216px;
-    -moz-column-width: 216px;
-    column-width: 216px;
-    column-gap: 0px;*/
-}
-
-#newsletter {
-	margin: 30px 0 36px;
+#credit {
+	font-size: 10;
+	font-weight: 400;
 }
 
 #mailchimp {
-	clear: left; 
-	width: 450px;
-	margin-left: -18px;
+	clear: left;
+	width: 432px;
+	margin-left: -36px;
 }
 
 #subscribe {
 	float: right;
-}
-
-#mc-subscribe {
-
 }
 
 .button {
@@ -185,114 +198,110 @@ h1 {
 	border: 2px solid white;
 }
 
-.button:hover {
-
-}
-
 .button:active {
 	color:none;
 }
 
-#mc-email {
-
-}
-
-
 .email {
-	text-indent: 18px;
-	width: 306px;
+	text-indent: 36px;
+	width: 288px;
 	height: 48px;
 	border: none;
 	font-size: 14px;
 	background-color: #FFFFFF;
 }
 
-
 footer {
-	color: #CCCCCC;
-	letter-spacing: 1;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 24px;
+	color: #000000;
 	text-align: center;
 	padding: 72px 0 72px;
 }
 
+.block {
+	padding: 0 0 102px;
+	margin-left: 36px;
+	width: 100%;
+	float: left;
+}
 
-
-
-@media screen and (max-width:414px) {
-
+@media screen and (max-width:792px) {
 	body {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		margin: 0;
-		just
-
 	}
 
 	a, body {
 		color: white;
 	}
 
-	h1 {
+	#work {
+		position: relative;
+		margin: 0;
+		width: calc(100% - 12px);
+		height: 0px;
+    padding-bottom: 66%;
+	}
+
+	#work img {
+		position: absolute;
+	}
+
+	#about, #caption {
+		padding: 0;
+		margin: auto;
+	}
+
+	#caption {
+		padding: 36px 30px;
+	}
+
+	.block {
+		width: calc(100% - 36px);
 
 	}
 
-
-	#top, #bottom {
-		width: 80%;
-		padding: 10%;
-	    margin: auto;
-	}
-
-	#top {
-		background: none;
-	}
-
-	#bottom {
-		background: none;
-	}
-
-	#bottom a {
-		color: #FFFFFF;
-	}
-
-	#contact {
-		margin: 0 0 108px;
-	}
-
-	#hello {
-
-	}
-
-	#more, #services {
-		float: right;
+	#solid, #gradient {
+		position: absolute;
+		left: 0;
 		width: 100%;
-		margin-bottom: 72px;
+		margin: 0;
 	}
 
-	#services {
-		margin-bottom: 180px;
+	#gradient {
+		height: 100%;
 	}
 
-	#illo {
-		padding-bottom: 40%;
+	#solid {
+		height: 240%;
+	}
+
+	#greeting {
+		width: 100%;
+		padding: 0;
+		background-color: transparent;
+	}
+
+	#page {
+		background-color: white;
+		position: absolute;
+		height: 1000px;
+		width: calc(100% - 24px);
+		left: 50%;
+		transform: translateX(-50%);
+		top:12px;
+		z-index: -3;
+	}
+
+	#description{
+		width: 100%;
+		padding-bottom: 36px;
 	}
 
 	#intro {
 		margin-bottom: 24px;
-	}
-
-	#newsletter {
-		width: 100%;
-		margin-bottom: 0px;
-	}
-
-	footer {
-		color: white;
 	}
 
 	#mailchimp {
@@ -301,9 +310,8 @@ footer {
 
 	.email {
 		width: 100%;
-		margin: 0 0 30px;
-		background-color: #F6F6F6;
-		width: calc(100% + 18px);
+		margin: auto auto 30px;
+		width: calc(100% + 36px);
 	}
 
 	#subscribe {
@@ -311,17 +319,15 @@ footer {
 	}
 
 	.button {
-		width: 104px;
+		width: 140px;
 	}
+}
 
-	#gradient {
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		z-index: -1;
-		background: -webkit-linear-gradient(#FF7F3E, #FF6F95);
-		background: -o-linear-gradient(#FF7F3E, #FF6F95);
-		background: -moz-linear-gradient(#FF7F3E, #FF6F95);
-		background: linear-gradient(#FF7F3E, #FF6F95);
+
+@media screen and (max-width:504px) {
+	#about, #caption {
+		width: 80%;
+		padding: 10%;
+		margin: auto;
 	}
 }
