@@ -7,13 +7,12 @@ $(document).ready(function(){
   var counts = $("#carousel li .caption").children(".count");
   var descriptionAnimationTime = 400;
   var animationComplete = true;
-
   var i = 0;
   items.eq(i).addClass('active');
-
-
   items.css("display", "none");
   $('#shadowBox').css('display', "none")
+
+
 
 
   function descriptionEnters(i) {
@@ -46,6 +45,16 @@ $(document).ready(function(){
 
 
 
+  function countChange (i) {
+    counts.css("opacity", "0");
+    counts.eq(i).css("opacity", "1");
+    counts.eq(i).html(function() {
+      return (i+1) + "/" + pictures.length
+    });
+  }
+
+
+
 
   function carouselIntroduction(i) {
     items.css("display", "");
@@ -53,10 +62,7 @@ $(document).ready(function(){
     descriptions.css("opacity", "0");
     descriptionEnters(i);
 
-    counts.css("opacity", "0");
-    counts.eq(i).html(function() {
-      return (i+1) + "/" + pictures.length
-    });
+    countChange(i);
     counts.velocity("fadeIn", { duration: 400 });
 
     pictures.css("opacity", "0");
@@ -82,14 +88,12 @@ $(document).ready(function(){
 		animationComplete = false
 
 		items.removeClass('active')
-					.eq(i).addClass('active');
+		.eq(i).addClass('active');
+
 
     //Count Change
-    counts.css("opacity", "0");
-    counts.eq(i).css("opacity", "1");
-    counts.eq(i).html(function() {
-      return (i+1) + "/" + pictures.length
-    });
+    countChange(i);
+
 
 		//Picture Changes
     imageEnters(i);
@@ -105,6 +109,8 @@ $(document).ready(function(){
       duration: descriptionAnimationTime,
       }
     );
+
+
     //Description Fade In New
     descriptionEnters(i);
 
