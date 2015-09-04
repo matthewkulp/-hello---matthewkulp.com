@@ -15,11 +15,10 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,800' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Istok+Web:400,700' rel='stylesheet' type='text/css'>
 
-		<script type="text/javascript" src="/vendor/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="/vendor/jquery.js"></script>
 		<script type="text/javascript" src="/vendor/velocity.js"></script>
+		<script type="text/javascript" src="/vendor/imagesloaded.js"></script>
 		<script type="text/javascript" src="/vendor/ga.js"></script>
-
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
 
 		<script type="text/javascript" src="/carousel/carousel.js"></script>
 		<script type="text/javascript" src="/greeting/greeting.js"></script>
@@ -39,8 +38,12 @@
 			</h1>
 
 
-			<div id="shadowBox"></div>
-			
+
+			<div id="imageFrame">
+				<div class="loader"></div>
+				<div id="shadowBox"></div>
+			</div>
+
 			<div id="carousel">
 				<li>
 					<img src="/images/work1.png"/>

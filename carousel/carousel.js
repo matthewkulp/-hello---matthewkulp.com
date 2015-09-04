@@ -5,14 +5,30 @@ $(document).ready(function(){
 	var pictures = $("#carousel li").children("img");
 	var descriptions = $("#carousel li .caption").children(".description");
   var counts = $("#carousel li .caption").children(".count");
+  var loader = $(".loader");
   var descriptionAnimationTime = 400;
   var animationComplete = true;
   var i = 0;
   items.eq(i).addClass('active');
   items.css("display", "none");
-  $('#shadowBox').css('display', "none")
+  loader.css('display', 'none');
+  $('#shadowBox').css('display', "none");
 
 
+  setTimeout(function () {
+    loader.velocity("fadeIn", {duration: 900});
+
+    setTimeout(function () {
+      pictures.eq(i).imagesLoaded( function() {
+            loader.velocity("fadeOut",
+            {
+              duration: 900,
+              complete: function() {carouselIntroduction(i)},
+            });
+      })
+    }, 2000);
+
+  }, 1000);
 
 
   function descriptionEnters(i) {
@@ -74,10 +90,6 @@ $(document).ready(function(){
 
 
   };
-
-  setTimeout(function () {
-      carouselIntroduction(i);
-  }, 3000);
 
 
 
