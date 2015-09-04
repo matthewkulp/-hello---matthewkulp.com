@@ -16,13 +16,6 @@ img {
 	border-style: none;
 }
 
-p, li {
-    -webkit-margin-before: 0px;
-    -webkit-margin-after: .5em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-}
-
 div {
   display:inline-block;
 }

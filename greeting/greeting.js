@@ -1,9 +1,5 @@
 $(document).ready(function(){
 
-  $('#work').on('click', function(){
-    click();
-  })
-
   var click = function(){
     $('h1 span').each(function(index, character) {
       var span = this
@@ -49,9 +45,9 @@ $(document).ready(function(){
     });
   }
 
-setTimeout(function(){
-  click();
-}, 1000);
+  setTimeout(function() {
+    click();
+  }, 1000);
 
 })
 
