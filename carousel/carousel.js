@@ -2,8 +2,8 @@ $(document).ready(function(){
 
 	//Initializations
   var items = $("#carousel").children("li");
-	var pictures = $("#carousel li").children("img");
-	var descriptions = $("#carousel li .caption").children(".description");
+  var pictures = $("#carousel li").children("img");
+  var descriptions = $("#carousel li .caption").children(".description");
   var counts = $("#carousel li .caption").children(".count");
   var loader = $(".loader");
   var descriptionAnimationTime = 400;
@@ -95,11 +95,11 @@ $(document).ready(function(){
 
 
 
-	function goTo(i){
-		animationComplete = false
-
-		items.removeClass('active')
-		.eq(i).addClass('active');
+  function goTo(i){
+    animationComplete = false
+    
+    items.removeClass('active')
+    .eq(i).addClass('active');
     currentPic = $('.active').index();
 
     //Count Change
@@ -152,11 +152,10 @@ $(document).ready(function(){
 
 
   // Click Behavior
-	$("#carousel img").on('click', function(){
+  $("#carousel img").on('click', function(){
     clearInterval(autoCycle);
     next();
-	});
-
+  });
 
 
 
