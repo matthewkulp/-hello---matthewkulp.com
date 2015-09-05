@@ -6,7 +6,7 @@ $(document).ready(function(){
   var descriptions = $("#carousel li .caption").children(".description");
   var counts = $("#carousel li .caption").children(".count");
   var loader = $(".loader");
-  var descriptionAnimationTime = 400;
+  var descriptionAnimationTime = 260;
   var animationComplete = true;
   items.eq(0).addClass('active');
   var currentPic = $('.active').index();
@@ -26,7 +26,7 @@ $(document).ready(function(){
     $(descriptions).eq(currentPic).velocity(
       {
       opacity: [1, "ease-in", 0],
-      translateY: [0, -15],
+      translateY: [0, -10],
       },
       {
       duration: descriptionAnimationTime,
@@ -113,7 +113,7 @@ $(document).ready(function(){
     descriptions.eq(currentPic-1).velocity(
       {
       opacity: [0, "ease-in", 1],
-      translateY: "-15px",
+      translateY: "-10px",
       },
       {
       duration: descriptionAnimationTime,

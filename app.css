@@ -28,7 +28,7 @@ form {
 	margin: 0px;
 }
 
-body, input, li span {
+body, input {
 	font-family: 'Istok Web', sans-serif;;
 	font-size: 16px;
 	font-weight: 400;
@@ -38,6 +38,10 @@ body, input, li span {
 	text-justify: inter-word;
 }
 
+ul li {
+	line-height: 30px;
+}
+
 body {
 	width: 720px;
 	margin: 36px auto 0px;
@@ -45,12 +49,11 @@ body {
 }
 
 span {
-	position: relative;
 	opacity: 0;
-	/*transform: rotateZ(315deg);*/
 }
 
 .subheader {
+	display: -webkit-flex;
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: flex-end;
@@ -72,6 +75,7 @@ h1 {
 	font-size: 89px;
 	font-weight: 800;
 	line-height: normal;
+	display: -webkit-flex;
 	display: flex;
 	flex-flow; column wrap;
 	justify-content: center;
@@ -195,6 +199,7 @@ footer {
 @media screen and (max-width:792px) {
 	body {
 		width: 100%;
+		display: -webkit-flex;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -203,6 +208,13 @@ footer {
 
 	a, body {
 		color: white;
+	}
+
+	#greeting {
+		height: 1000px;
+		width: calc(100% - 24px);
+		margin: 12px 0 0 12px;
+		padding: 0;
 	}
 
 	#about {
@@ -227,23 +239,6 @@ footer {
 
 	#solid {
 		height: 240%;
-	}
-
-	#greeting {
-		width: 100%;
-		padding: 0;
-		background-color: transparent;
-	}
-
-	#page {
-		background-color: white;
-		position: absolute;
-		height: 1000px;
-		width: calc(100% - 24px);
-		left: 50%;
-		transform: translateX(-50%);
-		top:12px;
-		z-index: -3;
 	}
 
 	#intro {
@@ -271,6 +266,10 @@ footer {
 
 
 @media screen and (max-width:504px) {
+	#greeting {
+		height: 860px;
+	}
+
 	#about {
 		width: 80%;
 		padding: 10%;
