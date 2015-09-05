@@ -8,9 +8,9 @@ $(document).ready(function(){
   var loader = $(".loader");
   var descriptionAnimationTime = 400;
   var animationComplete = true;
-  var i = 0;
-  items.eq(i).addClass('active');
-  currentPic = $('.active').index();
+  items.eq(0).addClass('active');
+  var currentPic = $('.active').index();
+  var autoCycle;
 
   // Display Changes
   items.css("display", "none");
@@ -22,8 +22,8 @@ $(document).ready(function(){
 
 
   // Animations
-  function descriptionEnters(i) {
-    $(descriptions).eq(i).velocity(
+  function descriptionEnters(currentPic) {
+    $(descriptions).eq(currentPic).velocity(
       {
       opacity: [1, "ease-in", 0],
       translateY: [0, -15],
@@ -41,37 +41,37 @@ $(document).ready(function(){
 
 
 
-  function imageEnters (i) {
+  function imageEnters (currentPic) {
     pictures.css("z-index", "0");
-    pictures.eq(i - 1).css("z-index", "1");
-    pictures.eq(i).css("z-index", "2");
-    pictures.eq(i).velocity("fadeIn", { duration: 400 });
+    pictures.eq(currentPic - 1).css("z-index", "1");
+    pictures.eq(currentPic).css("z-index", "2");
+    pictures.eq(currentPic).velocity("fadeIn", { duration: 400 });
 
   }
 
 
 
 
-  function countChange (i) {
-    counts.eq(i).html(function() {
-      return (i+1) + "/" + pictures.length
+  function countChange (currentPic) {
+    counts.eq(currentPic).html(function() {
+      return (currentPic + 1) + "/" + pictures.length
     });
   }
 
 
 
 
-  function carouselIntroduction(i) {
+  function carouselIntroduction(currentPic) {
     items.css("display", "");
 
     descriptions.css("opacity", "0");
-    descriptionEnters(i);
+    descriptionEnters(currentPic);
 
-    countChange(i);
+    countChange(currentPic);
     counts.velocity("fadeIn", { duration: 400 });
 
     pictures.css("opacity", "0");
-    imageEnters(i);
+    imageEnters(currentPic);
 
     $('#shadowBox').css("opacity", "0");
     $('#shadowBox').css("display", "");
@@ -83,7 +83,7 @@ $(document).ready(function(){
 
 
   function next(){
-
+    currentPic = $('.active').index(); //cP = 0
     if (currentPic < pictures.length-1 && animationComplete){
       goTo(currentPic + 1);
 
@@ -95,23 +95,22 @@ $(document).ready(function(){
 
 
 
-  function goTo(i){
+  function goTo(currentPic){
     animationComplete = false
-    
+
     items.removeClass('active')
-    .eq(i).addClass('active');
-    currentPic = $('.active').index();
+      .eq(currentPic).addClass('active');
 
     //Count Change
     counts.css("opacity", "0");
-    countChange(i);
-    counts.eq(i).css("opacity", "1");
+    countChange(currentPic);
+    counts.eq(currentPic).css("opacity", "1");
 
 		//Picture Changes
-    imageEnters(i);
+    imageEnters(currentPic);
 
     //Description Fade Out Previous
-    descriptions.eq(i-1).velocity(
+    descriptions.eq(currentPic-1).velocity(
       {
       opacity: [0, "ease-in", 1],
       translateY: "-15px",
@@ -122,7 +121,7 @@ $(document).ready(function(){
     );
 
     //Description Fade In New
-    descriptionEnters(i);
+    descriptionEnters(currentPic);
 
 	};
 
@@ -134,13 +133,13 @@ $(document).ready(function(){
     loader.velocity("fadeIn", {duration: 900});
 
     setTimeout(function () {
-      pictures.eq(i).imagesLoaded( function() {
+      pictures.eq(currentPic).imagesLoaded( function() {
             loader.velocity("fadeOut",
             {
               duration: 900,
               complete: function()
-                {carouselIntroduction(i);
-                window.autoCycle = setInterval( next, 5000);
+                {carouselIntroduction(currentPic);
+                autoCycle = setInterval( next, 5000);
               },
             });
       })
