@@ -12,7 +12,7 @@ $(document).ready(function(){
   items.eq(i).addClass('active');
   currentPic = $('.active').index();
 
-
+  // Display Changes
   items.css("display", "none");
   loader.css('display', 'none')
   counts.css("opacity", "0");;
