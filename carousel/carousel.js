@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	//initializations
+	//Initializations
   var items = $("#carousel").children("li");
 	var pictures = $("#carousel li").children("img");
 	var descriptions = $("#carousel li .caption").children(".description");
@@ -10,27 +10,18 @@ $(document).ready(function(){
   var animationComplete = true;
   var i = 0;
   items.eq(i).addClass('active');
+  currentPic = $('.active').index();
+
+
   items.css("display", "none");
-  loader.css('display', 'none');
+  loader.css('display', 'none')
+  counts.css("opacity", "0");;
   $('#shadowBox').css('display', "none");
 
 
-  setTimeout(function () {
-    loader.velocity("fadeIn", {duration: 900});
-
-    setTimeout(function () {
-      pictures.eq(i).imagesLoaded( function() {
-            loader.velocity("fadeOut",
-            {
-              duration: 900,
-              complete: function() {carouselIntroduction(i)},
-            });
-      })
-    }, 2000);
-
-  }, 1000);
 
 
+  // Animations
   function descriptionEnters(i) {
     $(descriptions).eq(i).velocity(
       {
@@ -62,8 +53,6 @@ $(document).ready(function(){
 
 
   function countChange (i) {
-    counts.css("opacity", "0");
-    counts.eq(i).css("opacity", "1");
     counts.eq(i).html(function() {
       return (i+1) + "/" + pictures.length
     });
@@ -88,10 +77,20 @@ $(document).ready(function(){
     $('#shadowBox').css("display", "");
     $('#shadowBox').velocity("fadeIn", { duration: 600 });
 
-
   };
 
 
+
+
+  function next(){
+
+    if (currentPic < pictures.length-1 && animationComplete){
+      goTo(currentPic + 1);
+
+    } else if (animationComplete) {
+      goTo(0)
+    }
+  };
 
 
 
@@ -101,15 +100,15 @@ $(document).ready(function(){
 
 		items.removeClass('active')
 		.eq(i).addClass('active');
-
+    currentPic = $('.active').index();
 
     //Count Change
+    counts.css("opacity", "0");
     countChange(i);
-
+    counts.eq(i).css("opacity", "1");
 
 		//Picture Changes
     imageEnters(i);
-
 
     //Description Fade Out Previous
     descriptions.eq(i-1).velocity(
@@ -122,7 +121,6 @@ $(document).ready(function(){
       }
     );
 
-
     //Description Fade In New
     descriptionEnters(i);
 
@@ -131,19 +129,35 @@ $(document).ready(function(){
 
 
 
+  // Loading Behavior
+  setTimeout(function () {
+    loader.velocity("fadeIn", {duration: 900});
 
-  //Click Advance
+    setTimeout(function () {
+      pictures.eq(i).imagesLoaded( function() {
+            loader.velocity("fadeOut",
+            {
+              duration: 900,
+              complete: function()
+                {carouselIntroduction(i);
+                window.autoCycle = setInterval( next, 5000);
+              },
+            });
+      })
+    }, 2000);
+
+  }, 1000);
+
+
+
+
+  // Click Behavior
 	$("#carousel img").on('click', function(){
-
-    currentPic = $('.active').index();
-
-    if (currentPic < pictures.length-1 && animationComplete){
-      goTo(currentPic + 1);
-
-    } else if (animationComplete) {
-  	  goTo(0)
-    }
-
+    clearInterval(autoCycle);
+    next();
 	});
+
+
+
 
 });
