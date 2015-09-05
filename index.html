@@ -5,31 +5,84 @@
 		<meta name="keywords" content="Matthew Kulp, Matt Kulp, furniture design, industrial design, RISD, Rhode Island School of Design, furniture, industrial, UI, UI, user interface, user research, user experience, UX, product design, product management,  Mountain Lab, Upstart, design, visual design, branding, interaction design">
 		<meta name="description" content="Designer, Entrepreneur." >
 		<link rel="icon" type="img/ico" href="images/favicon.png">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="/css/site.css" type="text/css" charset="utf-8">
-		<script type="text/javascript" src="/js/jquery-1.11.3.js"></script>
-		<script type="text/javascript" src="/js/ga.js"></script>
+
+		<link rel="stylesheet" href="/app.css" type="text/css" charset="utf-8">
+		<link rel="stylesheet" href="/vendor/animate.css" type="text/css" charset="utf-8">
+		<link rel="stylesheet" href="/carousel/carousel.css" type="text/css" charset="utf-8">
+
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,800' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Istok+Web:400,700' rel='stylesheet' type='text/css'>
+
+		<script type="text/javascript" src="/vendor/jquery.js"></script>
+		<script type="text/javascript" src="/vendor/velocity.js"></script>
+		<script type="text/javascript" src="/vendor/imagesloaded.js"></script>
+		<script type="text/javascript" src="/vendor/ga.js"></script>
+
+		<script type="text/javascript" src="/carousel/carousel.js"></script>
+		<script type="text/javascript" src="/greeting/greeting.js"></script>
+		<script type="text/javascript" src="/app.js"></script>
+
 	</head>
 	<body>
-		<div id="greeting">
-			<div id="page"></div>
-				<h1 style="color: #FF6D94">
-					hello.
-				</h1>
-				<div id="work">
-					<img src="/images/work.png">
-				</div>
 
-				<div id="caption">
-					<div id="count">
-						<h3>1/6</h3>
+		<div id="greeting">
+			<h1 style="color: #FF6D94">
+				<span>h</span>
+				<span>e</span>
+				<span>l</span>
+				<span>l</span>
+				<span>o</span>
+				<span>.</span>
+			</h1>
+
+
+
+			<div id="imageFrame">
+				<div class="loader"></div>
+				<div id="shadowBox"></div>
+			</div>
+
+			<div id="carousel">
+				<li>
+					<img src="/images/work1.jpg"/>
+
+					<div class="caption">
+						<h3 class="count"></h3>
+						<div class="description">
+							Red Sky: Caption 1. Caption 1. Caption 1. Caption 1. Caption 1.
+						</div>
 					</div>
-					<div id="description">
-						I'm a caption, I describe work with words because thats a nice thing to do.
+				</li>
+
+
+				<li>
+					<img src="/images/work2.jpg"/>
+
+					<div class="caption">
+						<h3 class="count"></h3>
+						<div class="description">
+							Green Trees: Caption 2. Caption 2. Caption 2. Caption 2. Caption 2.
+						</div>
 					</div>
-				</div>
+				</li>
+
+
+				<li>
+					<img src="/images/work3.jpg"/>
+					<div class="caption">
+						<h3 class="count"></h3>
+						<div class="description">
+							Blue Sky: Caption 3. Caption 3. Caption 3. Caption 3. Caption 3.
+						</div>
+					</div>
+				</li>
+
+			</div>
+
+
+
 		</div>
 
 		<div id="aboutBG">
@@ -104,7 +157,6 @@
 
 							<input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required>
 
-			    			<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 			    			<div style="position: absolute; left: -5000px;">
 			    				<input type="text" name="b_9f588c188d35b31f6e3b5eb47_5deb98bbb0" tabindex="-1" value="">
 			    			</div>
@@ -118,6 +170,7 @@
 				</div>
 			</div>
 		</div>
+
 		<footer>
 			<h2>©2015</h2>
 		</footer>
