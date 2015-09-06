@@ -29,23 +29,28 @@ form {
 }
 
 body, input {
-	font-family: 'Istok Web', sans-serif;;
-	font-size: 16px;
+	font-family: 'Futura', 'Century Gothic', sans-serif;;
+	font-size: 14px;
 	font-weight: 400;
-	letter-spacing: 0.1px;
+	letter-spacing: 0.6px;
 	line-height: 24px;
-	text-align: justify;
-	text-justify: inter-word;
 }
 
 ul li {
 	line-height: 30px;
 }
 
+a, body {
+	color: white;
+}
+
 body {
 	width: 720px;
-	margin: 36px auto 0px;
-	z-index: 1;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
 }
 
 span {
@@ -71,15 +76,41 @@ h1, h2, h3 {
 }
 
 h1 {
-	letter-spacing: -6;
-	font-size: 89px;
+	letter-spacing: -10;
+	font-size: 78px;
 	font-weight: 800;
 	line-height: normal;
 	display: -webkit-flex;
 	display: flex;
 	flex-flow; column wrap;
 	justify-content: center;
+	padding: 36px 0;
+	margin: 0;
+	-webkit-margin-before: 0px;
+	-webkit-margin-after: 0px;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
 
+}
+
+span[alt="e"] {
+	padding-right: 2px;
+}
+
+span[alt="l1"] {
+	padding-right: 3px;
+}
+
+span[alt="o"] {
+	padding-right: 4px;
+}
+
+span[alt="u"] {
+	padding-right: 2px;
+}
+
+span[alt="t"] {
+	padding-right: 12px;
 }
 
 h2, h3 {
@@ -117,13 +148,12 @@ button:focus {
 
 
 
-#about, #greeting {
-	width: 432;
-  padding: 0 144px;
+#aboutBG, #greeting {
+	width: 100%;
+	margin: 0 auto;
 }
 
 #aboutBG {
-	width: 100%;
 	text-align: center;
 	background: -webkit-linear-gradient(#42DC84, #37A8C0 30%);
 	background: -o-linear-gradient(#42DC84, #37A8C0 30%);
@@ -132,12 +162,22 @@ button:focus {
 }
 
 #about {
+	padding-top: 80px;
+}
+
+#aboutContent {
 	text-align: justify;
+	text-justify: inter-word;
+	width: 432px;
+	padding:  0 144px;
 }
 
 #greeting {
+	position: relative;
+	top: 0;
 	background-color: white;
 	color: #595959;
+	padding-bottom: 12px;
 }
 
 #intro {
@@ -196,37 +236,17 @@ footer {
 	float: left;
 }
 
-@media screen and (max-width:792px) {
+@media screen and (max-width:736px) {
 	body {
 		width: 100%;
-		display: -webkit-flex;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		margin: 0;
-	}
-
-	a, body {
-		color: white;
 	}
 
 	#greeting {
-		height: 1000px;
-		width: calc(100% - 24px);
-		margin: 12px 0 0 12px;
+		width: 100%;
 		padding: 0;
 	}
 
-	#about {
-		padding: 0;
-		margin: auto;
-	}
-
-	.block {
-		width: calc(100% - 36px);
-	}
-
-	#solid, #gradient {
+	#gradient {
 		position: absolute;
 		left: 0;
 		width: 100%;
@@ -235,14 +255,6 @@ footer {
 
 	#gradient {
 		height: 100%;
-	}
-
-	#solid {
-		height: 240%;
-	}
-
-	#intro {
-		margin-bottom: 24px;
 	}
 
 	#mailchimp {
@@ -266,13 +278,10 @@ footer {
 
 
 @media screen and (max-width:504px) {
-	#greeting {
-		height: 860px;
+
+	#aboutContent {
+		width: calc(100% - 36px);
+		padding: 0 18px;
 	}
 
-	#about {
-		width: 80%;
-		padding: 10%;
-		margin: auto;
-	}
 }

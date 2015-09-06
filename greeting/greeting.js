@@ -47,7 +47,7 @@ $(document).ready(function(){
 
   setTimeout(function() {
     click();
-  }, 1000);
+  }, 300);
 
 })
 
