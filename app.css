@@ -36,7 +36,7 @@ body, input {
 	line-height: 24px;
 }
 
-ul li {
+.block ul {
 	line-height: 30px;
 }
 
@@ -53,10 +53,6 @@ body {
 	margin: 0 auto;
 }
 
-span {
-	opacity: 0;
-}
-
 .subheader {
 	display: -webkit-flex;
 	display: flex;
@@ -68,14 +64,12 @@ span {
 }
 
 .subheader img {
-	opacity: .6;
+	opacity: .13;
 }
 
-h1, h2, h3 {
-	font-family: 'Open Sans', sans-serif;
-}
 
 h1 {
+	font-family: 'Open Sans', sans-serif;
 	letter-spacing: -10;
 	font-size: 78px;
 	font-weight: 800;
@@ -93,6 +87,10 @@ h1 {
 
 }
 
+#hello {
+	color: rgb(187, 156, 105);
+}
+
 span[alt="e"] {
 	padding-right: 2px;
 }
@@ -101,8 +99,16 @@ span[alt="l1"] {
 	padding-right: 3px;
 }
 
+span[alt="l2"] {
+	padding-right: 2px;
+}
+
 span[alt="o"] {
 	padding-right: 4px;
+}
+
+#about {
+	color: white;
 }
 
 span[alt="u"] {
@@ -111,6 +117,11 @@ span[alt="u"] {
 
 span[alt="t"] {
 	padding-right: 12px;
+}
+
+
+h2, h3 {
+	font-family: 'Open Sans', sans-serif;
 }
 
 h2, h3 {
@@ -155,14 +166,6 @@ button:focus {
 
 #aboutBG {
 	text-align: center;
-	background: -webkit-linear-gradient(#42DC84, #37A8C0 30%);
-	background: -o-linear-gradient(#42DC84, #37A8C0 30%);
-	background: -moz-linear-gradient(#42DC84, #37A8C0 30%);
-	background: linear-gradient(#42DC84, #37A8C0 30%);
-}
-
-#about {
-	padding-top: 80px;
 }
 
 #aboutContent {
@@ -177,7 +180,6 @@ button:focus {
 	top: 0;
 	background-color: white;
 	color: #595959;
-	padding-bottom: 12px;
 }
 
 #intro {
@@ -232,11 +234,11 @@ footer {
 .block {
 	padding: 0 0 102px;
 	margin-left: 36px;
-	width: 100%;
+	width: calc(100% - 36px);
 	float: left;
 }
 
-@media screen and (max-width:736px) {
+@media screen and (max-width:774px) {
 	body {
 		width: 100%;
 	}
@@ -246,15 +248,8 @@ footer {
 		padding: 0;
 	}
 
-	#gradient {
-		position: absolute;
-		left: 0;
-		width: 100%;
-		margin: 0;
-	}
-
-	#gradient {
-		height: 100%;
+	#aboutContent {
+		padding: inherit;
 	}
 
 	#mailchimp {
@@ -264,7 +259,7 @@ footer {
 	.email {
 		width: 100%;
 		margin: auto auto 30px;
-		width: calc(100% + 36px);
+		/*width: calc(100% + 36px);*/
 	}
 
 	#subscribe {
