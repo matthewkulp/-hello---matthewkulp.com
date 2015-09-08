@@ -2,7 +2,6 @@ $(document).ready(function(){
 
 	//Initializations
 	var items = $("#carousel ul").children("li");
-	console.log(items);
 	var pictures = $("#carousel ul li .imageContainer").children("img");
 	var descriptions = $("#carousel ul li .caption").children(".description");
 	var counts = $("#carousel ul li .caption").children(".count");
@@ -12,9 +11,6 @@ $(document).ready(function(){
 	items.eq(0).addClass('active');
 	var currentPic = $('.active').index();
 	var autoCycle;
-
-	console.log(items);
-	console.log(currentPic);
 
 	// Connect Carousel height to item height.
 	function setCarouselHeight() {
@@ -33,7 +29,9 @@ $(document).ready(function(){
 	$('#shadowBox').css('display', "none");
 
 
-  // Animations
+
+
+	// Animations
 	function descriptionEnters(currentPic) {
 		$(descriptions).eq(currentPic).velocity(
 			{
@@ -94,7 +92,7 @@ $(document).ready(function(){
 
 	function next(){
 		currentPic = $('.active').index();
-		console.log(currentPic);
+
 		if (currentPic < pictures.length-1 && animationComplete){
 			goTo(currentPic + 1);
 
@@ -138,7 +136,7 @@ $(document).ready(function(){
 
 
 
-  // Loading Behavior
+	// Loading Behavior
 	setTimeout(function () {
 		loader.velocity("fadeIn", {duration: 900});
 
@@ -159,7 +157,7 @@ $(document).ready(function(){
 
 
 
-  // Click Behavior
+	// Click Behavior
 	pictures.on('click', function(){
 		clearInterval(autoCycle);
 		next();
