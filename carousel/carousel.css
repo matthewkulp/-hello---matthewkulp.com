@@ -88,11 +88,13 @@
 .previous {
 	cursor: url('/images/cursor-previous.png'), w-resize;
 	left: 0;
+	background-color: rgba(255, 0, 0, .5);
 }
 
 .next {
 	cursor: url('/images/cursor-next.png'), e-resize;
 	right: 0;
+	background-color: rgba(0, 255, 0, .5);
 }
 
 .caption {
@@ -112,22 +114,16 @@
 }
 
 @media screen and (max-width:774px) {
-/*
+
 	.imageContainer {
 		width: 100%;
-	}*/
-
-	/*#carousel img {
-		width: 100%;
-	}*/
+	}
 
 }
 
 @media screen and (max-width:720px) {
 
-	.imageContainer {
-		width: 100%;
-	}
+}
 
 @media screen and (max-width:504px) {
 
