@@ -72,17 +72,29 @@
 }
 
 #carousel img {
-	cursor: url('/images/next-cursor.svg'), e-resize;
 	position: absolute;
 	top: 0;
 	width: 100%;
 	height: 100%;
 }
-/*
-#carousel img:hover {
-	border-bottom: 3px solid #000000;
+
+.next,
+.previous {
+	position: absolute;
+	bottom: 0;
+	width: 50%;
 }
-*/
+
+.previous {
+	cursor: url('/images/cursor-previous.png'), w-resize;
+	left: 0;
+}
+
+.next {
+	cursor: url('/images/cursor-next.png'), e-resize;
+	right: 0;
+}
+
 .caption {
 	display: -webkit-flex;
 	display: flex;

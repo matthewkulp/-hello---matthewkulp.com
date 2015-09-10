@@ -10,23 +10,33 @@ $(document).ready(function(){
 	var animationComplete = true;
 	items.eq(0).addClass('active');
 	var currentPic = $('.active').index();
+	var exitingPic;
 	var autoCycle;
+	$('.previous, .next').css('z-index','4');
 
 	// Connect Carousel height to item height.
 	function setCarouselHeight() {
 		var itemHeight = items.css("height");
 		$('#carousel').css("height", itemHeight);
+
+		var imageHeight = pictures.css("height");
+		$('.previous, .next').css("height", imageHeight);
 	};
+
 	setCarouselHeight();
 	$( window ).resize(function() {
 		 setCarouselHeight();
 	});
 
-	// Display Changes
-	items.css("display", "none");
-	loader.css('display', 'none')
-	counts.css("opacity", "0");;
-	$('#shadowBox').css('display', "none");
+
+
+
+	// Start Stylings
+	items.css('display', 'none');
+	loader.css('display', 'none');
+	$('.previous, .next').css('display', 'none');
+	counts.css('opacity', '0');
+
 
 
 
@@ -50,12 +60,11 @@ $(document).ready(function(){
 
 
 
-
-	function imageEnters (currentPic) {
+	function imageEnters (enteringPic) {
 		pictures.css("z-index", "0");
-		pictures.eq(currentPic - 1).css("z-index", "1");
-		pictures.eq(currentPic).css("z-index", "2");
-		pictures.eq(currentPic).velocity("fadeIn", { duration: 400 });
+		pictures.eq(currentPic).css("z-index", "1");
+		pictures.eq(enteringPic).css("z-index", "2");
+		pictures.eq(enteringPic).velocity("fadeIn", { duration: 400 });
 	}
 
 
@@ -63,7 +72,7 @@ $(document).ready(function(){
 
 	function countChange (currentPic) {
 		counts.eq(currentPic).html(function() {
-			return (currentPic + 1) + "/" + pictures.length
+			return (currentPic + 1) + "/" + pictures.length;
 		});
 	}
 
@@ -71,9 +80,10 @@ $(document).ready(function(){
 
 
 	function carouselIntroduction(currentPic) {
-		items.css("display", "");
+		items.css('display', '');
+		$('.previous, .next').css('display', '');
 
-		descriptions.css("opacity", "0");
+		descriptions.css('opacity', '0');
 		descriptionEnters(currentPic);
 
 		countChange(currentPic);
@@ -91,7 +101,6 @@ $(document).ready(function(){
 
 
 	function next(){
-		currentPic = $('.active').index();
 
 		if (currentPic < pictures.length-1 && animationComplete){
 			goTo(currentPic + 1);
@@ -101,37 +110,33 @@ $(document).ready(function(){
 		}
 	};
 
-	// function next(){
-	// 	currentPic = $('.active').index();
-	//
-	// 	if (currentPic == 0 && animationComplete){
-	// 		goTo(pictures.length-1);
-	// 	} else if (animationComplete){
-	// 		goTo(currentPic-1);
-	// 	}
-	// }
+	function previous(){
 
-	//previousPic stores the index of the previousPic
+		if (currentPic == 0 && animationComplete){
+			goTo(pictures.length-1);
+		} else if (animationComplete){
+			goTo(currentPic - 1);
+		}
+	}
 
-	function goTo(currentPic){
-		// previousPic = currentPic - 1
-		console.log(currentPic);
-		console.log
+
+	function goTo(enteringPic){
 		animationComplete = false
+		enteringPic = enteringPic;
 
 		items.removeClass('active')
-		.eq(currentPic).addClass('active');
+		.eq(enteringPic).addClass('active');
 
 		//Count Change
 		counts.css("opacity", "0");
-		countChange(currentPic);
-		counts.eq(currentPic).css("opacity", "1");
+		countChange(enteringPic);
+		counts.eq(enteringPic).css("opacity", "1");
 
 		//Picture Changes
-		imageEnters(currentPic);
+		imageEnters(enteringPic);
 
 		//Description Fade Out Previous
-		descriptions.eq(currentPic - 1).velocity(
+		descriptions.eq(currentPic).velocity(
 			{
 			opacity: [0, "ease-in", 1],
 			translateY: "-10px",
@@ -142,7 +147,9 @@ $(document).ready(function(){
 		);
 
 		//Description Fade In New
-		descriptionEnters(currentPic);
+		descriptionEnters(enteringPic);
+
+		currentPic = $('.active').index();
 	};
 
 
@@ -170,9 +177,14 @@ $(document).ready(function(){
 
 
 	// Click Behavior
-	pictures.on('click', function(){
+	$('.next').on('click', function(){
 		clearInterval(autoCycle);
 		next();
+	});
+
+	$('.previous').on('click', function(){
+		clearInterval(autoCycle);
+		previous();
 	});
 
 
