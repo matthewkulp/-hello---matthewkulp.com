@@ -72,50 +72,58 @@
 }
 
 #carousel img {
+	cursor: url('/images/next-cursor.svg'), e-resize;
 	position: absolute;
 	top: 0;
 	width: 100%;
+	height: 100%;
 }
-
+/*
+#carousel img:hover {
+	border-bottom: 3px solid #000000;
+}
+*/
 .caption {
 	display: -webkit-flex;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
 	width: 432;
-	padding: 0 144px 72px;
+	padding: 0 144px 24px;
 }
 
 .description {
 	font-size: 14px;
+	min-height: 80px;
 	width: 360px;
 	margin-top: -6px;
 }
 
 @media screen and (max-width:774px) {
+/*
+	.imageContainer {
+		width: 100%;
+	}*/
+
+	/*#carousel img {
+		width: 100%;
+	}*/
+
+}
+
+@media screen and (max-width:720px) {
 
 	.imageContainer {
 		width: 100%;
 	}
 
-	#carousel img {
-		width: 100%;
-	}
-
-}
-
 @media screen and (max-width:504px) {
-	/*.caption {
-		width: 80%;
-		padding: 10%;
-		margin: auto;
-		padding: 48px 0;
-	}*/
 
 	.caption {
 		width: calc(100% - 36px);
 		padding: 10% 18px 10%;
 		margin: auto;
+		text-align: justify;
 	}
 
 	.description{

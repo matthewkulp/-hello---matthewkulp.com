@@ -259,7 +259,7 @@ footer {
 	.email {
 		width: 100%;
 		margin: auto auto 30px;
-		/*width: calc(100% + 36px);*/
+		width: calc(100% + 36px);
 	}
 
 	#subscribe {

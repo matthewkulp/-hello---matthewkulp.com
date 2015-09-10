@@ -101,10 +101,22 @@ $(document).ready(function(){
 		}
 	};
 
+	// function next(){
+	// 	currentPic = $('.active').index();
+	//
+	// 	if (currentPic == 0 && animationComplete){
+	// 		goTo(pictures.length-1);
+	// 	} else if (animationComplete){
+	// 		goTo(currentPic-1);
+	// 	}
+	// }
 
-
+	//previousPic stores the index of the previousPic
 
 	function goTo(currentPic){
+		// previousPic = currentPic - 1
+		console.log(currentPic);
+		console.log
 		animationComplete = false
 
 		items.removeClass('active')
@@ -119,7 +131,7 @@ $(document).ready(function(){
 		imageEnters(currentPic);
 
 		//Description Fade Out Previous
-		descriptions.eq(currentPic-1).velocity(
+		descriptions.eq(currentPic - 1).velocity(
 			{
 			opacity: [0, "ease-in", 1],
 			translateY: "-10px",
