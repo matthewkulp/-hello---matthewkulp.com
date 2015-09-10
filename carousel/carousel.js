@@ -186,10 +186,11 @@ $(document).ready(function(){
 	$('.previous').on('click', previous );
 
 	//Swipe Behavior
-	$('.next, .previous').on('swipeleft', next);
-	$('.next, .previous').on('swiperight', previous );
+	$('#carousel').on('swipeleft', next );
+	$('#carousel').on('swiperight', previous );
 
-	// Bug: in Chrome, when emulating mobile devices, the swipe gestures don't work right. Ethan and MK found that everytime the viewport is resized, you get one swipe gesture and then they won't work again. When tested on iOS in chrome, the swipe gestures work. We found that when you change the .next and .previous divs in ANY way, you get another swipe. A good solution to this problem is to regularly change the opacity of the div. MK did not implement this solution because it seems that this bug only exists in the Chrome emulator. If this problem were to manifest on an actual device in testing, then MK will implement the aforementioned solution.
+
+
 
 	$(document).keydown(function(e) {
 		switch(e.which) {
