@@ -31,16 +31,18 @@ $(document).ready(function(){
 	});
 
 
-
-
-	// Start Stylings
+	// Pre-Load Stylings
 	items.css('opacity', '0');
 	loader.css('opacity', '0');
 	$('.previous, .next').css('opacity', '0');
 	counts.css('opacity', '0');
 
 
-
+	// Detect Touch Device. If detected, hide the 'previous' hitbox and expand the 'next' hitbox
+	if (Modernizr.touch) {
+	    $('.previous').hide();
+	    $('.next').css('width', '100%');
+	}
 
 
 	// Animations
