@@ -13,6 +13,7 @@ $(document).ready(function(){
 	var exitingPic;
 	var autoCycle;
 	$('.previous, .next').css('z-index','4');
+	counts.eq(currentPic).html('# / #');
 
 	// Connect Carousel height to item height.
 	function setCarouselHeight() {
@@ -22,8 +23,9 @@ $(document).ready(function(){
 		var imageHeight = pictures.css("height");
 		$('.previous, .next').css("height", imageHeight);
 	};
-
 	setCarouselHeight();
+
+
 	$( window ).resize(function() {
 		 setCarouselHeight();
 	});
@@ -32,9 +34,9 @@ $(document).ready(function(){
 
 
 	// Start Stylings
-	items.css('display', 'none');
-	loader.css('display', 'none');
-	$('.previous, .next').css('display', 'none');
+	items.css('opacity', '0');
+	loader.css('opacity', '0');
+	$('.previous, .next').css('opacity', '0');
 	counts.css('opacity', '0');
 
 
@@ -80,8 +82,8 @@ $(document).ready(function(){
 
 
 	function carouselIntroduction(currentPic) {
-		items.css('display', '');
-		$('.previous, .next').css('display', '');
+		items.css('opacity', '1');
+		$('.previous, .next').css('opacity', '1');
 
 		descriptions.css('opacity', '0');
 		descriptionEnters(currentPic);

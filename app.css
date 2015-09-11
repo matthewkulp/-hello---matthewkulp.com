@@ -84,7 +84,6 @@ h1 {
 	-webkit-margin-after: 0px;
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
-
 }
 
 #hello {
@@ -156,7 +155,6 @@ textarea:focus,
 button:focus {
 	outline: none;
 }
-
 
 
 #aboutBG, #greeting {
@@ -237,6 +235,10 @@ footer {
 	width: calc(100% - 36px);
 	float: left;
 }
+
+/*.count {
+	background-color: red;
+}*/
 
 @media screen and (max-width:774px) {
 	body {

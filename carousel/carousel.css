@@ -71,7 +71,7 @@
 	padding-top: 66%;
 }
 
-#carousel img {
+.imageContainer img {
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -86,15 +86,18 @@
 }
 
 .previous {
-	cursor: url('/images/cursor-previous.png'), w-resize;
+	cursor: w-resize;
 	left: 0;
-	background-color: rgba(255, 0, 0, .5);
 }
 
 .next {
-	cursor: url('/images/cursor-next.png'), e-resize;
+	cursor: e-resize;
 	right: 0;
-	background-color: rgba(0, 255, 0, .5);
+}
+
+.next img,
+.previous img {
+	opacity: 0;
 }
 
 .caption {
@@ -119,6 +122,28 @@
 		width: 100%;
 	}
 
+	.next,
+	.previous {
+		cursor: default;
+	}
+
+	.next img,
+	.previous img {
+		cursor: pointer;
+		position: absolute;
+		bottom: 0px;
+		opacity: 1;
+		padding: 30px
+	}
+
+	.next img {
+		right: 0px;
+	}
+
+	.previous img {
+		left: 0px;
+	}
+
 }
 
 @media screen and (max-width:720px) {
@@ -129,7 +154,7 @@
 
 	.caption {
 		width: calc(100% - 36px);
-		padding: 10% 18px 10%;
+		padding: 0 18px 0;
 		margin: auto;
 		text-align: justify;
 	}
