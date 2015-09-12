@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-
 	var tStart = 600 // Start Y in px
 		, tEnd = 1800   // End Y in px
 		, cStart = [180, 170, 97] // Color 1

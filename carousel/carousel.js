@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	//Initializations
 	var items = $("#carousel ul").children("li");
-	var pictures = $("#carousel ul li .imageContainer").children("img");
+	var pictures = $("#carousel ul li .imageContainer").children();
 	var descriptions = $("#carousel ul li .caption").children(".description");
 	var counts = $("#carousel ul li .caption").children(".count");
 	var loader = $(".loader");
@@ -11,6 +11,7 @@ $(document).ready(function(){
 	items.eq(0).addClass('active');
 	var currentPic = $('.active').index();
 	var exitingPic;
+	var previousPic;
 	var autoCycle;
 	$('.previous, .next').css('z-index','4');
 	counts.eq(currentPic).html('# / #');
@@ -26,16 +27,24 @@ $(document).ready(function(){
 	setCarouselHeight();
 
 
+
+
 	$( window ).resize(function() {
 		 setCarouselHeight();
 	});
 
 
+
+
 	// Pre-Load Stylings
+	pictures.css("display", "none");
+	pictures.eq(currentPic).css("display", "none");
 	items.css('opacity', '0');
 	loader.css('opacity', '0');
 	$('.previous, .next').css('opacity', '0');
 	counts.css('opacity', '0');
+
+
 
 
 	// Detect Touch Device. If detected, hide the 'previous' hitbox and expand the 'next' hitbox
@@ -43,6 +52,8 @@ $(document).ready(function(){
 	    $('.previous').hide();
 	    $('.next').css('width', '100%');
 	}
+
+
 
 
 	// Animations
@@ -64,12 +75,30 @@ $(document).ready(function(){
 
 
 
+
+	console.log(pictures.eq(currentPic).attr('isVideo'))
+
 	function imageEnters (enteringPic) {
+
 		pictures.css("z-index", "0");
 		pictures.eq(currentPic).css("z-index", "1");
 		pictures.eq(enteringPic).css("z-index", "2");
-		pictures.eq(enteringPic).velocity("fadeIn", { duration: 400 });
-	}
+
+		if (pictures.eq(enteringPic).attr('isVideo') == 'true') {
+			pictures[enteringPic].play();
+		};
+
+		pictures.eq(enteringPic).velocity("fadeIn", {
+			duration: 400,
+			complete: function(){
+				pictures.eq(previousPic).css("display", "none");
+				if (pictures.eq(previousPic).attr('isVideo') == 'true') {
+					pictures[previousPic].load();
+				};
+			}
+		});
+
+	};
 
 
 
@@ -93,7 +122,8 @@ $(document).ready(function(){
 		countChange(currentPic);
 		counts.velocity("fadeIn", { duration: 400 });
 
-		pictures.css("opacity", "0");
+		// pictures.css("display", "none");
+		// pictures.eq(currentPic).css('display', '');
 		imageEnters(currentPic);
 
 		$('#shadowBox').css("opacity", "0");
@@ -106,6 +136,7 @@ $(document).ready(function(){
 
 	function next(){
 		clearInterval(autoCycle);
+		previousPic = currentPic;
 
 		if (currentPic < pictures.length-1 && animationComplete){
 			goTo(currentPic + 1);
@@ -116,8 +147,12 @@ $(document).ready(function(){
 
 	};
 
+
+
+
 	function previous(){
 		clearInterval(autoCycle);
+		previousPic = currentPic;
 
 		if (currentPic == 0 && animationComplete){
 			goTo(pictures.length-1);
@@ -125,6 +160,8 @@ $(document).ready(function(){
 			goTo(currentPic - 1);
 		}
 	}
+
+
 
 
 	function goTo(enteringPic){
@@ -141,6 +178,9 @@ $(document).ready(function(){
 
 		//Picture Changes
 		imageEnters(enteringPic);
+
+		// If the enteringPic is a video, .play(), if the exitingPic is a video .pause();
+
 
 		//Description Fade Out Previous
 		descriptions.eq(currentPic).velocity(
