@@ -1,0 +1,23 @@
+{
+  "name": "matthewkulp.com",
+  "version": "1.0.0",
+  "description": "Studio Matthew Kulp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewkulp/-hello---matthewkulp.com.git"
+  },
+  "author": "Matthew Kulp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthewkulp/-hello---matthewkulp.com/issues"
+  },
+  "homepage": "https://github.com/matthewkulp/-hello---matthewkulp.com#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1"
+  }
+}

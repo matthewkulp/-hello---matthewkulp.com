@@ -76,8 +76,6 @@ $(document).ready(function(){
 
 
 
-	console.log(pictures.eq(currentPic).attr('isVideo'))
-
 	function imageEnters (enteringPic) {
 
 		pictures.css("z-index", "0");
@@ -136,6 +134,7 @@ $(document).ready(function(){
 
 	function next(){
 		clearInterval(autoCycle);
+		console.log('next');
 		previousPic = currentPic;
 
 		if (currentPic < pictures.length-1 && animationComplete){
@@ -165,7 +164,8 @@ $(document).ready(function(){
 
 
 	function goTo(enteringPic){
-		animationComplete = false
+		console.log('goTo');
+		animationComplete = false;
 		enteringPic = enteringPic;
 
 		items.removeClass('active')
@@ -178,9 +178,6 @@ $(document).ready(function(){
 
 		//Picture Changes
 		imageEnters(enteringPic);
-
-		// If the enteringPic is a video, .play(), if the exitingPic is a video .pause();
-
 
 		//Description Fade Out Previous
 		descriptions.eq(currentPic).velocity(
