@@ -105,5 +105,30 @@ $(document).ready(function(){
 		})
 	})
 
+	function updateColor () {
+		var p = (Math.abs(this.y) - tStart) / (tEnd - tStart); // % of transition
+		p = Math.min(1, Math.max(0, p)); // Clamp to [0, 1]
+		var cBg = [Math.round(cStart[0] + cDiff[0] * p), Math.round(cStart[1] + cDiff[1] * p), Math.round(cStart[2] + cDiff[2] * p)];
+		$("#aboutBG").css('background-color', 'rgb(' + cBg.join(',') +')');
+	};
+
+	if(navigator.userAgent.match('CriOS')){
+    // Wrap content in iScroll elements
+    $( '#page' ).wrap( '<div id="wrapper"><div id="scroller"></div></div>' );
+
+    // Start iScroll
+    myScroll = new IScroll('#wrapper', {
+	  click: true,
+	  tap: true,
+	  probeType: 3,
+	//   eventPassthrough: 'horizontal',
+    });
+
+    myScroll.on('scroll', updateColor);
+
+    // Prevent default scroll
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+}
 
 });
