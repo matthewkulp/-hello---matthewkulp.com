@@ -5,11 +5,7 @@ html {
 ul {
     display: block;
     list-style-type: none;
-    -webkit-margin-before: 0px;
-    -webkit-margin-after: 0px;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 0px;
+    margin: 0;
 }
 
 img {
@@ -17,7 +13,7 @@ img {
 }
 
 div {
-	display:inline-block;
+	display: inline-block;
 }
 
 a, body {
@@ -38,6 +34,7 @@ body, input {
 
 .block ul {
 	line-height: 30px;
+	padding-left: 36px;
 }
 
 a, body {
@@ -59,14 +56,13 @@ body {
 	flex-flow: row nowrap;
 	align-items: flex-end;
 	position: relative;
-	padding-bottom: 18px;
-	margin-left: -36px;
+	padding-bottom: 36px;
 }
 
 .subheader img {
+	position: absolute;
 	opacity: .13;
 }
-
 
 h1 {
 	font-family: 'Open Sans', sans-serif;
@@ -74,16 +70,10 @@ h1 {
 	font-size: 78px;
 	font-weight: 800;
 	line-height: normal;
-	display: -webkit-flex;
 	display: flex;
-	flex-flow; column wrap;
 	justify-content: center;
 	padding: 36px 0;
 	margin: 0;
-	-webkit-margin-before: 0px;
-	-webkit-margin-after: 0px;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
 }
 
 #hello {
@@ -188,7 +178,6 @@ button:focus {
 #mailchimp {
 	clear: left;
 	width: 432px;
-	margin-left: -36px;
 }
 
 #subscribe {
@@ -196,18 +185,18 @@ button:focus {
 }
 
 .button {
+	cursor: pointer;
 	width: 126px;
-	border: 1px solid #3C3C3C;
-	padding: 12px 0px 10px;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
+	padding: 10px 0px 10px;
 	border-radius: 0px;
+	box-sizing: border-box;
 	font-size: 14px;
 	text-align: center;
 	background-color: transparent;
 	font-weight: 700;
 	color: white;
 	border: 2px solid white;
+	margin: 0;
 }
 
 .button:active {
@@ -221,6 +210,7 @@ button:focus {
 	border: none;
 	font-size: 14px;
 	background-color: #FFFFFF;
+	margin: auto auto 18px;
 }
 
 footer {
@@ -231,14 +221,47 @@ footer {
 
 .block {
 	padding: 0 0 102px;
-	margin-left: 36px;
 	width: calc(100% - 36px);
 	float: left;
 }
 
-/*.count {
-	background-color: red;
-}*/
+#wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    /* Prevent native touch events on Windows */
+    -ms-touch-action: none;
+
+    /* Prevent the callout on tap-hold and text selection */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* Prevent text resize on orientation change, useful for web-apps */
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+#scroller {
+    position: absolute;
+
+    /* Prevent elements to be highlighted on tap */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    /* Put the scroller into the HW Compositing layer right from the start */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
 
 @media screen and (max-width:774px) {
 	body {
@@ -254,13 +277,23 @@ footer {
 		padding: inherit;
 	}
 
+}
+
+
+@media screen and (max-width:504px) {
+
+	#aboutContent {
+		width: calc(100% - 36px);
+		padding: 0 18px;
+	}
+
 	#mailchimp {
 		width: 100%;
 	}
 
 	.email {
 		width: 100%;
-		margin: auto auto 30px;
+		/*margin: auto auto 18px;*/
 		width: calc(100% + 36px);
 	}
 
@@ -270,15 +303,6 @@ footer {
 
 	.button {
 		width: 140px;
-	}
-}
-
-
-@media screen and (max-width:504px) {
-
-	#aboutContent {
-		width: calc(100% - 36px);
-		padding: 0 18px;
 	}
 
 }

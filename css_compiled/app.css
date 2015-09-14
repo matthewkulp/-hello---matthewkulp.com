@@ -1,0 +1,327 @@
+html {
+	background-color: #EDEDE8;
+}
+
+ul {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+}
+
+img {
+	border-style: none;
+}
+
+div {
+	display: inline-block;
+}
+
+a, body {
+	color: #FFFFFF;
+}
+
+form {
+	margin: 0px;
+}
+
+body, input {
+	font-family: 'Futura', 'Century Gothic', sans-serif;;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0.6px;
+	line-height: 24px;
+}
+
+.block ul {
+	line-height: 30px;
+	padding-left: 36px;
+}
+
+a, body {
+	color: white;
+}
+
+body {
+	width: 720px;
+	display: -webkit-flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin: 0 auto;
+}
+
+.subheader {
+	display: -webkit-flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row nowrap;
+	    -ms-flex-flow: row nowrap;
+	        flex-flow: row nowrap;
+	-webkit-box-align: end;
+	-webkit-align-items: flex-end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+	position: relative;
+	padding-bottom: 36px;
+}
+
+.subheader img {
+	position: absolute;
+	opacity: .13;
+}
+
+h1 {
+	font-family: 'Open Sans', sans-serif;
+	letter-spacing: -10;
+	font-size: 78px;
+	font-weight: 800;
+	line-height: normal;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	padding: 36px 0;
+	margin: 0;
+}
+
+#hello {
+	color: rgb(187, 156, 105);
+}
+
+span[alt="e"] {
+	padding-right: 2px;
+}
+
+span[alt="l1"] {
+	padding-right: 3px;
+}
+
+span[alt="l2"] {
+	padding-right: 2px;
+}
+
+span[alt="o"] {
+	padding-right: 4px;
+}
+
+#about {
+	color: white;
+}
+
+span[alt="u"] {
+	padding-right: 2px;
+}
+
+span[alt="t"] {
+	padding-right: 12px;
+}
+
+
+h2, h3 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2, h3 {
+	opacity: .5;
+	font-weight: 800;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	line-height: 12px;
+	margin: 0;
+}
+
+.subheader h2 {
+	position: absolute;
+	left: 36px;
+	padding-top: 3px;
+}
+
+h3 {
+	opacity: 1;
+}
+
+
+input {
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+
+#aboutBG, #greeting {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#aboutBG {
+	text-align: center;
+}
+
+#aboutContent {
+	text-align: justify;
+	text-justify: inter-word;
+	width: 432px;
+	padding:  0 144px;
+}
+
+#greeting {
+	position: relative;
+	top: 0;
+	background-color: white;
+	color: #595959;
+}
+
+#intro {
+	padding: 0 0 102px;
+	width: 100%;
+}
+
+#mailchimp {
+	clear: left;
+	width: 432px;
+}
+
+#subscribe {
+	float: right;
+}
+
+.button {
+	cursor: pointer;
+	width: 126px;
+	padding: 10px 0px 10px;
+	border-radius: 0px;
+	box-sizing: border-box;
+	font-size: 14px;
+	text-align: center;
+	background-color: transparent;
+	font-weight: 700;
+	color: white;
+	border: 2px solid white;
+	margin: 0;
+}
+
+.button:active {
+	color:none;
+}
+
+.email {
+	text-indent: 36px;
+	width: 288px;
+	height: 48px;
+	border: none;
+	font-size: 14px;
+	background-color: #FFFFFF;
+	margin: auto auto 18px;
+}
+
+footer {
+	color: #000000;
+	text-align: center;
+	padding: 72px 0 72px;
+}
+
+.block {
+	padding: 0 0 102px;
+	width: calc(100% - 36px);
+	float: left;
+}
+
+#wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    /* Prevent native touch events on Windows */
+    -ms-touch-action: none;
+
+    /* Prevent the callout on tap-hold and text selection */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* Prevent text resize on orientation change, useful for web-apps */
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+#scroller {
+    position: absolute;
+
+    /* Prevent elements to be highlighted on tap */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    /* Put the scroller into the HW Compositing layer right from the start */
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+@media screen and (max-width:774px) {
+	body {
+		width: 100%;
+	}
+
+	#greeting {
+		width: 100%;
+		padding: 0;
+	}
+
+	#aboutContent {
+		padding: inherit;
+	}
+
+}
+
+
+@media screen and (max-width:504px) {
+
+	#aboutContent {
+		width: calc(100% - 36px);
+		padding: 0 18px;
+	}
+
+	#mailchimp {
+		width: 100%;
+	}
+
+	.email {
+		width: 100%;
+		/*margin: auto auto 18px;*/
+		width: calc(100% + 36px);
+	}
+
+	#subscribe {
+		float: left;
+	}
+
+	.button {
+		width: 140px;
+	}
+
+}
