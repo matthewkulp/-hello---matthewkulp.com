@@ -6,14 +6,15 @@ $(document).ready(function(){
 	var descriptions = $("#carousel ul li .caption").children(".description");
 	var counts = $("#carousel ul li .caption").children(".count");
 	var loader = $(".loader");
-	var descriptionAnimationTime = 260;
-	var animationComplete = true;
+	enterExitTime = 200;
+	var animationComplete = false;
 	items.eq(0).addClass('active');
 	var currentPic = $('.active').index();
 	var exitingPic;
 	var previousPic;
 	var autoCycle;
 	$('.previous, .next').css('z-index','4');
+	$('.previous, .next').css('display','none');
 	counts.eq(currentPic).html('# / #');
 
 	// Connect Carousel height to item height.
@@ -64,8 +65,8 @@ $(document).ready(function(){
 			translateY: [0, -10],
 			},
 			{
-			duration: descriptionAnimationTime,
-			delay: descriptionAnimationTime,
+			duration: enterExitTime,
+			delay: enterExitTime,
 			complete: function() {
 					animationComplete = true;
 				},
@@ -87,8 +88,9 @@ $(document).ready(function(){
 		};
 
 		pictures.eq(enteringPic).velocity("fadeIn", {
-			duration: 400,
+			duration: enterExitTime * 2,
 			complete: function(){
+				// animationComplete = true;
 				pictures.eq(previousPic).css("display", "none");
 				if (pictures.eq(previousPic).attr('isVideo') == 'true') {
 					pictures[previousPic].load();
@@ -112,29 +114,23 @@ $(document).ready(function(){
 
 	function carouselIntroduction(currentPic) {
 		items.css('opacity', '1');
-		$('.previous, .next').css('opacity', '1');
+		$('.previous, .next').css('display', '');
 
 		descriptions.css('opacity', '0');
 		descriptionEnters(currentPic);
 
 		countChange(currentPic);
-		counts.velocity("fadeIn", { duration: 400 });
+		counts.velocity("fadeIn", { duration: enterExitTime });
 
-		// pictures.css("display", "none");
-		// pictures.eq(currentPic).css('display', '');
 		imageEnters(currentPic);
-
-		$('#shadowBox').css("opacity", "0");
-		$('#shadowBox').css("display", "");
-		$('#shadowBox').velocity("fadeIn", { duration: 600 });
+		animationComplete = true;
 	};
 
 
 
 
 	function next(){
-		clearInterval(autoCycle);
-		console.log('next');
+		// console.log('next');
 		previousPic = currentPic;
 
 		if (currentPic < pictures.length-1 && animationComplete){
@@ -142,6 +138,8 @@ $(document).ready(function(){
 
 		} else if (animationComplete) {
 			goTo(0)
+		} else {
+			return;
 		}
 
 	};
@@ -150,7 +148,7 @@ $(document).ready(function(){
 
 
 	function previous(){
-		clearInterval(autoCycle);
+		// console.log('previous');
 		previousPic = currentPic;
 
 		if (currentPic == 0 && animationComplete){
@@ -166,7 +164,7 @@ $(document).ready(function(){
 	function goTo(enteringPic){
 		console.log('goTo');
 		animationComplete = false;
-		enteringPic = enteringPic;
+		// enteringPic = enteringPic;
 
 		items.removeClass('active')
 		.eq(enteringPic).addClass('active');
@@ -186,7 +184,7 @@ $(document).ready(function(){
 			translateY: "-10px",
 			},
 			{
-			duration: descriptionAnimationTime,
+			duration: enterExitTime,
 			}
 		);
 
@@ -210,21 +208,28 @@ $(document).ready(function(){
 			      duration: 900,
 			      complete: function() {
 						carouselIntroduction(currentPic);
-
 						// Set AutoCycle
 						autoCycle = setInterval( next, 6000);
 					},
 				});
 			})
-		}, 2000);
+		}, 1000);
 	}, 1600);
 
 
 
 
 	// Click Behavior
-	$('.next').on('click', next );
-	$('.previous').on('click', previous );
+	$('.next').on('click', function() {
+		clearInterval(autoCycle);
+		next();
+		return false;
+	});
+	$('.previous').on('click', function() {
+		clearInterval(autoCycle);
+		previous();
+		return false;
+	});
 
 	//Swipe Behavior
 	$('#carousel').on('swipeleft', next );

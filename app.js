@@ -19,7 +19,6 @@ $(document).ready(function(){
 		,aboutLetters = $('#about span');
 
 	helloLetters.css("opacity", "0");
-	// aboutLetters.css("opacity", "0");
 	aboutAnimated = false;
 
 
@@ -104,10 +103,8 @@ $(document).ready(function(){
 
 
 	// Newsletter onClick behavior
-	$(document).ready(function(){
-		$('#mailchimp').on('click', function(){
-			$('#mailchimp input').attr('placeholder', '');
-		})
+	$('#mailchimp').on('click', function(){
+		$('#mailchimp input').attr('placeholder', '');
 	})
 
 
