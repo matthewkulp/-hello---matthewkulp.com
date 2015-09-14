@@ -90,7 +90,6 @@ $(document).ready(function(){
 		pictures.eq(enteringPic).velocity("fadeIn", {
 			duration: enterExitTime * 2,
 			complete: function(){
-				// animationComplete = true;
 				pictures.eq(previousPic).css("display", "none");
 				if (pictures.eq(previousPic).attr('isVideo') == 'true') {
 					pictures[previousPic].load();
@@ -130,8 +129,6 @@ $(document).ready(function(){
 
 
 	function next(){
-		// console.log('next');
-		previousPic = currentPic;
 
 		if (currentPic < pictures.length-1 && animationComplete){
 			goTo(currentPic + 1);
@@ -148,8 +145,6 @@ $(document).ready(function(){
 
 
 	function previous(){
-		// console.log('previous');
-		previousPic = currentPic;
 
 		if (currentPic == 0 && animationComplete){
 			goTo(pictures.length-1);
@@ -159,23 +154,20 @@ $(document).ready(function(){
 	}
 
 
+	var nextPic;
 
-
-	function goTo(enteringPic){
-		console.log('goTo');
+	function goTo(pic){
+		nextPic = pic;
+		previousPic = currentPic;
 		animationComplete = false;
-		// enteringPic = enteringPic;
-
-		items.removeClass('active')
-		.eq(enteringPic).addClass('active');
 
 		//Count Change
 		counts.css("opacity", "0");
-		countChange(enteringPic);
-		counts.eq(enteringPic).css("opacity", "1");
+		countChange(nextPic);
+		counts.eq(nextPic).css("opacity", "1");
 
 		//Picture Changes
-		imageEnters(enteringPic);
+		imageEnters(nextPic);
 
 		//Description Fade Out Previous
 		descriptions.eq(currentPic).velocity(
@@ -189,9 +181,12 @@ $(document).ready(function(){
 		);
 
 		//Description Fade In New
-		descriptionEnters(enteringPic);
+		descriptionEnters(nextPic);
 
-		currentPic = $('.active').index();
+		//Make the picture in view .active and 'currentPic'
+		items.removeClass('active')
+		.eq(nextPic).addClass('active');
+		currentPic = nextPic;
 	};
 
 
@@ -220,20 +215,40 @@ $(document).ready(function(){
 
 
 	// Click Behavior
+
 	$('.next').on('click', function() {
-		clearInterval(autoCycle);
-		next();
-		return false;
-	});
-	$('.previous').on('click', function() {
-		clearInterval(autoCycle);
-		previous();
-		return false;
+		if (animationComplete) {
+			clearInterval(autoCycle);
+			next();
+			return false;
+		}
 	});
 
+	$('.previous').on('click', function() {
+		if (animationComplete) {
+			clearInterval(autoCycle);
+			previous();
+			return false;
+		}
+	});
+
+
+
+
 	//Swipe Behavior
-	$('#carousel').on('swipeleft', next );
-	$('#carousel').on('swiperight', previous );
+	$('#carousel').on('swipeleft', function () {
+		if (animationComplete) {
+			clearInterval(autoCycle);
+			next();
+		}
+	});
+
+	$('#carousel').on('swiperight', function () {
+		if (animationComplete) {
+			clearInterval(autoCycle);
+			previous();
+		}
+	});
 
 
 
