@@ -1,4 +1,17 @@
 $(document).ready(function(){
+	// Detect Touch Device. If detected, hide the 'previous' hitbox and expand the 'next' hitbox
+	var mobileGifs = $('.mobileGif');
+	if (Modernizr.touch) {
+		$('.previous').hide();
+		$('.next').css('width', '100%');
+
+		$('.video').remove();
+		mobileGifs.map(function() {
+			$(this).append('<img src="' + $(this).attr('url') + '" />');
+		});
+	} else {
+		$('.mobileGif').remove();
+	};
 
 	//Initializations
 	var items = $("#carousel ul").children("li");
@@ -48,11 +61,7 @@ $(document).ready(function(){
 
 
 
-	// Detect Touch Device. If detected, hide the 'previous' hitbox and expand the 'next' hitbox
-	if (Modernizr.touch) {
-	    $('.previous').hide();
-	    $('.next').css('width', '100%');
-	}
+
 
 
 
@@ -237,15 +246,15 @@ $(document).ready(function(){
 
 	//Swipe Behavior
 	$('#carousel').on('swipeleft', function () {
+		clearInterval(autoCycle);
 		if (animationComplete) {
-			clearInterval(autoCycle);
 			next();
 		}
 	});
 
 	$('#carousel').on('swiperight', function () {
+		clearInterval(autoCycle);
 		if (animationComplete) {
-			clearInterval(autoCycle);
 			previous();
 		}
 	});
@@ -256,10 +265,12 @@ $(document).ready(function(){
 	$(document).keydown(function(e) {
 		switch(e.which) {
 			case 37: // left arrow key
+				clearInterval(autoCycle);
 				previous();
 				break;
 
 			case 39: // right arrow key
+				clearInterval(autoCycle);
 				next();
 				break;
 
@@ -267,6 +278,8 @@ $(document).ready(function(){
 		}
 		e.preventDefault(); // prevent the default action (scroll / move caret)
 	});
+
+
 
 
 });

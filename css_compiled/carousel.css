@@ -132,6 +132,11 @@
 	margin-top: -6px;
 }
 
+/*.mobileGif {
+	top: 0;
+	position:absolute;
+}*/
+
 @media screen and (max-width:774px) {
 
 	.imageContainer {

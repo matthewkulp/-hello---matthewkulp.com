@@ -26,10 +26,8 @@ $(document).ready(function(){
 
 	// Check for Chrome on iOS and ignore scroll events.
 	if(navigator.userAgent.match('CriOS')){
-		return;
 
 	} else {
-
 		// Animate background color
 		$(document).scroll(function() {
 			var p = ($(this).scrollTop() - tStart) / (tEnd - tStart); // % of transition
@@ -37,17 +35,14 @@ $(document).ready(function(){
 			var cBg = [Math.round(cStart[0] + cDiff[0] * p), Math.round(cStart[1] + cDiff[1] * p), Math.round(cStart[2] + cDiff[2] * p)];
 		     $("#aboutBG").css('background-color', 'rgb(' + cBg.join(',') +')');
 		});
-
 		// Animate 'about :'
-		aboutLetters.css("opacity", "0");
-		$(document).scroll(function() {
-			if ($(this).scrollTop() > 200) {
-				if (aboutAnimated == false) {
-					aboutAnimated = true;
-					enterLetters(aboutLetters);
-			     }
-			}
-		});
+		// aboutLetters.css("opacity", "0");
+		// $(document).scroll(function() {
+		// 	if ($(this).scrollTop() > 400 && aboutAnimated == false) {
+		// 			aboutAnimated = true;
+		// 			enterLetters(aboutLetters);
+		// 	}
+		// });
 
 	}
 
@@ -57,6 +52,7 @@ $(document).ready(function(){
 	// Title Animations
 	function enterLetters(letterArray){
 		letterArray.each(function(index, character) {
+			console.log(this);
 			var letter = this
 
 			setTimeout(function () {
@@ -96,6 +92,7 @@ $(document).ready(function(){
 
 
 	setTimeout(function() {
+		console.log('setTimeout');
 		enterLetters(helloLetters);
 	}, 500);
 
