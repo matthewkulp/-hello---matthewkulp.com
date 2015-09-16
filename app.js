@@ -6,8 +6,6 @@ $(document).ready(function(){
 		, cEnd = [147, 197, 83]   // Color 2
 		, cDiff = [cEnd[0] - cStart[0], cEnd[1] - cStart[1], cEnd[1] - cStart[0]];
 
-	// Golden Rod - rgb(187, 156, 105)
-	// Yellowed Golden Rod - rgb(180, 170, 97)
 
 	// Set the color theme (background color, hello, and loader match)
 	$("#aboutBG").css('background-color', 'rgb(' + cStart + ')');

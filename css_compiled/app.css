@@ -1,327 +1,227 @@
 html {
-	background-color: #EDEDE8;
-}
+  background-color: #EDEDE8; }
 
 ul {
-    display: block;
-    list-style-type: none;
-    margin: 0;
-}
+  display: block;
+  list-style-type: none;
+  margin: 0; }
 
 img {
-	border-style: none;
-}
+  border-style: none; }
 
 div {
-	display: inline-block;
-}
+  display: inline-block; }
 
 a, body {
-	color: #FFFFFF;
-}
+  color: #FFFFFF; }
 
 form {
-	margin: 0px;
-}
+  margin: 0px; }
 
 body, input {
-	font-family: 'Futura', 'Century Gothic', sans-serif;;
-	font-size: 14px;
-	font-weight: 400;
-	letter-spacing: 0.6px;
-	line-height: 24px;
-}
+  font-family: "Futura", "Century Gothic", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  line-height: 24px; }
 
 .block ul {
-	line-height: 30px;
-	padding-left: 36px;
-}
-
-a, body {
-	color: white;
-}
+  line-height: 30px;
+  padding-left: 36px; }
 
 body {
-	width: 720px;
-	display: -webkit-flex;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-webkit-flex-direction: column;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	margin: 0 auto;
-}
+  width: 720px;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0 auto; }
 
 .subheader {
-	display: -webkit-flex;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-flow: row nowrap;
-	    -ms-flex-flow: row nowrap;
-	        flex-flow: row nowrap;
-	-webkit-box-align: end;
-	-webkit-align-items: flex-end;
-	    -ms-flex-align: end;
-	        align-items: flex-end;
-	position: relative;
-	padding-bottom: 36px;
-}
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  position: relative;
+  padding-bottom: 26px; }
 
 .subheader img {
-	position: absolute;
-	opacity: .13;
-}
+  position: absolute;
+  opacity: .13;
+  margin-top: -4px; }
 
 h1 {
-	font-family: 'Open Sans', sans-serif;
-	letter-spacing: -10;
-	font-size: 78px;
-	font-weight: 800;
-	line-height: normal;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	padding: 36px 0;
-	margin: 0;
-}
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: -10;
+  font-size: 78px;
+  font-weight: 800;
+  line-height: normal;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 42px;
+  margin: 0; }
 
 #hello {
-	color: rgb(187, 156, 105);
-}
+  padding-top: 28px; }
 
 span[alt="e"] {
-	padding-right: 2px;
-}
+  padding-right: 2px; }
 
 span[alt="l1"] {
-	padding-right: 3px;
-}
+  padding-right: 3px; }
 
 span[alt="l2"] {
-	padding-right: 2px;
-}
+  padding-right: 2px; }
 
 span[alt="o"] {
-	padding-right: 4px;
-}
+  padding-right: 4px; }
 
 #about {
-	color: white;
-}
+  color: white; }
 
 span[alt="u"] {
-	padding-right: 2px;
-}
+  padding-right: 2px; }
 
 span[alt="t"] {
-	padding-right: 12px;
-}
-
+  padding-right: 12px; }
 
 h2, h3 {
-	font-family: 'Open Sans', sans-serif;
-}
+  font-family: 'Open Sans', sans-serif; }
 
 h2, h3 {
-	opacity: .5;
-	font-weight: 800;
-	font-size: 10px;
-	text-transform: uppercase;
-	letter-spacing: 5px;
-	line-height: 12px;
-	margin: 0;
-}
+  opacity: .5;
+  font-weight: 800;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 12px;
+  margin: 0; }
 
 .subheader h2 {
-	position: absolute;
-	left: 36px;
-	padding-top: 3px;
-}
-
-h3 {
-	opacity: 1;
-}
-
+  position: absolute;
+  left: 36px; }
 
 input {
-	-webkit-appearance: none;
-	border-radius: 0;
-}
+  -webkit-appearance: none;
+  border-radius: 0; }
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-	outline: none;
-}
-
+  outline: none; }
 
 #aboutBG, #greeting {
-	width: 100%;
-	margin: 0 auto;
-}
+  width: 100%;
+  margin: 0 auto; }
 
 #aboutBG {
-	text-align: center;
-}
+  text-align: center; }
 
 #aboutContent {
-	text-align: justify;
-	text-justify: inter-word;
-	width: 432px;
-	padding:  0 144px;
-}
+  text-align: justify;
+  width: 432px;
+  padding: 110px 144px 0px; }
 
 #greeting {
-	position: relative;
-	top: 0;
-	background-color: white;
-	color: #595959;
-}
+  position: relative;
+  top: 0;
+  background-color: #FFFFFF;
+  color: #595959; }
 
 #intro {
-	padding: 0 0 102px;
-	width: 100%;
-}
+  padding-bottom: 133px;
+  width: 100%; }
 
 #mailchimp {
-	clear: left;
-	width: 432px;
-}
+  clear: left;
+  width: 432px;
+  margin: 8px 0; }
 
 #subscribe {
-	float: right;
-}
+  float: right; }
 
 .button {
-	cursor: pointer;
-	width: 126px;
-	padding: 10px 0px 10px;
-	border-radius: 0px;
-	box-sizing: border-box;
-	font-size: 14px;
-	text-align: center;
-	background-color: transparent;
-	font-weight: 700;
-	color: white;
-	border: 2px solid white;
-	margin: 0;
-}
+  cursor: pointer;
+  width: 126px;
+  padding: 10px 0px 10px;
+  border-radius: 0px;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
+  background-color: transparent;
+  font-weight: 700;
+  color: white;
+  border: 2px solid white;
+  margin: 0; }
 
 .button:active {
-	color:none;
-}
+  color: none; }
 
 .email {
-	text-indent: 36px;
-	width: 288px;
-	height: 48px;
-	border: none;
-	font-size: 14px;
-	background-color: #FFFFFF;
-	margin: auto auto 18px;
-}
+  text-indent: 36px;
+  width: 288px;
+  height: 48px;
+  border: none;
+  font-size: 14px;
+  background-color: #FFFFFF;
+  padding: 0px; }
 
 footer {
-	color: #000000;
-	text-align: center;
-	padding: 72px 0 72px;
-}
+  color: #9F9F9F;
+  text-align: center;
+  padding: 74px 0 22px; }
 
 .block {
-	padding: 0 0 102px;
-	width: calc(100% - 36px);
-	float: left;
-}
+  padding-bottom: 130px;
+  width: calc(100% - 36px);
+  float: left; }
 
-#wrapper {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+@media screen and (max-width: 774px) {
+  body {
+    width: 100%; }
+  #aboutContent {
+    padding-left: 18px;
+    padding-right: 18px; } }
 
-    /* Prevent native touch events on Windows */
-    -ms-touch-action: none;
+@media screen and (max-width: 468px) {
+  #aboutContent {
+    width: 360px; }
+  #mailchimp {
+    width: 100%; }
+  .email {
+    width: 100%;
+    width: calc(100% + 36px); }
+  #subscribe {
+    float: left;
+    padding-top: 12px; }
+  .button {
+    width: 140px; } }
 
-    /* Prevent the callout on tap-hold and text selection */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    /* Prevent text resize on orientation change, useful for web-apps */
-    -webkit-text-size-adjust: none;
-    -ms-text-size-adjust: none;
-    -o-text-size-adjust: none;
-    text-size-adjust: none;
-}
-
-#scroller {
-    position: absolute;
-
-    /* Prevent elements to be highlighted on tap */
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-
-    /* Put the scroller into the HW Compositing layer right from the start */
-    -webkit-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    transform: translateZ(0);
-}
-
-@media screen and (max-width:774px) {
-	body {
-		width: 100%;
-	}
-
-	#greeting {
-		width: 100%;
-		padding: 0;
-	}
-
-	#aboutContent {
-		padding: inherit;
-	}
-
-}
-
-
-@media screen and (max-width:504px) {
-
-	#aboutContent {
-		width: calc(100% - 36px);
-		padding: 0 18px;
-	}
-
-	#mailchimp {
-		width: 100%;
-	}
-
-	.email {
-		width: 100%;
-		/*margin: auto auto 18px;*/
-		width: calc(100% + 36px);
-	}
-
-	#subscribe {
-		float: left;
-	}
-
-	.button {
-		width: 140px;
-	}
-
-}
+@media screen and (max-width: 396px) {
+  #aboutContent {
+    width: calc(100% - 36px); } }

@@ -1,0 +1,280 @@
+
+// #aboutBG & #hello -- color is set in app.js
+$fontStackPrimary: 'Futura', 'Century Gothic', sans-serif;
+$fontStackSecondary:  'Open Sans', sans-serif;
+$fontColorDark: #595959;
+$fontColorLight: #FFFFFF;
+$bgLight: #FFFFFF;
+
+
+
+
+
+html {
+	background-color: #EDEDE8;
+}
+
+ul {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+}
+
+img {
+	border-style: none;
+}
+
+div {
+	display: inline-block;
+}
+
+a, body {
+	color: $fontColorLight;
+}
+
+form {
+	margin: 0px;
+}
+
+body, input {
+	font-family: $fontStackPrimary;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0.6px;
+	line-height: 24px;
+}
+
+.block ul {
+	line-height: 30px;
+	padding-left: 36px;
+}
+
+body {
+	width: 720px;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: justify;
+	text-justify: inter-word;
+	margin: 0 auto;
+}
+
+.subheader {
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: flex-end;
+	position: relative;
+	padding-bottom: 26px;
+}
+
+.subheader img {
+	position: absolute;
+	opacity: .13;
+	margin-top: -4px;
+}
+
+h1 {
+	font-family: $fontStackSecondary;
+	letter-spacing: -10;
+	font-size: 78px;
+	font-weight: 800;
+	line-height: normal;
+	display: flex;
+	justify-content: center;
+	padding-bottom: 42px;
+	margin: 0;
+}
+
+#hello {
+	padding-top: 28px;
+}
+
+span[alt="e"] {
+	padding-right: 2px;
+}
+
+span[alt="l1"] {
+	padding-right: 3px;
+}
+
+span[alt="l2"] {
+	padding-right: 2px;
+}
+
+span[alt="o"] {
+	padding-right: 4px;
+}
+
+#about {
+	color: white;
+}
+
+span[alt="u"] {
+	padding-right: 2px;
+}
+
+span[alt="t"] {
+	padding-right: 12px;
+}
+
+
+h2, h3 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2, h3 {
+	opacity: .5;
+	font-weight: 800;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	line-height: 12px;
+	margin: 0;
+}
+
+.subheader h2 {
+	position: absolute;
+	left: 36px;
+}
+
+input {
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+
+#aboutBG, #greeting {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#aboutBG {
+	text-align: center;
+}
+
+#aboutContent {
+	text-align: justify;
+	width: 432px;
+	padding: 110px 144px 0px;
+}
+
+#greeting {
+	position: relative;
+	top: 0;
+	background-color: $bgLight;
+	color: $fontColorDark;
+}
+
+#intro {
+	padding-bottom: 133px;
+	width: 100%;
+}
+
+#mailchimp {
+	clear: left;
+	width: 432px;
+	margin: 8px 0;
+}
+
+#subscribe {
+	float: right;
+}
+
+.button {
+	cursor: pointer;
+	width: 126px;
+	padding: 10px 0px 10px;
+	border-radius: 0px;
+	box-sizing: border-box;
+	font-size: 14px;
+	text-align: center;
+	background-color: transparent;
+	font-weight: 700;
+	color: white;
+	border: 2px solid white;
+	margin: 0;
+}
+
+.button:active {
+	color:none;
+}
+
+.email {
+	text-indent: 36px;
+	width: 288px;
+	height: 48px;
+	border: none;
+	font-size: 14px;
+	background-color: $bgLight;
+	padding: 0px;
+}
+
+footer {
+	color: #9F9F9F;
+	text-align: center;
+	padding: 74px 0 22px;
+}
+
+.block {
+	padding-bottom: 130px;
+	width: calc(100% - 36px);
+	float: left;
+}
+
+@media screen and (max-width:774px) {
+
+	body {
+		width: 100%;
+	}
+
+	#aboutContent {
+		padding-left: 18px;
+		padding-right: 18px;
+	}
+
+}
+
+
+@media screen and (max-width: 468px) {
+
+	#aboutContent {
+		width: 360px;
+	}
+
+	#mailchimp {
+		width: 100%;
+	}
+
+	.email {
+		width: 100%;
+		width: calc(100% + 36px);
+	}
+
+	#subscribe {
+		float: left;
+		padding-top: 12px;
+	}
+
+	.button {
+		width: 140px;
+	}
+
+}
+
+
+@media screen and (max-width: 396px) {
+
+	#aboutContent {
+		width: calc(100% - 36px);
+	}
+
+}
