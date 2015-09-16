@@ -1,17 +1,26 @@
 $(document).ready(function(){
-	// Detect Touch Device. If detected, hide the 'previous' hitbox and expand the 'next' hitbox
+
+
+	// Detect Touch Device.
 	var mobileGifs = $('.mobileGif');
 	if (Modernizr.touch) {
+
+		// Get rid of .previous hitbox so a touch event advances in one direction.
 		$('.previous').hide();
 		$('.next').css('width', '100%');
 
+		// Remove mp4s and replace them with gifs.
 		$('.video').remove();
 		mobileGifs.map(function() {
 			$(this).append('<img src="' + $(this).attr('url') + '" />');
 		});
+
 	} else {
+
+		// Remove gifs
 		$('.mobileGif').remove();
 	};
+
 
 	//Initializations
 	var items = $("#carousel ul").children("li");
@@ -19,33 +28,30 @@ $(document).ready(function(){
 	var descriptions = $("#carousel ul li .caption").children(".description");
 	var counts = $("#carousel ul li .caption").children(".count");
 	var loader = $(".loader");
-	enterExitTime = 200;
 	var animationComplete = false;
 	items.eq(0).addClass('active');
 	var currentPic = $('.active').index();
 	var exitingPic;
 	var previousPic;
+	var nextPic;
 	var autoCycle;
 	$('.previous, .next').css('z-index','4');
 	$('.previous, .next').css('display','none');
 	counts.eq(currentPic).html('# / #');
-
-	// Connect Carousel height to item height.
+	// Set carousel height to item height.
 	function setCarouselHeight() {
 		var itemHeight = items.css("height");
 		$('#carousel').css("height", itemHeight);
-
 		var imageHeight = pictures.css("height");
 		$('.previous, .next').css("height", imageHeight);
 	};
 	setCarouselHeight();
-
-
-
-
+	// Reset carousel height on resize.
 	$( window ).resize(function() {
 		 setCarouselHeight();
 	});
+
+
 
 
 
@@ -63,28 +69,8 @@ $(document).ready(function(){
 
 
 
-
-
-
 	// Animations
-	function descriptionEnters(currentPic) {
-		$(descriptions).eq(currentPic).velocity(
-			{
-			opacity: [1, "ease-in", 0],
-			translateY: [0, -10],
-			},
-			{
-			duration: enterExitTime,
-			delay: enterExitTime,
-			complete: function() {
-					animationComplete = true;
-				},
-			}
-		);
-	};
-
-
-
+	enterExitTime = 200;
 
 	function imageEnters (enteringPic) {
 
@@ -111,26 +97,26 @@ $(document).ready(function(){
 
 
 
-	function countChange (currentPic) {
-		counts.eq(currentPic).html(function() {
-			return (currentPic + 1) + "/" + pictures.length;
+	function countChange (picIndex) {
+		counts.eq(picIndex).html(function() {
+			return (picIndex + 1) + "/" + pictures.length;
 		});
 	}
 
 
 
 
-	function carouselIntroduction(currentPic) {
+	function carouselIntroduction(picIndex) {
 		items.css('opacity', '1');
 		$('.previous, .next').css('display', '');
 
 		descriptions.css('opacity', '0');
-		descriptionEnters(currentPic);
+		descriptionEnters(picIndex);
 
-		countChange(currentPic);
+		countChange(picIndex);
 		counts.velocity("fadeIn", { duration: enterExitTime });
 
-		imageEnters(currentPic);
+		imageEnters(picIndex);
 		animationComplete = true;
 	};
 
@@ -150,9 +136,6 @@ $(document).ready(function(){
 
 	};
 
-
-
-
 	function previous(){
 
 		if (currentPic == 0 && animationComplete){
@@ -163,10 +146,44 @@ $(document).ready(function(){
 	}
 
 
-	var nextPic;
 
-	function goTo(pic){
-		nextPic = pic;
+	// Description Animation
+	descriptionYChange = 9;
+
+	function descriptionExits (picIndex) {
+		descriptions.eq(picIndex).velocity(
+			{
+			opacity: [0, "ease-in", 1],
+			translateY: [descriptionYChange, 0],
+			},
+			{
+			duration: enterExitTime,
+			}
+		);
+	}
+
+	function descriptionEnters(picIndex) {
+		$(descriptions).eq(picIndex).velocity(
+			{
+			opacity: [1, "ease-in", 0],
+			translateY: [0, descriptionYChange],
+			},
+			{
+			duration: enterExitTime,
+			delay: enterExitTime,
+			complete:
+				function() {
+					animationComplete = true;
+				},
+			}
+		);
+	};
+
+
+
+
+	function goTo(picIndex){
+		nextPic = picIndex;
 		previousPic = currentPic;
 		animationComplete = false;
 
@@ -178,18 +195,8 @@ $(document).ready(function(){
 		//Picture Changes
 		imageEnters(nextPic);
 
-		//Description Fade Out Previous
-		descriptions.eq(currentPic).velocity(
-			{
-			opacity: [0, "ease-in", 1],
-			translateY: "-10px",
-			},
-			{
-			duration: enterExitTime,
-			}
-		);
-
-		//Description Fade In New
+		//Description Change
+		descriptionExits(currentPic);
 		descriptionEnters(nextPic);
 
 		//Make the picture in view .active and 'currentPic'
@@ -201,30 +208,7 @@ $(document).ready(function(){
 
 
 
-	// Loading Behavior
-	setTimeout(function () {
-		loader.velocity("fadeIn", {duration: 900});
-
-		setTimeout(function () {
-			pictures.eq(currentPic).imagesLoaded( function() {
-			      loader.velocity("fadeOut",
-			      {
-			      duration: 900,
-			      complete: function() {
-						carouselIntroduction(currentPic);
-						// Set AutoCycle
-						autoCycle = setInterval( next, 6000);
-					},
-				});
-			})
-		}, 1000);
-	}, 1600);
-
-
-
-
 	// Click Behavior
-
 	$('.next').on('click', function() {
 		if (animationComplete) {
 			clearInterval(autoCycle);
@@ -278,6 +262,31 @@ $(document).ready(function(){
 		}
 		e.preventDefault(); // prevent the default action (scroll / move caret)
 	});
+
+
+
+
+	// Loading Behavior
+	loaderEnterExitTime = 500;
+
+	setTimeout(function () {
+		loader.velocity("fadeIn", {duration: loaderEnterExitTime});
+
+		setTimeout(function () {
+			pictures.eq(currentPic).imagesLoaded( function() {
+			      loader.velocity("fadeOut",
+			      {
+			      duration: loaderEnterExitTime,
+			      complete: function() {
+						carouselIntroduction(currentPic);
+						// Set AutoCycle
+						autoCycle = setInterval( next, 6000);
+					},
+				});
+			})
+		}, 1200);
+
+	}, 1700);
 
 
 

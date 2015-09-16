@@ -40,7 +40,7 @@ body, input {
 	font-family: $fontStackPrimary;
 	font-size: 14px;
 	font-weight: 400;
-	letter-spacing: 0.6px;
+	letter-spacing: .8px;
 	line-height: 24px;
 }
 
@@ -83,12 +83,13 @@ h1 {
 	line-height: normal;
 	display: flex;
 	justify-content: center;
-	padding-bottom: 42px;
+	// padding-bottom: 54px;
 	margin: 0;
 }
 
 #hello {
-	padding-top: 28px;
+	padding-top: 29px;
+	padding-bottom: 53px;
 }
 
 span[alt="e"] {
@@ -109,6 +110,8 @@ span[alt="o"] {
 
 #about {
 	color: white;
+	padding-top: 96px;
+	padding-bottom: 26px;
 }
 
 span[alt="u"] {
@@ -164,7 +167,7 @@ button:focus {
 #aboutContent {
 	text-align: justify;
 	width: 432px;
-	padding: 110px 144px 0px;
+	padding: 0px 144px 0px;
 }
 
 #greeting {

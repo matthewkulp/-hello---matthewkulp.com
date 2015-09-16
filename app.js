@@ -33,14 +33,6 @@ $(document).ready(function(){
 			var cBg = [Math.round(cStart[0] + cDiff[0] * p), Math.round(cStart[1] + cDiff[1] * p), Math.round(cStart[2] + cDiff[2] * p)];
 		     $("#aboutBG").css('background-color', 'rgb(' + cBg.join(',') +')');
 		});
-		// Animate 'about :'
-		// aboutLetters.css("opacity", "0");
-		// $(document).scroll(function() {
-		// 	if ($(this).scrollTop() > 400 && aboutAnimated == false) {
-		// 			aboutAnimated = true;
-		// 			enterLetters(aboutLetters);
-		// 	}
-		// });
 
 	}
 
@@ -56,10 +48,10 @@ $(document).ready(function(){
 			setTimeout(function () {
 				$(letter).velocity(
 				{
-				translateY: ["15", [150, 12]],
+				translateY: ["20", [500, 20]],
 				},
 				{
-				duration: 500,
+				duration: 800,
 				});
 
 
@@ -69,7 +61,7 @@ $(document).ready(function(){
 				},
 				{
 				queue: false,
-				duration: 600,
+				duration: 1300,
 				});
 
 
@@ -92,7 +84,7 @@ $(document).ready(function(){
 	setTimeout(function() {
 		console.log('setTimeout');
 		enterLetters(helloLetters);
-	}, 500);
+	}, 1000);
 
 
 

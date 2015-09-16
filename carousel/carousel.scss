@@ -95,7 +95,7 @@
 	flex-flow: row wrap;
 	justify-content: space-between;
 	width: 432;
-	padding: 0 144px 52px;
+	padding: 0 144px 40px;
 }
 
 .count {
@@ -104,7 +104,7 @@
 
 .description {
 	font-size: 14px;
-	min-height: 72px;
+	min-height: 108px;
 	width: 360px;
 	margin-top: -6px;
 }
@@ -141,6 +141,10 @@
 
 	.caption {
 		width: calc(100% - 36px);
+	}
+
+	.description {
+		// min-height: 108px;
 	}
 
 }

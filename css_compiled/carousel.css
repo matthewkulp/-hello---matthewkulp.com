@@ -99,14 +99,14 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 432;
-  padding: 0 144px 52px; }
+  padding: 0 144px 40px; }
 
 .count {
   display: inline-block; }
 
 .description {
   font-size: 14px;
-  min-height: 72px;
+  min-height: 108px;
   width: 360px;
   margin-top: -6px; }
 

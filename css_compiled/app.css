@@ -22,7 +22,7 @@ body, input {
   font-family: "Futura", "Century Gothic", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: 0.6px;
+  letter-spacing: .8px;
   line-height: 24px; }
 
 .block ul {
@@ -82,11 +82,11 @@ h1 {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-bottom: 42px;
   margin: 0; }
 
 #hello {
-  padding-top: 28px; }
+  padding-top: 29px;
+  padding-bottom: 53px; }
 
 span[alt="e"] {
   padding-right: 2px; }
@@ -101,7 +101,9 @@ span[alt="o"] {
   padding-right: 4px; }
 
 #about {
-  color: white; }
+  color: white;
+  padding-top: 96px;
+  padding-bottom: 26px; }
 
 span[alt="u"] {
   padding-right: 2px; }
@@ -145,7 +147,7 @@ button:focus {
 #aboutContent {
   text-align: justify;
   width: 432px;
-  padding: 110px 144px 0px; }
+  padding: 0px 144px 0px; }
 
 #greeting {
   position: relative;
