@@ -1,10 +1,9 @@
-
-// #aboutBG & #hello -- color is set in app.js
 $fontStackPrimary: 'Futura', 'Century Gothic', sans-serif;
 $fontStackSecondary:  'Open Sans', sans-serif;
 $fontColorDark: #595959;
 $fontColorLight: #FFFFFF;
 $bgLight: #FFFFFF;
+$primaryColor: rgba(180, 170, 97, 1);
 
 
 
@@ -40,7 +39,7 @@ body, input {
 	font-family: $fontStackPrimary;
 	font-size: 14px;
 	font-weight: 400;
-	letter-spacing: .8px;
+	letter-spacing: .6px;
 	line-height: 24px;
 }
 
@@ -72,7 +71,7 @@ body {
 .subheader img {
 	position: absolute;
 	opacity: .13;
-	margin-top: -4px;
+	// margin-top: -4px;
 }
 
 h1 {
@@ -83,44 +82,51 @@ h1 {
 	line-height: normal;
 	display: flex;
 	justify-content: center;
-	// padding-bottom: 54px;
+	padding-bottom: 26px;
 	margin: 0;
 }
 
 #hello {
-	padding-top: 29px;
-	padding-bottom: 53px;
+	padding-top: 32px;
+	color: $primaryColor;
+
+	span {
+		opacity: 0;
+
+		&[alt='e'] {
+			padding-right: 3px;
+		}
+
+		&[alt='l1'] {
+			padding-right: 3px;
+		}
+
+		&[alt='l2'] {
+			padding-right: 2px;
+		}
+
+		&[alt='o'] {
+			padding-right: 4px;
+		}
+	}
 }
 
-span[alt="e"] {
-	padding-right: 2px;
-}
-
-span[alt="l1"] {
-	padding-right: 3px;
-}
-
-span[alt="l2"] {
-	padding-right: 2px;
-}
-
-span[alt="o"] {
-	padding-right: 4px;
-}
 
 #about {
 	color: white;
 	padding-top: 96px;
-	padding-bottom: 26px;
+	span {
+		&[alt="u"] {
+			padding-right: 2px;
+		}
+
+		&[alt="t"] {
+			padding-right: 12px;
+		}
+	}
+
 }
 
-span[alt="u"] {
-	padding-right: 2px;
-}
-
-span[alt="t"] {
-	padding-right: 12px;
-}
 
 
 h2, h3 {
@@ -162,6 +168,7 @@ button:focus {
 
 #aboutBG {
 	text-align: center;
+	background-color: $primaryColor;
 }
 
 #aboutContent {
@@ -171,6 +178,7 @@ button:focus {
 }
 
 #greeting {
+	// height: 100%;
 	position: relative;
 	top: 0;
 	background-color: $bgLight;

@@ -22,8 +22,18 @@
 		<script type="text/javascript" src="/vendor/imagesloaded.min.js"></script>
 		<script type="text/javascript" src="/vendor/ga.js"></script>
 
-		<script type="text/javascript" src="/app.js"></script>
-		<script type="text/javascript" src="/carousel/carousel.js"></script>
+		<script type="text/javascript" src="/dynamicLoader.js"></script>
+		<script type="text/javascript">
+			loadScript("/app.js", function(){
+				setTimeout(function() {
+					loadScript('/hello.js', function(){
+						setTimeout(function() {
+								loadScript("/carousel/carousel.js", function(){})
+						}, 1300);
+					});
+				}, 1000);
+			});
+		</script>
 
 	</head>
 
@@ -198,7 +208,7 @@
 
 				<div id="services" class="block">
 					<div class="subheader">
-						<img src="/images/bell.png" width="17px"/>
+						<img src="/images/bell.svg" width="17px" style="margin-top: -3px;" />
 						<h2>
 							Services
 						</h2>
@@ -220,7 +230,7 @@
 
 				<div id="press" class="block">
 					<div class="subheader">
-						<img src="/images/letter.png" width="17px"/>
+						<img src="/images/newspaper.svg" width="17px" style="margin-top: -1px;"/>
 						<h2>
 							Press
 						</h2>
@@ -234,7 +244,7 @@
 
 				<div id="details" class="block">
 					<div class="subheader">
-						<img src="/images/folder.png" width="18px"/>
+						<img src="/images/folder.svg" width="18px" style="margin-top: -3px;"/>
 						<h2>
 							Details
 						</h2>
@@ -248,7 +258,7 @@
 
 				<div id="contact" class="block">
 					<div class="subheader">
-						<img src="/images/mailbox.png" width="20px"/>
+						<img src="/images/mailbox.svg" width="20px" style="margin-top: -4px;"/>
 						<h2>
 							Contact
 						</h2>
@@ -265,7 +275,7 @@
 
 				<div id="newsletter" class="block">
 					<div class="subheader">
-						<img src="/images/letter.png" width="17px"/>
+						<img src="/images/envelope.svg" width='17px'style="margin-top: 0px;" />
 						<h2>
 							Newsletter
 						</h2>

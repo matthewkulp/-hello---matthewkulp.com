@@ -1,23 +1,11 @@
-$(document).ready(function(){
-
 	var tStart = 600 // Start Y in px
 		, tEnd = 1800   // End Y in px
 		, cStart = [180, 170, 97] // Color 1
 		, cEnd = [147, 197, 83]   // Color 2
 		, cDiff = [cEnd[0] - cStart[0], cEnd[1] - cStart[1], cEnd[1] - cStart[0]];
 
-
-	// Set the color theme (background color, hello, and loader match)
-	$("#aboutBG").css('background-color', 'rgb(' + cStart + ')');
-	$('#hello').css('color', 'rgb(' + cStart + ')');
-	$('.loader').css('border-color', 'rgba(' + cStart + ', .2)');
-	$('.loader').css('border-left-color', 'rgba(' + cStart + ', 1)');
-
-	var helloLetters = $('#hello span')
-		,aboutLetters = $('#about span');
-
-	helloLetters.css("opacity", "0");
-	aboutAnimated = false;
+	var aboutBG = $('#aboutBG');
+	var mailchimp = $('#mailchimp input');
 
 
 
@@ -31,7 +19,7 @@ $(document).ready(function(){
 			var p = ($(this).scrollTop() - tStart) / (tEnd - tStart); // % of transition
 			p = Math.min(1, Math.max(0, p)); // Clamp to [0, 1]
 			var cBg = [Math.round(cStart[0] + cDiff[0] * p), Math.round(cStart[1] + cDiff[1] * p), Math.round(cStart[2] + cDiff[2] * p)];
-		     $("#aboutBG").css('background-color', 'rgb(' + cBg.join(',') +')');
+		     aboutBG.css('background-color', 'rgb(' + cBg.join(',') +')');
 		});
 
 	}
@@ -39,62 +27,39 @@ $(document).ready(function(){
 
 
 
-	// Title Animations
-	function enterLetters(letterArray){
-		letterArray.each(function(index, character) {
-			console.log(this);
-			var letter = this
-
-			setTimeout(function () {
-				$(letter).velocity(
-				{
-				translateY: ["20", [500, 20]],
-				},
-				{
-				duration: 800,
-				});
+	var items = $("#carousel ul").children("li");
+	var pictures = $("#carousel ul li .imageContainer").children();
+	var carousel = $('#carousel');
+	items.eq(0).addClass('active');
+	var activePic = $('.active').index(); // returns a number
 
 
-				$(letter).velocity(
-				{
-				rotateZ: [0, [200, 16], -40],
-				},
-				{
-				queue: false,
-				duration: 1300,
-				});
+	function setCarouselHeight() {
+		var activePic = $('.active').index(); // returns a number
+		var itemHeight = items.eq(activePic).css("height");
 
+		carousel.css("height", itemHeight);
 
-				$(letter).velocity(
-				{
-				opacity: [1, "ease-in", 0],
-				},
-				{
-				queue: false,
-				duration: 200,
-				});
-
-			}, index * 80);
-		});
+		var imageHeight = pictures.css("height");
+		 $('.next').css("height", imageHeight);
+		$('.previous').css("height", imageHeight);
 	};
 
+	setCarouselHeight();
 
 
 
-	setTimeout(function() {
-		console.log('setTimeout');
-		enterLetters(helloLetters);
-	}, 1000);
 
+	// Reset carousel height on resize for non-touch devices.
+	if (Modernizr.touch == false) {
+		$( window ).resize(function() {
+			 setCarouselHeight();
+		});
+	}
 
 
 
 	// Newsletter onClick behavior
-	$('#mailchimp').on('click', function(){
-		$('#mailchimp input').attr('placeholder', '');
+	mailchimp.on('click', function(){
+		mail.attr('placeholder', '');
 	})
-
-
-
-
-});

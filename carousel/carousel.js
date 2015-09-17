@@ -1,30 +1,35 @@
-$(document).ready(function(){
+	var previousHitbox = $('.previous');
+	var nextHitbox = $('.next');
+	var mobileGifs = $('.mobileGif');
 
 
 	// Detect Touch Device.
-	var mobileGifs = $('.mobileGif');
 	if (Modernizr.touch) {
 
 		// Get rid of .previous hitbox so a touch event advances in one direction.
-		$('.previous').hide();
-		$('.next').css('width', '100%');
+		previousHitbox.hide();
+		nextHitbox.css('width', '100%');
 
-		// Remove mp4s and replace them with gifs.
+		// Remove mp4s
 		$('.video').remove();
+
+		// Take div attribute and turn it into an image and insert it in the div.
 		mobileGifs.map(function() {
 			$(this).append('<img src="' + $(this).attr('url') + '" />');
 		});
 
 	} else {
-
-		// Remove gifs
-		$('.mobileGif').remove();
+		mobileGifs.remove();
 	};
 
 
+
+
 	//Initializations
+	var carousel = $('#carousel');
 	var items = $("#carousel ul").children("li");
-	var pictures = $("#carousel ul li .imageContainer").children();
+	var pictures = $("#carousel ul li").children(".imageContainer");
+	var pictureInnards = $('#carousel ul li .imageContainer').children();
 	var descriptions = $("#carousel ul li .caption").children(".description");
 	var counts = $("#carousel ul li .caption").children(".count");
 	var loader = $(".loader");
@@ -33,38 +38,8 @@ $(document).ready(function(){
 	var currentPic = $('.active').index();
 	var exitingPic;
 	var previousPic;
-	var nextPic;
+	var nextHitboxPic;
 	var autoCycle;
-	$('.previous, .next').css('z-index','4');
-	$('.previous, .next').css('display','none');
-	counts.eq(currentPic).html('# / #');
-	// Set carousel height to item height.
-	function setCarouselHeight() {
-		var itemHeight = items.css("height");
-		$('#carousel').css("height", itemHeight);
-		var imageHeight = pictures.css("height");
-		$('.previous, .next').css("height", imageHeight);
-	};
-	setCarouselHeight();
-	// Reset carousel height on resize.
-	$( window ).resize(function() {
-		 setCarouselHeight();
-	});
-
-
-
-
-
-
-	// Pre-Load Stylings
-	pictures.css("display", "none");
-	pictures.eq(currentPic).css("display", "none");
-	items.css('opacity', '0');
-	loader.css('opacity', '0');
-	$('.previous, .next').css('opacity', '0');
-	counts.css('opacity', '0');
-
-
 
 
 
@@ -78,16 +53,16 @@ $(document).ready(function(){
 		pictures.eq(currentPic).css("z-index", "1");
 		pictures.eq(enteringPic).css("z-index", "2");
 
-		if (pictures.eq(enteringPic).attr('isVideo') == 'true') {
-			pictures[enteringPic].play();
+		if (pictureInnards.eq(enteringPic).attr('isVideo') == 'true') {
+			pictureInnards[enteringPic].play();
 		};
 
 		pictures.eq(enteringPic).velocity("fadeIn", {
 			duration: enterExitTime * 2,
 			complete: function(){
 				pictures.eq(previousPic).css("display", "none");
-				if (pictures.eq(previousPic).attr('isVideo') == 'true') {
-					pictures[previousPic].load();
+				if (pictureInnards.eq(previousPic).attr('isVideo') == 'true') {
+					pictureInnards[previousPic].load();
 				};
 			}
 		});
@@ -108,7 +83,8 @@ $(document).ready(function(){
 
 	function carouselIntroduction(picIndex) {
 		items.css('opacity', '1');
-		$('.previous, .next').css('display', '');
+		nextHitbox.css('display', 'block');
+		previousHitbox.css('display', 'block');
 
 		descriptions.css('opacity', '0');
 		descriptionEnters(picIndex);
@@ -130,11 +106,11 @@ $(document).ready(function(){
 
 		} else if (animationComplete) {
 			goTo(0)
-		} else {
-			return;
 		}
-
 	};
+
+
+
 
 	function previous(){
 
@@ -144,6 +120,7 @@ $(document).ready(function(){
 			goTo(currentPic - 1);
 		}
 	}
+
 
 
 
@@ -163,7 +140,7 @@ $(document).ready(function(){
 	}
 
 	function descriptionEnters(picIndex) {
-		$(descriptions).eq(picIndex).velocity(
+		descriptions.eq(picIndex).velocity(
 			{
 			opacity: [1, "ease-in", 0],
 			translateY: [0, descriptionYChange],
@@ -209,7 +186,7 @@ $(document).ready(function(){
 
 
 	// Click Behavior
-	$('.next').on('click', function() {
+	nextHitbox.on('click', function() {
 		if (animationComplete) {
 			clearInterval(autoCycle);
 			next();
@@ -217,7 +194,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$('.previous').on('click', function() {
+	previousHitbox.on('click', function() {
 		if (animationComplete) {
 			clearInterval(autoCycle);
 			previous();
@@ -229,14 +206,14 @@ $(document).ready(function(){
 
 
 	//Swipe Behavior
-	$('#carousel').on('swipeleft', function () {
+	carousel.on('swipeleft', function () {
 		clearInterval(autoCycle);
 		if (animationComplete) {
 			next();
 		}
 	});
 
-	$('#carousel').on('swiperight', function () {
+	carousel.on('swiperight', function () {
 		clearInterval(autoCycle);
 		if (animationComplete) {
 			previous();
@@ -269,26 +246,19 @@ $(document).ready(function(){
 	// Loading Behavior
 	loaderEnterExitTime = 500;
 
+
+	loader.velocity("fadeIn", {duration: loaderEnterExitTime});
+
 	setTimeout(function () {
-		loader.velocity("fadeIn", {duration: loaderEnterExitTime});
-
-		setTimeout(function () {
-			pictures.eq(currentPic).imagesLoaded( function() {
-			      loader.velocity("fadeOut",
-			      {
-			      duration: loaderEnterExitTime,
-			      complete: function() {
-						carouselIntroduction(currentPic);
-						// Set AutoCycle
-						autoCycle = setInterval( next, 6000);
-					},
-				});
-			})
-		}, 1200);
-
-	}, 1700);
-
-
-
-
-});
+		pictures.eq(currentPic).imagesLoaded( function() {
+		      loader.velocity("fadeOut",
+		      {
+		      duration: loaderEnterExitTime,
+		      complete: function() {
+					carouselIntroduction(currentPic);
+					// Set AutoCycle
+					autoCycle = setInterval( next, 6000);
+				},
+			});
+		})
+	}, 1200);
