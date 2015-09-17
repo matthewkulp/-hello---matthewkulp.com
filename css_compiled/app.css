@@ -149,8 +149,7 @@ button:focus {
   position: relative;
   top: 0;
   background-color: #FFFFFF;
-  color: #595959;
-  height: 100%; }
+  color: #595959; }
 
 #intro {
   padding-bottom: 133px;
@@ -193,7 +192,13 @@ button:focus {
 footer {
   color: #9F9F9F;
   text-align: center;
-  padding: 74px 0 22px; }
+  font-size: 12px;
+  font-family: 'open sans';
+  padding: 50px 0 56px; }
+  footer a {
+    color: lightgray;
+    font-weight: lighter;
+    font-size: 10px; }
 
 .block {
   padding-bottom: 130px;

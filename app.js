@@ -41,6 +41,8 @@
 	}
 
 
+
+
 	$('#greeting').css('height', 'auto');
 
 	// Check for Chrome on iOS and ignore scroll events.
