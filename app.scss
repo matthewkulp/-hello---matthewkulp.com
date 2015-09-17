@@ -178,11 +178,11 @@ button:focus {
 }
 
 #greeting {
-	// height: 100%;
 	position: relative;
 	top: 0;
 	background-color: $bgLight;
 	color: $fontColorDark;
+	height: 100%;
 }
 
 #intro {

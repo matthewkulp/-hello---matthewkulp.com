@@ -10,23 +10,6 @@
 
 
 
-	// Check for Chrome on iOS and ignore scroll events.
-	if(navigator.userAgent.match('CriOS')){
-
-	} else {
-		// Animate background color
-		$(document).scroll(function() {
-			var p = ($(this).scrollTop() - tStart) / (tEnd - tStart); // % of transition
-			p = Math.min(1, Math.max(0, p)); // Clamp to [0, 1]
-			var cBg = [Math.round(cStart[0] + cDiff[0] * p), Math.round(cStart[1] + cDiff[1] * p), Math.round(cStart[2] + cDiff[2] * p)];
-		     aboutBG.css('background-color', 'rgb(' + cBg.join(',') +')');
-		});
-
-	}
-
-
-
-
 	var items = $("#carousel ul").children("li");
 	var pictures = $("#carousel ul li .imageContainer").children();
 	var carousel = $('#carousel');
@@ -56,6 +39,24 @@
 			 setCarouselHeight();
 		});
 	}
+
+
+	$('#greeting').css('height', 'auto');
+
+	// Check for Chrome on iOS and ignore scroll events.
+	if(navigator.userAgent.match('CriOS')){
+
+	} else {
+		// Animate background color
+		$(document).scroll(function() {
+			var p = ($(this).scrollTop() - tStart) / (tEnd - tStart); // % of transition
+			p = Math.min(1, Math.max(0, p)); // Clamp to [0, 1]
+			var cBg = [Math.round(cStart[0] + cDiff[0] * p), Math.round(cStart[1] + cDiff[1] * p), Math.round(cStart[2] + cDiff[2] * p)];
+		     aboutBG.css('background-color', 'rgb(' + cBg.join(',') +')');
+		});
+
+	}
+
 
 
 
