@@ -2,9 +2,9 @@ $fontStackPrimary: 'Futura', 'Century Gothic', sans-serif;
 $fontStackSecondary:  'Open Sans', sans-serif;
 $fontColorDark: #595959;
 $fontColorLight: #FFFFFF;
+$fontOpacityDim: .5;
 $bgLight: #FFFFFF;
 $primaryColor: rgba(180, 170, 97, 1);
-
 
 
 
@@ -27,15 +27,27 @@ div {
 	display: inline-block;
 }
 
-a, body {
-	color: $fontColorLight;
-}
-
 form {
 	margin: 0px;
 }
 
-body, input {
+a,
+body {
+	color: $fontColorLight;
+}
+
+body {
+	width: 720px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: justify;
+	text-justify: inter-word;
+	margin: 0 auto;
+}
+
+body,
+input {
 	font-family: $fontStackPrimary;
 	font-size: 14px;
 	font-weight: 400;
@@ -48,17 +60,6 @@ body, input {
 	padding-left: 36px;
 }
 
-body {
-	width: 720px;
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: justify;
-	text-justify: inter-word;
-	margin: 0 auto;
-}
-
 .subheader {
 	display: -webkit-flex;
 	display: flex;
@@ -66,12 +67,15 @@ body {
 	align-items: flex-end;
 	position: relative;
 	padding-bottom: 26px;
-}
-
-.subheader img {
-	position: absolute;
-	opacity: .13;
-	// margin-top: -4px;
+	img {
+		position: absolute;
+		opacity: .13;
+		// margin-top: -4px;
+	}
+	h2 {
+		position: absolute;
+		left: 36px;
+	}
 }
 
 h1 {
@@ -127,25 +131,16 @@ h1 {
 
 }
 
-
-
-h2, h3 {
-	font-family: 'Open Sans', sans-serif;
-}
-
-h2, h3 {
-	opacity: .5;
+h2,
+h3 {
+	font-family: $fontStackSecondary;
+	opacity: $fontOpacityDim;
 	font-weight: 800;
 	font-size: 10px;
 	text-transform: uppercase;
 	letter-spacing: 5px;
 	line-height: 12px;
 	margin: 0;
-}
-
-.subheader h2 {
-	position: absolute;
-	left: 36px;
 }
 
 input {
@@ -161,7 +156,8 @@ button:focus {
 }
 
 
-#aboutBG, #greeting {
+#aboutBG,
+#greeting {
 	width: 100%;
 	margin: 0 auto;
 }
@@ -230,15 +226,17 @@ button:focus {
 }
 
 footer {
-	color: #9F9F9F;
+	color: $fontColorDark;
 	text-align: center;
 	font-size: 12px;
-	font-family: 'open sans';
+	font-family: $fontStackSecondary;
 	padding: 50px 0 56px;
+	opacity: $fontOpacityDim;
 	a {
-		color: lightgray;
-		font-weight: lighter;
+		color: $fontColorDark;
+		font-weight: 400;
 		font-size: 10px;
+		opacity: $fontOpacityDim;
 	}
 }
 

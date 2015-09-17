@@ -12,27 +12,17 @@ img {
 div {
   display: inline-block; }
 
-a, body {
-  color: #FFFFFF; }
-
 form {
   margin: 0px; }
 
-body, input {
-  font-family: "Futura", "Century Gothic", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: .6px;
-  line-height: 24px; }
-
-.block ul {
-  line-height: 30px;
-  padding-left: 36px; }
+a,
+body {
+  color: #FFFFFF; }
 
 body {
   width: 720px;
-  display: -webkit-flex;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
@@ -48,6 +38,18 @@ body {
   text-justify: inter-word;
   margin: 0 auto; }
 
+body,
+input {
+  font-family: "Futura", "Century Gothic", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .6px;
+  line-height: 24px; }
+
+.block ul {
+  line-height: 30px;
+  padding-left: 36px; }
+
 .subheader {
   display: -webkit-flex;
   display: -webkit-box;
@@ -62,10 +64,12 @@ body {
           align-items: flex-end;
   position: relative;
   padding-bottom: 26px; }
-
-.subheader img {
-  position: absolute;
-  opacity: .13; }
+  .subheader img {
+    position: absolute;
+    opacity: .13; }
+  .subheader h2 {
+    position: absolute;
+    left: 36px; }
 
 h1 {
   font-family: "Open Sans", sans-serif;
@@ -106,21 +110,16 @@ h1 {
   #about span[alt="t"] {
     padding-right: 12px; }
 
-h2, h3 {
-  font-family: 'Open Sans', sans-serif; }
-
-h2, h3 {
-  opacity: .5;
+h2,
+h3 {
+  font-family: "Open Sans", sans-serif;
+  opacity: 0.5;
   font-weight: 800;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 5px;
   line-height: 12px;
   margin: 0; }
-
-.subheader h2 {
-  position: absolute;
-  left: 36px; }
 
 input {
   -webkit-appearance: none;
@@ -132,7 +131,8 @@ textarea:focus,
 button:focus {
   outline: none; }
 
-#aboutBG, #greeting {
+#aboutBG,
+#greeting {
   width: 100%;
   margin: 0 auto; }
 
@@ -190,15 +190,17 @@ button:focus {
   padding: 0px; }
 
 footer {
-  color: #9F9F9F;
+  color: #595959;
   text-align: center;
   font-size: 12px;
-  font-family: 'open sans';
-  padding: 50px 0 56px; }
+  font-family: "Open Sans", sans-serif;
+  padding: 50px 0 56px;
+  opacity: 0.5; }
   footer a {
-    color: lightgray;
-    font-weight: lighter;
-    font-size: 10px; }
+    color: #595959;
+    font-weight: 400;
+    font-size: 10px;
+    opacity: 0.5; }
 
 .block {
   padding-bottom: 130px;
