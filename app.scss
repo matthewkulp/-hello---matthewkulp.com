@@ -93,6 +93,10 @@ h1 {
 	span {
 		opacity: 0;
 
+		&[alt='h'] {
+			padding-right: 2px;
+		}
+
 		&[alt='e'] {
 			padding-right: 2px;
 		}
@@ -116,7 +120,7 @@ h1 {
 	padding-top: 96px;
 	span {
 		&[alt="u"] {
-			padding-right: 2px;
+			padding-right: 3px;
 		}
 
 		&[alt="t"] {
