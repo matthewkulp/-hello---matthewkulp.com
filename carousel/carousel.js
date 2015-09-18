@@ -39,7 +39,7 @@ if (Modernizr.touch) {
 var carousel = $('#carousel');
 var items = $("#carousel ul").children("li");
 var pictures = $("#carousel ul li").children(".imageContainer");
-var descriptions = $("#carousel ul li .caption").children(".description");
+var descriptions = $("#carousel ul li").children(".description");
 var inViewImageContainer = $('#carousel .imageContainer');
 var loader = $(".loader");
 var animationComplete = false;
