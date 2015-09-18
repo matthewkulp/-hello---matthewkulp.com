@@ -23,10 +23,6 @@ img {
 	border-style: none;
 }
 
-div {
-	display: inline-block;
-}
-
 form {
 	margin: 0px;
 }
@@ -98,7 +94,7 @@ h1 {
 		opacity: 0;
 
 		&[alt='e'] {
-			padding-right: 3px;
+			padding-right: 2px;
 		}
 
 		&[alt='l1'] {
@@ -114,7 +110,6 @@ h1 {
 		}
 	}
 }
-
 
 #about {
 	color: white;
@@ -155,7 +150,6 @@ button:focus {
 	outline: none;
 }
 
-
 #aboutBG,
 #greeting {
 	width: 100%;
@@ -171,6 +165,7 @@ button:focus {
 	text-align: justify;
 	width: 432px;
 	padding: 0px 144px 0px;
+	margin: 0 auto;
 }
 
 #greeting {
@@ -246,6 +241,9 @@ footer {
 	float: left;
 }
 
+
+
+
 @media screen and (max-width:774px) {
 
 	body {
@@ -258,6 +256,8 @@ footer {
 	}
 
 }
+
+
 
 
 @media screen and (max-width: 468px) {
@@ -285,6 +285,8 @@ footer {
 	}
 
 }
+
+
 
 
 @media screen and (max-width: 396px) {
