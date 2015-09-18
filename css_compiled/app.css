@@ -9,9 +9,6 @@ ul {
 img {
   border-style: none; }
 
-div {
-  display: inline-block; }
-
 form {
   margin: 0px; }
 
@@ -94,7 +91,7 @@ h1 {
   #hello span {
     opacity: 0; }
     #hello span[alt='e'] {
-      padding-right: 3px; }
+      padding-right: 2px; }
     #hello span[alt='l1'] {
       padding-right: 3px; }
     #hello span[alt='l2'] {
@@ -143,7 +140,8 @@ button:focus {
 #aboutContent {
   text-align: justify;
   width: 432px;
-  padding: 0px 144px 0px; }
+  padding: 0px 144px 0px;
+  margin: 0 auto; }
 
 #greeting {
   position: relative;
