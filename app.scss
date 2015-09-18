@@ -66,7 +66,6 @@ input {
 	img {
 		position: absolute;
 		opacity: .13;
-		// margin-top: -4px;
 	}
 	h2 {
 		position: absolute;
@@ -176,7 +175,6 @@ button:focus {
 	top: 0;
 	background-color: $bgLight;
 	color: $fontColorDark;
-	// height: 100%;
 }
 
 #intro {
@@ -224,10 +222,11 @@ button:focus {
 }
 
 footer {
-	color: $fontColorDark;
-	text-align: center;
-	font-size: 12px;
 	font-family: $fontStackSecondary;
+	font-size: 12px;
+	color: $fontColorDark;
+	font-weight: 800;
+	text-align: center;
 	padding: 50px 0 56px;
 	opacity: $fontOpacityDim;
 	a {

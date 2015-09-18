@@ -105,7 +105,7 @@ function goTo(itemIndex){
 	});
 
 
-	//Make the picture in view .active and 'currentItem'
+	// Make the nextItem .active
 	items.removeClass('active')
 		.eq(nextItem).addClass('active');
 	currentItem = nextItem;
@@ -116,21 +116,39 @@ function goTo(itemIndex){
 
 
 
+// Count Change
+var firstCountChange = true;
+
 function countChange (itemIndex) {
 	count.html(function() {
 		return (itemIndex + 1) + "/" + pictures.length;
 	});
+
+	if (firstCountChange == true) {
+		count.velocity({
+			opacity:[1, 'ease-in', 0],
+			translateY: [0, descriptionYChange],
+		},
+		{
+			duration: enterExitTime,
+			delay: enterExitTime,
+			complete: function() {
+				firstCountChange = false;
+			}
+		})
+	};
 }
 
 
 
 
 function carouselIntroduction(itemIndex) {
-	// nextImage.html(pictures.eq(currentItem).html());
 	nextHitbox.css('display', 'inherit');
 	previousHitbox.css('display', 'inherit');
 
 	goTo(itemIndex);
+
+	first = true;
 };
 
 
