@@ -104,10 +104,16 @@ h1 {
 #about {
   color: white;
   padding-top: 96px; }
-  #about span[alt="u"] {
+  #about span[alt="a"] {
+    padding-right: 2px; }
+  #about span[alt="b"] {
+    padding-right: 4px; }
+  #about span[alt="o"] {
     padding-right: 3px; }
+  #about span[alt="u"] {
+    padding-right: 4px; }
   #about span[alt="t"] {
-    padding-right: 12px; }
+    padding-right: 13px; }
 
 h2,
 h3 {
