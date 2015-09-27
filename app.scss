@@ -27,8 +27,8 @@ form {
 	margin: 0px;
 }
 
-a,
-body {
+body,
+body a {
 	color: $fontColorLight;
 }
 
@@ -113,7 +113,7 @@ h1 {
 	padding-top: 96px;
 	span {
 		&[alt="a"] {
-			padding-right: 2px;
+			padding-right: 3px;
 		}
 		&[alt="b"] {
 			padding-right: 4px;
@@ -122,10 +122,10 @@ h1 {
 			padding-right: 3px;
 		}
 		&[alt="u"] {
-			padding-right: 4px;
+			padding-right: 5px;
 		}
 		&[alt="t"] {
-			padding-right: 13px;
+			padding-right: 12px;
 		}
 	}
 }
@@ -177,6 +177,9 @@ button:focus {
 	top: 0;
 	background-color: $bgLight;
 	color: $fontColorDark;
+	a {
+		color: $fontColorDark;
+	}
 }
 
 #intro {

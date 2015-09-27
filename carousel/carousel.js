@@ -1,4 +1,12 @@
-
+// Add feature
+// Project Titles for slideshow captions.
+// Sudo code:
+// Flag titles in the html so that (a) they can be styled with CSS and (b) their contents can be examined by a jQuery selector
+// Style the titles to spec,
+// Get the title of the currentItem,
+// Get the title of the nextItem,
+// Compare the titles
+// If they equal each other, change them WITHOUT animations. Else, change the title with an animation.
 
 
 
