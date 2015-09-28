@@ -147,7 +147,7 @@ button:focus {
 
 #aboutContent {
   text-align: justify;
-  width: 432px;
+  width: 360px;
   padding: 0px 144px 0px;
   margin: 0 auto; }
 
@@ -214,15 +214,15 @@ footer {
 .block {
   padding-bottom: 130px;
   width: calc(100% - 36px);
-  float: left; }
+  float: left;
+  margin-left: -36px; }
 
 @media screen and (max-width: 774px) {
   body {
     width: 100%; }
   #aboutContent {
     padding-left: 18px;
-    padding-right: 18px;
-    width: 360px; }
+    padding-right: 18px; }
   #mailchimp {
     width: 100%; }
   .email {

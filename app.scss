@@ -167,7 +167,7 @@ button:focus {
 
 #aboutContent {
 	text-align: justify;
-	width: 432px;
+	width: 360px;
 	padding: 0px 144px 0px;
 	margin: 0 auto;
 }
@@ -246,6 +246,7 @@ footer {
 	padding-bottom: 130px;
 	width: calc(100% - 36px);
 	float: left;
+	margin-left: -36px;
 }
 
 
@@ -260,10 +261,6 @@ footer {
 	#aboutContent {
 		padding-left: 18px;
 		padding-right: 18px;
-		width: 360px;
-	}
-
-	#aboutContent {
 	}
 
 	#mailchimp {
