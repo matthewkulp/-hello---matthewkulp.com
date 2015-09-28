@@ -260,17 +260,10 @@ footer {
 	#aboutContent {
 		padding-left: 18px;
 		padding-right: 18px;
+		width: 360px;
 	}
 
-}
-
-
-
-
-@media screen and (max-width: 468px) {
-
 	#aboutContent {
-		width: 360px;
 	}
 
 	#mailchimp {

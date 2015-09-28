@@ -7,6 +7,7 @@
 // Get the title of the nextItem,
 // Compare the titles
 // If they equal each other, change them WITHOUT animations. Else, change the title with an animation.
+// Make sure that the count changes when the exit animation for the link completes. exit animation > count change > enter animation.
 
 
 
