@@ -1,35 +1,5 @@
-// Add feature
-// Project Titles for slideshow captions.
-// Sudo code:
-// Flag titles in the html so that (a) they can be styled with CSS and (b) their contents can be examined by a jQuery selector
-// Style the titles to spec,
-// Get the title of the currentItem,
-// Get the title of the nextItem,
-// Compare the titles
-// If they equal each other, change them WITHOUT animations. Else, change the title with an animation.
-// Make sure that the count changes when the exit animation for the link completes. exit animation > count change > enter animation.
-
-// Building the link algorithm.
-// Some projects do not have links. Because I'm building a bunch of arrays for all of the carousel elements and I'm using index to keep track, this means I have to build a link array that keeps blank spots. Test that it's capable of doing that. By adding a link div for each item and having jquery build an array, check the length.
-
-
-// Planning:
-// if innerHTML of this.items == innerHTML thelast.items then skip link animation and title animation.
-
-// ELSE..
-// Do this for the link:
-// 1. Link Animate Out
-// 2.a. if innerHTML.is(':empty') == true && hasURL == true,  then .css('opacity', '0') AND .unwrap() img AND set hasURL = false
-// 2.b. if innterHTML.is(':empty') == false,  then .css('opacity', '1') and .wrap('<a href="' + links(currentItem).innerHTML() + '" target="_blank"></div> )
-// 3. Link Animate In
-
-//Do this for the title:
-// 1. Title Animate Out
-// 2. Change contents of title div
-// 3. Title Animate In
-
-
-
+// If the html of the currentItem is equal to the nextItem then
+//
 
 
 var previousHitbox = $('.previous');
@@ -82,6 +52,9 @@ var inViewTitle = $('.inview .title');
 var inViewLink = $('.inview .link');
 var count = $('.count');
 var autoCycle;
+var nextItemTitle;
+var currentItemTitle;
+var nextItem;
 
 
 var links = $('ul .link');
@@ -92,15 +65,17 @@ firstGoToCall = true;
 
 enterExitTime = 200;
 descriptionYChange = 9;
+titleYChange = -2;
 
 
 
 
-
-
-function goTo(itemIndex){
+function goTo (itemIndex) {
 	nextItem = itemIndex;
 	animationComplete = false;
+	currentItemTitle = titles.eq(currentItem).html();
+	nextItemTitle = titles.eq(nextItem).html();
+
 
 	//Image Changes
 	nextImage.empty();
@@ -117,7 +92,6 @@ function goTo(itemIndex){
 			},
 		}
 	)
-
 
 	// Description Changes
 	inViewDescription.velocity(
@@ -146,26 +120,30 @@ function goTo(itemIndex){
 
 
 
-	// Title Changes
-	inViewTitle.velocity(
-		{
-		opacity: [0, "ease-in", 1],
-		translateY: [descriptionYChange, 0],
-		},
-		{
-		duration: enterExitTime,
-		complete: function() {
-			inViewTitle.html(titles.eq(nextItem).html());
-			inViewTitle.velocity(
-				{
-				opacity: [1, "ease-in", 0],
-				translateY: [0, descriptionYChange],
-				},
-				{
-				duration: enterExitTime,
-			})
-		}
-	});
+	if (currentItemTitle == nextItemTitle ) {
+		inViewTitle.html(titles.eq(nextItem).html());
+	} else {
+		// Title Changes
+		inViewTitle.velocity(
+			{
+			opacity: [0, "ease-in", 1],
+			translateY: [descriptionYChange, 0],
+			},
+			{
+			duration: enterExitTime,
+			complete: function() {
+				inViewTitle.html(titles.eq(nextItem).html());
+				inViewTitle.velocity(
+					{
+					opacity: [1, "ease-in", 0],
+					translateY: [0, descriptionYChange],
+					},
+					{
+					duration: enterExitTime,
+				})
+			}
+		});
+	};
 
 
 
@@ -173,11 +151,11 @@ function goTo(itemIndex){
 	// Link Changes
 	if (firstGoToCall) {
 		countChange(nextItem)
-
 		setTimeout(function(){
 			linkEnter(nextItem);
 		}, enterExitTime);
-
+	} else if (currentItemTitle == nextItemTitle) {
+		changeHyperlinkURL(itemIndex);
 	} else {
 		inViewLink.velocity(
 			{
@@ -192,7 +170,11 @@ function goTo(itemIndex){
 		});
 	}
 
+
+
+
 	// Change the count
+	// Timer makes sure that the hyperlink.svg is fadedOut first
 	if (firstGoToCall == false) {
 		setTimeout(function() {
 			countChange(itemIndex);
@@ -204,19 +186,28 @@ function goTo(itemIndex){
 		.eq(nextItem).addClass('active');
 	currentItem = nextItem;
 
-
 	firstGoToCall = false;
+
 
 };
 
 
 
 
-function linkEnter (itemIndex) {
-	// Change the link
+
+
+
+
+function changeHyperlinkURL (itemIndex) {
 	var itemURL = links.eq(itemIndex).html();
 	linkImage.unwrap();
 	linkImage.wrap('<a href="' + itemURL + '" target="_blank"></div>');
+}
+
+
+function linkEnter (itemIndex) {
+	// Change the link
+	changeHyperlinkURL(itemIndex);
 
 	// If the item doesn't have URL, hide the link img.
 	if ($.trim(links.eq(itemIndex).html()).length == 0) {
@@ -261,13 +252,12 @@ function countChange (itemIndex) {
 
 
 
-function carouselIntroduction(itemIndex) {
+function carouselIntroduction (itemIndex) {
 	nextHitbox.css('display', 'inherit');
 	previousHitbox.css('display', 'inherit');
 
 	goTo(itemIndex);
 
-	first = true;
 };
 
 
@@ -299,7 +289,7 @@ setTimeout(function () {
 
 function next(){
 
-	if (currentItem < pictures.length-1 && animationComplete){
+	if (currentItem < items.length-1 && animationComplete){
 		goTo(currentItem + 1);
 
 	} else if (animationComplete) {
@@ -314,7 +304,7 @@ function next(){
 function previous(){
 
 	if (currentItem == 0 && animationComplete){
-		goTo(pictures.length-1);
+		goTo(items.length-1);
 	} else if (animationComplete){
 		goTo(currentItem - 1);
 	}
