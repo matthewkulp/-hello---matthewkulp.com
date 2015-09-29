@@ -9,6 +9,27 @@
 // If they equal each other, change them WITHOUT animations. Else, change the title with an animation.
 // Make sure that the count changes when the exit animation for the link completes. exit animation > count change > enter animation.
 
+// Building the link algorithm.
+// Some projects do not have links. Because I'm building a bunch of arrays for all of the carousel elements and I'm using index to keep track, this means I have to build a link array that keeps blank spots. Test that it's capable of doing that. By adding a link div for each item and having jquery build an array, check the length.
+
+
+// Planning:
+// if innerHTML of this.items == innerHTML thelast.items then skip link animation and title animation.
+
+// ELSE..
+// Do this for the link:
+// 1. Link Animate Out
+// 2.a. if innerHTML.is(':empty') == true && hasURL == true,  then .css('opacity', '0') AND .unwrap() img AND set hasURL = false
+// 2.b. if innterHTML.is(':empty') == false,  then .css('opacity', '1') and .wrap('<a href="' + links(currentItem).innerHTML() + '" target="_blank"></div> )
+// 3. Link Animate In
+
+//Do this for the title:
+// 1. Title Animate Out
+// 2. Change contents of title div
+// 3. Title Animate In
+
+
+
 
 
 var previousHitbox = $('.previous');
@@ -46,32 +67,40 @@ if (Modernizr.touch) {
 
 //Initializations
 var carousel = $('#carousel');
-var items = $("#carousel ul").children("li");
-var pictures = $("#carousel ul li").children(".imageContainer");
-var descriptions = $("#carousel ul li").children(".description");
-var inViewImageContainer = $('#carousel .imageContainer');
+var items = $("#carousel ul li");
+var pictures = $("ul .image");
+var descriptions = $("ul .description");
+var inViewImage = $('.inview .imageContainer');
 var loader = $(".loader");
 var animationComplete = false;
 items.eq(0).addClass('active');
 var currentItem = $('.active').index();
 var currentImage = $('.currentImage');
 var nextImage = $('.nextImage');
-var nextDescription = $('.nextDescription');
+var inViewDescription = $('.inview .description');
+var inViewTitle = $('.inview .title');
+var inViewLink = $('.inview .link');
 var count = $('.count');
 var autoCycle;
 
 
+var links = $('ul .link');
+var titles = $('ul .title');
+var linkImage = $('.inview .link img');
+firstGoToCall = true;
 
 
 enterExitTime = 200;
 descriptionYChange = 9;
 
+
+
+
+
+
 function goTo(itemIndex){
 	nextItem = itemIndex;
 	animationComplete = false;
-
-	//Count Change
-	countChange(itemIndex);
 
 	//Image Changes
 	nextImage.empty();
@@ -89,8 +118,9 @@ function goTo(itemIndex){
 		}
 	)
 
+
 	// Description Changes
-	nextDescription.velocity(
+	inViewDescription.velocity(
 		{
 		opacity: [0, "ease-in", 1],
 		translateY: [descriptionYChange, 0],
@@ -98,8 +128,8 @@ function goTo(itemIndex){
 		{
 		duration: enterExitTime,
 		complete: function() {
-			nextDescription.html(descriptions.eq(nextItem).html());
-			nextDescription.velocity(
+			inViewDescription.html(descriptions.eq(nextItem).html());
+			inViewDescription.velocity(
 				{
 				opacity: [1, "ease-in", 0],
 				translateY: [0, descriptionYChange],
@@ -114,26 +144,109 @@ function goTo(itemIndex){
 	});
 
 
+
+
+	// Title Changes
+	inViewTitle.velocity(
+		{
+		opacity: [0, "ease-in", 1],
+		translateY: [descriptionYChange, 0],
+		},
+		{
+		duration: enterExitTime,
+		complete: function() {
+			inViewTitle.html(titles.eq(nextItem).html());
+			inViewTitle.velocity(
+				{
+				opacity: [1, "ease-in", 0],
+				translateY: [0, descriptionYChange],
+				},
+				{
+				duration: enterExitTime,
+			})
+		}
+	});
+
+
+
+
+	// Link Changes
+	if (firstGoToCall) {
+		countChange(nextItem)
+
+		setTimeout(function(){
+			linkEnter(nextItem);
+		}, enterExitTime);
+
+	} else {
+		inViewLink.velocity(
+			{
+			opacity: [0, "ease-in", 1],
+			translateY: [descriptionYChange, 0],
+			},
+			{
+			duration: enterExitTime,
+			complete: function() {
+				linkEnter(nextItem);
+			}
+		});
+	}
+
+	// Change the count
+	if (firstGoToCall == false) {
+		setTimeout(function() {
+			countChange(itemIndex);
+		}, enterExitTime)
+	};
+
 	// Make the nextItem .active
 	items.removeClass('active')
 		.eq(nextItem).addClass('active');
 	currentItem = nextItem;
 
 
+	firstGoToCall = false;
+
+};
+
+
+
+
+function linkEnter (itemIndex) {
+	// Change the link
+	var itemURL = links.eq(itemIndex).html();
+	linkImage.unwrap();
+	linkImage.wrap('<a href="' + itemURL + '" target="_blank"></div>');
+
+	// If the item doesn't have URL, hide the link img.
+	if ($.trim(links.eq(itemIndex).html()).length == 0) {
+		linkImage.css('display', 'none');
+	} else {
+		linkImage.css('display', 'initial');
+	};
+
+	// Enter Animation
+	inViewLink.velocity(
+		{
+		opacity: [1, "ease-in", 0],
+		translateY: [0, descriptionYChange],
+		},
+		{
+		duration: enterExitTime,
+	})
 };
 
 
 
 
 // Count Change
-var firstCountChange = true;
 
 function countChange (itemIndex) {
 	count.html(function() {
 		return (itemIndex + 1) + "/" + pictures.length;
 	});
 
-	if (firstCountChange == true) {
+	if (firstGoToCall == true) {
 		count.velocity({
 			opacity:[1, 'ease-in', 0],
 			translateY: [0, descriptionYChange],
@@ -141,12 +254,9 @@ function countChange (itemIndex) {
 		{
 			duration: enterExitTime,
 			delay: enterExitTime,
-			complete: function() {
-				firstCountChange = false;
-			}
 		})
 	};
-}
+};
 
 
 
@@ -242,7 +352,7 @@ previousHitbox.on('click', function() {
 
 
 //Swipe Behavior
-inViewImageContainer.on('swipeleft', function () {
+inViewImage.on('swipeleft', function () {
 
 	clearInterval(autoCycle);
 	if (animationComplete) {
@@ -254,7 +364,7 @@ inViewImageContainer.on('swipeleft', function () {
 
 
 
-inViewImageContainer.on('swiperight', function () {
+inViewImage.on('swiperight', function () {
 
 	clearInterval(autoCycle);
 	if (animationComplete) {
@@ -262,7 +372,6 @@ inViewImageContainer.on('swiperight', function () {
 	}
 
 });
-
 
 
 
