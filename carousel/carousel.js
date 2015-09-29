@@ -1,12 +1,4 @@
-// Add feature
-// Project Titles for slideshow captions.
-// Sudo code:
-// Flag titles in the html so that (a) they can be styled with CSS and (b) their contents can be examined by a jQuery selector
-// Style the titles to spec,
-// Get the title of the currentItem,
-// Get the title of the nextItem,
-// Compare the titles
-// If they equal each other, change them WITHOUT animations. Else, change the title with an animation.
+
 
 
 
@@ -24,10 +16,8 @@ if (Modernizr.touch) {
 	previousHitbox.hide();
 	nextHitbox.css('width', '100%');
 
-
 	// Remove mp4s
 	$('.video').remove();
-
 
 	// Take div attribute and turn it into an image and insert it in the div.
 	mobileGifs.map(function() {
@@ -45,41 +35,59 @@ if (Modernizr.touch) {
 
 //Initializations
 var carousel = $('#carousel');
-var items = $("#carousel ul").children("li");
-var pictures = $("#carousel ul li").children(".imageContainer");
-var descriptions = $("#carousel ul li").children(".description");
-var inViewImageContainer = $('#carousel .imageContainer');
-var loader = $(".loader");
-var animationComplete = false;
+var items = $("#carousel ul li");
+var pictures = $("ul .image");
+var descriptions = $("ul .description");
+var links = $('ul .link');
+var titles = $('ul .title');
+
+var inViewImage = $('.inview .imageContainer');
+var inViewDescription = $('.inview .description');
+var inViewTitle = $('.inview .title');
+var inViewLink = $('.inview .link');
+
 items.eq(0).addClass('active');
 var currentItem = $('.active').index();
 var currentImage = $('.currentImage');
 var nextImage = $('.nextImage');
-var nextDescription = $('.nextDescription');
+var loader = $(".loader");
+
 var count = $('.count');
+var linkImage = $('.inview .link img');
+
 var autoCycle;
+var nextItemTitle;
+var currentItemTitle;
+var nextItem;
+
+var animationComplete = false;
+var firstGoToCall = true;
+var enterExitTime = 200;
+var descriptionYChange = 9;
+var titleYChange = -2;
+var loaderEnterExitTime = 500;
 
 
 
 
-enterExitTime = 200;
-descriptionYChange = 9;
-
-function goTo(itemIndex){
+function goTo (itemIndex) {
 	nextItem = itemIndex;
 	animationComplete = false;
-
-	//Count Change
-	countChange(itemIndex);
+	currentItemTitle = titles.eq(currentItem).html();
+	nextItemTitle = titles.eq(nextItem).html();
 
 	//Image Changes
 	nextImage.empty();
 	nextImage.css('opacity', '0');
 	nextImage.html(pictures.eq(nextItem).html());
+
 	if (nextImage.children().attr('isVideo') == 'true') {
+
 		var video = nextImage.children();
 		video[0].play();
+
 	};
+
 	nextImage.velocity('fadeIn', {
 		duration: enterExitTime * 2,
 		complete: function() {
@@ -89,50 +97,150 @@ function goTo(itemIndex){
 	)
 
 	// Description Changes
-	nextDescription.velocity(
-		{
+	inViewDescription.velocity( {
 		opacity: [0, "ease-in", 1],
 		translateY: [descriptionYChange, 0],
-		},
-		{
+		}, {
 		duration: enterExitTime,
 		complete: function() {
-			nextDescription.html(descriptions.eq(nextItem).html());
-			nextDescription.velocity(
+			inViewDescription.html(descriptions.eq(nextItem).html());
+			inViewDescription.velocity(
 				{
 				opacity: [1, "ease-in", 0],
 				translateY: [0, descriptionYChange],
-				},
-				{
+				}, {
 				duration: enterExitTime,
 				complete: function() {
 					animationComplete = true;
 				}
-			})
+				}
+			)
 		}
 	});
 
+	if (currentItemTitle == nextItemTitle && firstGoToCall == false) {
+
+		inViewTitle.html(titles.eq(nextItem).html());
+
+	} else {
+
+		// Title Changes
+		inViewTitle.velocity(
+			{
+			opacity: [0, "ease-in", 1],
+			translateY: [descriptionYChange, 0],
+			},
+			{
+			duration: enterExitTime,
+			complete: function() {
+				inViewTitle.html(titles.eq(nextItem).html());
+				inViewTitle.velocity(
+					{
+					opacity: [1, "ease-in", 0],
+					translateY: [0, descriptionYChange],
+					},
+					{
+					duration: enterExitTime,
+				})
+			}
+		});
+	};
+
+	// Link Changes
+	if (firstGoToCall) {
+
+		countChange(nextItem)
+		setTimeout(function(){
+			linkEnter(nextItem);
+		}, enterExitTime);
+
+	} else if (currentItemTitle == nextItemTitle) {
+
+		changeHyperlinkURL(itemIndex);
+
+	} else {
+
+		inViewLink.velocity(
+			{
+			opacity: [0, "ease-in", 1],
+			translateY: [descriptionYChange, 0],
+			},
+			{
+			duration: enterExitTime,
+			complete: function() {
+				linkEnter(nextItem);
+			}
+		});
+	}
+
+	// Change the count: timer makes sure that the hyperlink.svg is fadedOut before countChange because countChange has dynamic width that visibly shifts hyperlink.svg over without this timer.
+	if (firstGoToCall == false) {
+
+		setTimeout(function() {
+			countChange(itemIndex);
+		}, enterExitTime)
+
+	};
 
 	// Make the nextItem .active
 	items.removeClass('active')
 		.eq(nextItem).addClass('active');
 	currentItem = nextItem;
 
+	firstGoToCall = false;
 
 };
 
 
 
 
-// Count Change
-var firstCountChange = true;
 
+function changeHyperlinkURL (itemIndex) {
+
+	var itemURL = links.eq(itemIndex).html();
+	linkImage.unwrap();
+	linkImage.wrap('<a href="' + itemURL + '" target="_blank"></div>');
+
+}
+
+
+
+
+function linkEnter (itemIndex) {
+
+	// Change the link
+	changeHyperlinkURL(itemIndex);
+
+	// If the item doesn't have URL, hide the link img.
+	if ($.trim(links.eq(itemIndex).html()).length == 0) {
+		linkImage.css('display', 'none');
+	} else {
+		linkImage.css('display', 'initial');
+	};
+
+	// Enter Animation
+	inViewLink.velocity(
+		{
+		opacity: [1, "ease-in", 0],
+		translateY: [0, descriptionYChange],
+		},
+		{
+		duration: enterExitTime,
+	})
+};
+
+
+
+
+// Count Change
 function countChange (itemIndex) {
+
 	count.html(function() {
 		return (itemIndex + 1) + "/" + pictures.length;
 	});
 
-	if (firstCountChange == true) {
+	if (firstGoToCall == true) {
+
 		count.velocity({
 			opacity:[1, 'ease-in', 0],
 			translateY: [0, descriptionYChange],
@@ -140,34 +248,31 @@ function countChange (itemIndex) {
 		{
 			duration: enterExitTime,
 			delay: enterExitTime,
-			complete: function() {
-				firstCountChange = false;
-			}
 		})
 	};
-}
+};
 
 
 
 
-function carouselIntroduction(itemIndex) {
+function carouselIntroduction (itemIndex) {
+
 	nextHitbox.css('display', 'inherit');
 	previousHitbox.css('display', 'inherit');
 
 	goTo(itemIndex);
-
-	first = true;
 };
 
 
 
 
 // Loading Behavior
-loaderEnterExitTime = 500;
-
 loader.velocity("fadeIn", {
 	duration: loaderEnterExitTime
 });
+
+
+
 
 setTimeout(function () {
 	pictures.eq(currentItem).imagesLoaded( function() {
@@ -176,7 +281,7 @@ setTimeout(function () {
 	      duration: loaderEnterExitTime,
 	      complete: function() {
 				carouselIntroduction(currentItem);
-				// // Set AutoCycle
+				// Set AutoCycle
 				autoCycle = setInterval( next, 6000);
 			},
 		});
@@ -188,7 +293,7 @@ setTimeout(function () {
 
 function next(){
 
-	if (currentItem < pictures.length-1 && animationComplete){
+	if (currentItem < items.length-1 && animationComplete){
 		goTo(currentItem + 1);
 
 	} else if (animationComplete) {
@@ -203,7 +308,7 @@ function next(){
 function previous(){
 
 	if (currentItem == 0 && animationComplete){
-		goTo(pictures.length-1);
+		goTo(items.length-1);
 	} else if (animationComplete){
 		goTo(currentItem - 1);
 	}
@@ -241,7 +346,7 @@ previousHitbox.on('click', function() {
 
 
 //Swipe Behavior
-inViewImageContainer.on('swipeleft', function () {
+inViewImage.on('swipeleft', function () {
 
 	clearInterval(autoCycle);
 	if (animationComplete) {
@@ -253,7 +358,7 @@ inViewImageContainer.on('swipeleft', function () {
 
 
 
-inViewImageContainer.on('swiperight', function () {
+inViewImage.on('swiperight', function () {
 
 	clearInterval(autoCycle);
 	if (animationComplete) {
