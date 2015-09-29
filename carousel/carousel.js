@@ -120,7 +120,7 @@ function goTo (itemIndex) {
 
 
 
-	if (currentItemTitle == nextItemTitle ) {
+	if (currentItemTitle == nextItemTitle && firstGoToCall == false) {
 		inViewTitle.html(titles.eq(nextItem).html());
 	} else {
 		// Title Changes
