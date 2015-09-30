@@ -234,6 +234,10 @@ footer {
   .button {
     width: 140px; } }
 
+@media screen and (max-width: 504px) {
+  .block {
+    margin-left: 0px; } }
+
 @media screen and (max-width: 396px) {
   #aboutContent {
     width: calc(100% - 36px); } }

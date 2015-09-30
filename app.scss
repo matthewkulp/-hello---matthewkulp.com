@@ -283,8 +283,11 @@ footer {
 
 }
 
-
-
+@media screen and (max-width:504px) {
+	.block {
+		margin-left: 0px;
+	}
+}
 
 @media screen and (max-width: 396px) {
 
