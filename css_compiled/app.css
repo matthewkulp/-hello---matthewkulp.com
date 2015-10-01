@@ -82,12 +82,12 @@ h1 {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-bottom: 26px;
   margin: 0; }
 
 #hello {
-  padding-top: 32px;
-  color: #b4aa61; }
+  color: #b4aa61;
+  padding-top: 38px;
+  padding-bottom: 14px; }
   #hello span {
     opacity: 0; }
     #hello span[alt='h'] {
@@ -103,7 +103,8 @@ h1 {
 
 #about {
   color: white;
-  padding-top: 132px; }
+  padding-top: 132px;
+  padding-bottom: 50px; }
   #about span[alt="a"] {
     padding-right: 3px; }
   #about span[alt="b"] {

@@ -282,7 +282,7 @@ setTimeout(function () {
 	      complete: function() {
 				carouselIntroduction(currentItem);
 				// Set AutoCycle
-				autoCycle = setInterval( next, 6000);
+				autoCycle = setInterval( next, 8000);
 			},
 		});
 	})
