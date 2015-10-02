@@ -102,8 +102,9 @@ h1 {
 
 #about {
   color: white;
-  padding-top: 256px;
-  padding-bottom: 2px;
+  padding-top: 147px;
+  padding-bottom: 70px;
+  margin-left: -6px;
   position: relative; }
   #about span[alt="a"] {
     padding-right: 3px; }
@@ -224,21 +225,32 @@ footer {
 
 .portrait {
   position: absolute;
-  margin-top: 72px;
+  margin-top: 90px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   opacity: 0;
-  width: 250px;
-  padding-right: 182px; }
+  width: 236px;
+  padding-right: 406px; }
+
+.gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0; }
 
 @media screen and (max-width: 774px) {
   body {
     width: 100%; }
   #aboutContent {
     padding-left: 18px;
-    padding-right: 18px; } }
+    padding-right: 18px; }
+  .gradient {
+    width: 100%; } }
 
 @media screen and (max-width: 504px) {
   .block {
@@ -251,7 +263,7 @@ footer {
     float: left;
     padding-top: 12px; } }
 
-@media screen and (max-width: 432px) {
+@media screen and (max-width: 579px) {
   .portrait {
     left: 0px;
     right: inherit;

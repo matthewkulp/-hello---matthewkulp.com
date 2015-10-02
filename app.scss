@@ -109,8 +109,9 @@ h1 {
 
 #about {
 	color: white;
-	padding-top: 256px;
-      padding-bottom: 2px;
+	padding-top: 147px;
+      padding-bottom: 70px;
+	margin-left: -6px;
 	position: relative;
 	span {
 		&[alt="a"] {
@@ -257,17 +258,25 @@ footer {
 
 .portrait {
 	position: absolute;
-	margin-top: 72px;
+	margin-top: 90px;
 	margin-left: auto;
 	margin-right: auto;
 	left: 0;
 	right: 0;
 	opacity: 0;
-	width: 250px;
-	padding-right: 182px;
-	// Width + Padding = 432
+	width: 236px;
+	padding-right: 406px;
 }
 
+.gradient {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0;
+}
 
 
 
@@ -282,22 +291,8 @@ footer {
 		padding-right: 18px;
 	}
 
-	#mailchimp {
-		// width: 100%;
-	}
-
-	// .email {
-	// 	width: 100%;
-	// 	// width: calc(100% + 36px);
-	// }
-	//
-	// #subscribe {
-	// 	float: left;
-	// 	padding-top: 12px;
-	// }
-
-	.button {
-		// width: 140px;
+	.gradient {
+		width: 100%;
 	}
 
 }
@@ -313,7 +308,6 @@ footer {
 
 	.email {
 		width: 100%;
-		// width: calc(100% + 36px);
 	}
 
 	#subscribe {
@@ -323,12 +317,15 @@ footer {
 }
 
 
-@media screen and (max-width:432px) {
+@media screen and (max-width:579px) {
 	.portrait {
 		left: 0px;
 		right: inherit;
 		padding-right: inherit;
 	}
+
+
+
 }
 
 @media screen and (max-width: 396px) {

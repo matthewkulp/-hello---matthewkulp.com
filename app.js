@@ -7,7 +7,7 @@ var tStart = 600 // Start Y in px
 var aboutBG = $('#aboutBG');
 var mailchimp = $('#mailchimp input');
 var portrait = $('.portrait');
-var aboutTitle = $('#about');
+var gradient = $('.gradient');
 var portraitEntered = false;
 
 
@@ -33,7 +33,7 @@ if(navigator.userAgent.match('CriOS')){
 				duration: 800,
 			});
 
-			// aboutTitle.velocity("fadeIn", {duration: 800});
+			gradient.velocity("fadeIn", {duration: 1600});
 
 			portraitEntered = true;
 
