@@ -27,8 +27,8 @@ form {
 	margin: 0px;
 }
 
-a,
-body {
+body,
+body a {
 	color: $fontColorLight;
 }
 
@@ -66,7 +66,6 @@ input {
 	img {
 		position: absolute;
 		opacity: .13;
-		// margin-top: -4px;
 	}
 	h2 {
 		position: absolute;
@@ -82,29 +81,27 @@ h1 {
 	line-height: normal;
 	display: flex;
 	justify-content: center;
-	padding-bottom: 26px;
 	margin: 0;
 }
 
 #hello {
-	padding-top: 32px;
 	color: $primaryColor;
-
+	padding-top: 38px;
+	padding-bottom: 14px;
 	span {
 		opacity: 0;
-
+		&[alt='h'] {
+			padding-right: 2px;
+		}
 		&[alt='e'] {
 			padding-right: 2px;
 		}
-
 		&[alt='l1'] {
 			padding-right: 3px;
 		}
-
 		&[alt='l2'] {
 			padding-right: 2px;
 		}
-
 		&[alt='o'] {
 			padding-right: 4px;
 		}
@@ -113,17 +110,25 @@ h1 {
 
 #about {
 	color: white;
-	padding-top: 96px;
+	padding-top: 132px;
+	padding-bottom: 50px;
 	span {
-		&[alt="u"] {
-			padding-right: 2px;
+		&[alt="a"] {
+			padding-right: 3px;
 		}
-
+		&[alt="b"] {
+			padding-right: 4px;
+		}
+		&[alt="o"] {
+			padding-right: 3px;
+		}
+		&[alt="u"] {
+			padding-right: 5px;
+		}
 		&[alt="t"] {
 			padding-right: 12px;
 		}
 	}
-
 }
 
 h2,
@@ -163,7 +168,7 @@ button:focus {
 
 #aboutContent {
 	text-align: justify;
-	width: 432px;
+	width: 360px;
 	padding: 0px 144px 0px;
 	margin: 0 auto;
 }
@@ -173,7 +178,9 @@ button:focus {
 	top: 0;
 	background-color: $bgLight;
 	color: $fontColorDark;
-	// height: 100%;
+	a {
+		color: $fontColorDark;
+	}
 }
 
 #intro {
@@ -221,10 +228,11 @@ button:focus {
 }
 
 footer {
-	color: $fontColorDark;
-	text-align: center;
-	font-size: 12px;
 	font-family: $fontStackSecondary;
+	font-size: 12px;
+	color: $fontColorDark;
+	font-weight: 800;
+	text-align: center;
 	padding: 50px 0 56px;
 	opacity: $fontOpacityDim;
 	a {
@@ -237,7 +245,8 @@ footer {
 
 .block {
 	padding-bottom: 130px;
-	width: calc(100% - 36px);
+	margin-left: -36px;
+	width: calc(100% + 36px);
 	float: left;
 }
 
@@ -253,17 +262,6 @@ footer {
 	#aboutContent {
 		padding-left: 18px;
 		padding-right: 18px;
-	}
-
-}
-
-
-
-
-@media screen and (max-width: 468px) {
-
-	#aboutContent {
-		width: 360px;
 	}
 
 	#mailchimp {
@@ -286,8 +284,11 @@ footer {
 
 }
 
-
-
+@media screen and (max-width:504px) {
+	.block {
+		margin-left: 0px;
+	}
+}
 
 @media screen and (max-width: 396px) {
 
