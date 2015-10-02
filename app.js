@@ -6,7 +6,9 @@ var tStart = 600 // Start Y in px
 
 var aboutBG = $('#aboutBG');
 var mailchimp = $('#mailchimp input');
-
+var portrait = $('.portrait');
+var aboutTitle = $('#about');
+var portraitEntered = false;
 
 
 
@@ -20,6 +22,23 @@ if(navigator.userAgent.match('CriOS')){
 		p = Math.min(1, Math.max(0, p)); // Clamp to [0, 1]
 		var cBg = [Math.round(cStart[0] + cDiff[0] * p), Math.round(cStart[1] + cDiff[1] * p), Math.round(cStart[2] + cDiff[2] * p)];
 	     aboutBG.css('background-color', 'rgb(' + cBg.join(',') +')');
+	});
+
+	$(document).scroll(function() {
+		if ($(this).scrollTop() > 340 && portraitEntered == false) {
+			portrait.velocity({
+				opacity: [1, "ease-in", 0],
+				translateY: [12, 0],
+			}, {
+				duration: 800,
+			});
+
+			// aboutTitle.velocity("fadeIn", {duration: 800});
+
+			portraitEntered = true;
+
+		}
+
 	});
 
 }
