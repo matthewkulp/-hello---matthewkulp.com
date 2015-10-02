@@ -27,13 +27,17 @@ form {
 	margin: 0px;
 }
 
+p {
+	margin: 12px 0 24px;
+}
+
 body,
 body a {
 	color: $fontColorLight;
 }
 
 body {
-	width: 720px;
+	width: 774px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -49,11 +53,6 @@ input {
 	font-weight: 400;
 	letter-spacing: .6px;
 	line-height: 24px;
-}
-
-.block ul {
-	line-height: 30px;
-	padding-left: 36px;
 }
 
 .subheader {
@@ -86,8 +85,8 @@ h1 {
 
 #hello {
 	color: $primaryColor;
-	padding-top: 38px;
-	padding-bottom: 14px;
+	padding-top: 50px;
+	padding-bottom: 8px;
 	span {
 		opacity: 0;
 		&[alt='h'] {
@@ -110,8 +109,10 @@ h1 {
 
 #about {
 	color: white;
-	padding-top: 132px;
-	padding-bottom: 50px;
+	padding-top: 234px;
+	padding-bottom: 44px;
+	margin-left: -6px;
+	position: relative;
 	span {
 		&[alt="a"] {
 			padding-right: 3px;
@@ -186,6 +187,7 @@ button:focus {
 #intro {
 	padding-bottom: 133px;
 	width: 100%;
+	position: relative;
 }
 
 #mailchimp {
@@ -246,11 +248,25 @@ footer {
 .block {
 	padding-bottom: 130px;
 	margin-left: -36px;
-	width: calc(100% + 36px);
+	width: 100%;
 	float: left;
+	ul {
+		line-height: 30px;
+		padding-left: 36px;
+	}
 }
 
-
+.portrait {
+	position: absolute;
+	margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	width: 236px;
+	padding-right: 32px;
+}
 
 
 @media screen and (max-width:774px) {
@@ -264,22 +280,8 @@ footer {
 		padding-right: 18px;
 	}
 
-	#mailchimp {
+	.gradient {
 		width: 100%;
-	}
-
-	.email {
-		width: 100%;
-		width: calc(100% + 36px);
-	}
-
-	#subscribe {
-		float: left;
-		padding-top: 12px;
-	}
-
-	.button {
-		width: 140px;
 	}
 
 }
@@ -287,6 +289,19 @@ footer {
 @media screen and (max-width:504px) {
 	.block {
 		margin-left: 0px;
+	}
+
+	#mailchimp {
+		width: 100%;
+	}
+
+	.email {
+		width: 100%;
+	}
+
+	#subscribe {
+		float: left;
+		padding-top: 12px;
 	}
 }
 
