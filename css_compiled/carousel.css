@@ -49,7 +49,7 @@
 .imageContainer {
   position: relative;
   height: 0;
-  width: 720px;
+  width: 100%;
   padding-top: 66%; }
   .imageContainer img,
   .imageContainer video {
@@ -82,7 +82,7 @@
 
 .caption {
   width: 432;
-  padding: 0 180px 52px;
+  padding: 0 180px 40px;
   margin: 0 auto;
   font-size: 14px;
   height: 132px;
