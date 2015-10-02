@@ -37,7 +37,7 @@ body a {
 }
 
 body {
-	width: 720px;
+	width: 774px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -109,8 +109,8 @@ h1 {
 
 #about {
 	color: white;
-	padding-top: 147px;
-      padding-bottom: 70px;
+	padding-top: 144px;
+	padding-bottom: 56px;
 	margin-left: -6px;
 	position: relative;
 	span {
@@ -272,7 +272,7 @@ footer {
 	position: absolute;
 	left: 0;
 	right: 0;
-	width: 720px;
+	width: 774px;
 	margin-left: auto;
 	margin-right: auto;
 	opacity: 0;
@@ -317,14 +317,31 @@ footer {
 }
 
 
-@media screen and (max-width:579px) {
+@media screen and (max-width:612px) {
 	.portrait {
 		left: 0px;
 		right: inherit;
 		padding-right: inherit;
 	}
 
+}
 
+@media screen and (max-width:1020px) {
+	.portrait {
+		left: 0px;
+		right: 0px;
+		margin-top: 60px;
+		padding-right: inherit;
+	}
+
+	#about {
+		padding-top: 234px;
+		padding-bottom: 44px;
+	}
+
+	.gradient {
+		display: none;
+	}
 
 }
 
