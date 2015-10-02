@@ -110,8 +110,8 @@ h1 {
 
 #about {
 	color: white;
-	padding-top: 132px;
-	padding-bottom: 50px;
+	padding-top: 318px;
+      padding-bottom: 26px;
 	span {
 		&[alt="a"] {
 			padding-right: 3px;
@@ -250,6 +250,15 @@ footer {
 	float: left;
 }
 
+.portrait {
+	position: absolute;
+	margin-top: 96px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	opacity: .8;
+}
 
 
 
