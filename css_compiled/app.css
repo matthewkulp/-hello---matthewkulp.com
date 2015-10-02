@@ -85,8 +85,8 @@ h1 {
 
 #hello {
   color: #b4aa61;
-  padding-top: 38px;
-  padding-bottom: 14px; }
+  padding-top: 50px;
+  padding-bottom: 8px; }
   #hello span {
     opacity: 0; }
     #hello span[alt='h'] {
@@ -102,8 +102,8 @@ h1 {
 
 #about {
   color: white;
-  padding-top: 144px;
-  padding-bottom: 56px;
+  padding-top: 234px;
+  padding-bottom: 44px;
   margin-left: -6px;
   position: relative; }
   #about span[alt="a"] {
@@ -225,23 +225,14 @@ footer {
 
 .portrait {
   position: absolute;
-  margin-top: 90px;
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   opacity: 0;
   width: 236px;
-  padding-right: 406px; }
-
-.gradient {
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 774px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0; }
+  padding-right: 32px; }
 
 @media screen and (max-width: 774px) {
   body {
@@ -262,24 +253,6 @@ footer {
   #subscribe {
     float: left;
     padding-top: 12px; } }
-
-@media screen and (max-width: 612px) {
-  .portrait {
-    left: 0px;
-    right: inherit;
-    padding-right: inherit; } }
-
-@media screen and (max-width: 1020px) {
-  .portrait {
-    left: 0px;
-    right: 0px;
-    margin-top: 60px;
-    padding-right: inherit; }
-  #about {
-    padding-top: 234px;
-    padding-bottom: 44px; }
-  .gradient {
-    display: none; } }
 
 @media screen and (max-width: 396px) {
   #aboutContent {
