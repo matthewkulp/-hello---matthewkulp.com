@@ -214,9 +214,9 @@ footer {
 
 .block {
   padding-bottom: 130px;
-  width: calc(100% - 36px);
-  float: left;
-  margin-left: -36px; }
+  margin-left: -36px;
+  width: calc(100% + 36px);
+  float: left; }
 
 @media screen and (max-width: 774px) {
   body {
