@@ -85,8 +85,8 @@ h1 {
 
 #hello {
   color: #b4aa61;
-  padding-top: 50px;
-  padding-bottom: 8px; }
+  padding-top: 32px;
+  padding-bottom: 2px; }
   #hello span {
     opacity: 0; }
     #hello span[alt='h'] {

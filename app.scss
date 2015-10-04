@@ -8,7 +8,6 @@ $primaryColor: rgba(180, 170, 97, 1);
 
 
 
-
 html {
 	background-color: #EDEDE8;
 }
@@ -85,8 +84,8 @@ h1 {
 
 #hello {
 	color: $primaryColor;
-	padding-top: 50px;
-	padding-bottom: 8px;
+	padding-top: 32px;
+	padding-bottom: 2px;
 	span {
 		opacity: 0;
 		&[alt='h'] {

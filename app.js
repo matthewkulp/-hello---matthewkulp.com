@@ -1,7 +1,7 @@
 var tStart = 600 // Start Y in px
 	, tEnd = 1800   // End Y in px
 	, cStart = [180, 170, 97] // Color 1
-	, cEnd = [147, 197, 83]   // Color 2
+	, cEnd = [152, 184, 99]   // Color 2
 	, cDiff = [cEnd[0] - cStart[0], cEnd[1] - cStart[1], cEnd[1] - cStart[0]];
 
 var aboutBG = $('#aboutBG');
@@ -24,7 +24,7 @@ if(navigator.userAgent.match('CriOS')){
 	     aboutBG.css('background-color', 'rgb(' + cBg.join(',') +')');
 
 
-	     if ($(this).scrollTop() > 340 && portraitEntered == false) {
+	     if ($(this).scrollTop() > 390 && portraitEntered == false) {
 		     portrait.velocity({
 			     opacity: [1, "ease-in", 0],
 			     translateY: [12, 0],
