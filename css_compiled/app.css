@@ -20,7 +20,7 @@ body a {
   color: #FFFFFF; }
 
 body {
-  width: 774px;
+  width: 828px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -85,7 +85,7 @@ h1 {
 
 #hello {
   color: #b4aa61;
-  padding-top: 32px;
+  padding-top: 44px;
   padding-bottom: 2px; }
   #hello span {
     opacity: 0; }
@@ -234,7 +234,7 @@ footer {
   width: 236px;
   padding-right: 32px; }
 
-@media screen and (max-width: 774px) {
+@media screen and (max-width: 828px) {
   body {
     width: 100%; }
   #aboutContent {

@@ -82,7 +82,7 @@
 
 .caption {
   width: 432;
-  padding: 0 180px 34px;
+  padding: 0 180px 40px;
   margin: 0 auto;
   font-size: 14px;
   height: 132px;
@@ -139,7 +139,7 @@
   line-height: 18px;
   text-align: left; }
 
-@media screen and (max-width: 774px) {
+@media screen and (max-width: 828px) {
   .imageContainer {
     width: 100%; }
   .caption {
