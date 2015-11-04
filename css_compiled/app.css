@@ -102,8 +102,8 @@ h1 {
 
 #about {
   color: white;
-  padding-top: 199px;
-  padding-bottom: 32px;
+  padding-top: 205px;
+  padding-bottom: 128px;
   margin-left: -6px;
   position: relative; }
   #about span[alt="a"] {
@@ -144,6 +144,7 @@ button:focus {
   margin: 0 auto; }
 
 #aboutBG {
+  padding-top: 24px;
   text-align: center;
   background-color: #b4aa61; }
 
@@ -225,7 +226,7 @@ footer {
 
 .portrait {
   position: absolute;
-  margin-top: 53px;
+  margin-top: 41px;
   margin-left: auto;
   margin-right: auto;
   left: 0;

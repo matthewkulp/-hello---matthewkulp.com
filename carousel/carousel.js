@@ -321,7 +321,7 @@ function setIntervalTime (element) {
 		};
 
 	} else {
-		var timeout = setTimeout(intervalAdvance, 2000);
+		var timeout = setTimeout(intervalAdvance, 7000);
 		console.log('timeout called');
 
 		autoCycleOff = function(){
