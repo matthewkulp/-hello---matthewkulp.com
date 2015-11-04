@@ -86,7 +86,7 @@ h1 {
 #hello {
   color: #b4aa61;
   padding-top: 44px;
-  padding-bottom: 2px; }
+  padding-bottom: 20px; }
   #hello span {
     opacity: 0; }
     #hello span[alt='h'] {
@@ -102,8 +102,8 @@ h1 {
 
 #about {
   color: white;
-  padding-top: 234px;
-  padding-bottom: 44px;
+  padding-top: 199px;
+  padding-bottom: 32px;
   margin-left: -6px;
   position: relative; }
   #about span[alt="a"] {
@@ -225,14 +225,14 @@ footer {
 
 .portrait {
   position: absolute;
-  margin-top: 60px;
+  margin-top: 53px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   opacity: 0;
   width: 236px;
-  padding-right: 32px; }
+  padding-right: 36px; }
 
 @media screen and (max-width: 828px) {
   body {
