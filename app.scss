@@ -8,7 +8,6 @@ $primaryColor: rgba(180, 170, 97, 1);
 
 
 
-
 html {
 	background-color: #EDEDE8;
 }
@@ -37,7 +36,7 @@ body a {
 }
 
 body {
-	width: 774px;
+	width: 828px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -85,8 +84,8 @@ h1 {
 
 #hello {
 	color: $primaryColor;
-	padding-top: 50px;
-	padding-bottom: 8px;
+	padding-top: 44px;
+	padding-bottom: 14px;
 	span {
 		opacity: 0;
 		&[alt='h'] {
@@ -109,8 +108,8 @@ h1 {
 
 #about {
 	color: white;
-	padding-top: 234px;
-	padding-bottom: 44px;
+	padding-top: 205px;
+	padding-bottom: 128px;
 	margin-left: -6px;
 	position: relative;
 	span {
@@ -163,6 +162,7 @@ button:focus {
 }
 
 #aboutBG {
+	padding-top: 24px;
 	text-align: center;
 	background-color: $primaryColor;
 }
@@ -258,18 +258,18 @@ footer {
 
 .portrait {
 	position: absolute;
-	margin-top: 60px;
+	margin-top: 41px;
 	margin-left: auto;
 	margin-right: auto;
 	left: 0;
 	right: 0;
 	opacity: 0;
 	width: 236px;
-	padding-right: 32px;
+	padding-right: 36px;
 }
 
 
-@media screen and (max-width:774px) {
+@media screen and (max-width:828px) {
 
 	body {
 		width: 100%;

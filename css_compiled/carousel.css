@@ -82,7 +82,7 @@
 
 .caption {
   width: 432;
-  padding: 0 180px 40px;
+  padding: 0 180px 46px;
   margin: 0 auto;
   font-size: 14px;
   height: 132px;
@@ -131,15 +131,15 @@
   width: 100%; }
 
 .involvement {
-  font-size: smaller;
+  font-size: 12px;
   font-family: 'Avenir';
   font-weight: bold;
-  padding-top: 12px;
+  padding-top: 16px;
   opacity: .6;
   line-height: 18px;
   text-align: left; }
 
-@media screen and (max-width: 774px) {
+@media screen and (max-width: 828px) {
   .imageContainer {
     width: 100%; }
   .caption {

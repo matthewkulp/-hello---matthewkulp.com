@@ -68,7 +68,7 @@ var titleYChange = -2;
 var loaderEnterExitTime = 500;
 
 
-
+var intervalTime;
 
 function goTo (itemIndex) {
 	nextItem = itemIndex;
@@ -185,9 +185,12 @@ function goTo (itemIndex) {
 	// Make the nextItem .active
 	items.removeClass('active')
 		.eq(nextItem).addClass('active');
+
 	currentItem = nextItem;
 
+
 	firstGoToCall = false;
+
 
 };
 
@@ -256,7 +259,7 @@ function countChange (itemIndex) {
 
 
 function carouselIntroduction (itemIndex) {
-
+	// console.log("carouselIntroduction("+itemIndex+")");
 	nextHitbox.css('display', 'inherit');
 	previousHitbox.css('display', 'inherit');
 
@@ -273,6 +276,8 @@ loader.velocity("fadeIn", {
 
 
 
+// defaultIntervalTime = 1000;
+// intervalTime = defaultIntervalTime;
 
 setTimeout(function () {
 	pictures.eq(currentItem).imagesLoaded( function() {
@@ -281,8 +286,7 @@ setTimeout(function () {
 	      duration: loaderEnterExitTime,
 	      complete: function() {
 				carouselIntroduction(currentItem);
-				// Set AutoCycle
-				autoCycle = setInterval( next, 8000);
+				setIntervalTime(nextImage);
 			},
 		});
 	})
@@ -291,8 +295,55 @@ setTimeout(function () {
 
 
 
-function next(){
+var autoCycleIsOff = false;
+var autoCycleOff = function(){};
 
+var turnAutoCycleOff = function(){
+	autoCycleOff();
+	autoCycleIsOff = true;
+	$('video').attr('loop', 'true');
+};
+
+function setIntervalTime (element) {
+	if (element.children().attr('isVideo') == 'true') {
+		var video = element.children()[0];
+
+		function onEnd(e) {
+			console.log('On End.... huge big log. dark pump.');
+			intervalAdvance();
+		};
+
+		console.log('video = '+video);
+		video.onended = onEnd;
+
+		autoCycleOff = function(){
+			// video.onended = null;
+		};
+
+	} else {
+		var timeout = setTimeout(intervalAdvance, 7000);
+		console.log('timeout called');
+
+		autoCycleOff = function(){
+			clearTimeout(timeout);
+		};
+	};
+};
+
+
+
+function intervalAdvance() {
+	// clearInterval(autoCycle);
+	next();
+	// console.log(nextImage.children().attr('isVideo') == 'true');
+
+	setIntervalTime(nextImage);
+}
+
+
+
+
+function next(){
 	if (currentItem < items.length-1 && animationComplete){
 		goTo(currentItem + 1);
 
@@ -322,7 +373,7 @@ function previous(){
 nextHitbox.on('click', function() {
 
 	if (animationComplete) {
-		clearInterval(autoCycle);
+		turnAutoCycleOff();
 		next();
 		return false;
 	}
@@ -335,7 +386,7 @@ nextHitbox.on('click', function() {
 previousHitbox.on('click', function() {
 
 	if (animationComplete) {
-		clearInterval(autoCycle);
+		turnAutoCycleOff();
 		previous();
 		return false;
 	}
@@ -348,7 +399,8 @@ previousHitbox.on('click', function() {
 //Swipe Behavior
 inViewImage.on('swipeleft', function () {
 
-	clearInterval(autoCycle);
+	// clearInterval(autoCycle);
+	turnAutoCycleOff();
 	if (animationComplete) {
 		next();
 	}
@@ -360,7 +412,8 @@ inViewImage.on('swipeleft', function () {
 
 inViewImage.on('swiperight', function () {
 
-	clearInterval(autoCycle);
+	// clearInterval(autoCycle);
+	turnAutoCycleOff();
 	if (animationComplete) {
 		previous();
 	}
@@ -374,12 +427,14 @@ $(document).keydown(function(e) {
 
 	switch(e.which) {
 		case 37: // left arrow key
-			clearInterval(autoCycle);
+			// clearInterval(autoCycle);
+			turnAutoCycleOff();
 			previous();
 			break;
 
 		case 39: // right arrow key
-			clearInterval(autoCycle);
+			// clearInterval(autoCycle);
+			autoCycleOff();
 			next();
 			break;
 
