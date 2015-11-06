@@ -85,7 +85,7 @@ h1 {
 #hello {
 	color: $primaryColor;
 	padding-top: 44px;
-	padding-bottom: 14px;
+	padding-bottom: 2px;
 	span {
 		opacity: 0;
 		&[alt='h'] {
@@ -108,8 +108,8 @@ h1 {
 
 #about {
 	color: white;
-	padding-top: 205px;
-	padding-bottom: 128px;
+	padding-top: 100px;
+	padding-bottom: 2px;
 	margin-left: -6px;
 	position: relative;
 	span {
@@ -162,7 +162,7 @@ button:focus {
 }
 
 #aboutBG {
-	padding-top: 24px;
+	// padding-top: 24px;
 	text-align: center;
 	background-color: $primaryColor;
 }
@@ -265,7 +265,7 @@ footer {
 	right: 0;
 	opacity: 0;
 	width: 236px;
-	padding-right: 36px;
+	padding-right: 336px;
 }
 
 
