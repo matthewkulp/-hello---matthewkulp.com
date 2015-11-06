@@ -86,7 +86,7 @@ h1 {
 #hello {
   color: #b4aa61;
   padding-top: 44px;
-  padding-bottom: 14px; }
+  padding-bottom: 2px; }
   #hello span {
     opacity: 0; }
     #hello span[alt='h'] {
@@ -102,8 +102,8 @@ h1 {
 
 #about {
   color: white;
-  padding-top: 205px;
-  padding-bottom: 128px;
+  padding-top: 100px;
+  padding-bottom: 2px;
   margin-left: -6px;
   position: relative; }
   #about span[alt="a"] {
@@ -144,7 +144,6 @@ button:focus {
   margin: 0 auto; }
 
 #aboutBG {
-  padding-top: 24px;
   text-align: center;
   background-color: #b4aa61; }
 
@@ -233,7 +232,7 @@ footer {
   right: 0;
   opacity: 0;
   width: 236px;
-  padding-right: 36px; }
+  padding-right: 336px; }
 
 @media screen and (max-width: 828px) {
   body {
