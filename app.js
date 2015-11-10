@@ -7,9 +7,9 @@ var tStart = 600 // Start Y in px
 var aboutBG = $('#aboutBG');
 var mailchimp = $('#mailchimp input');
 // var portrait = $('.portrait');
-// var portraitEntered = false;
-
-
+var portraitEntered = false;
+var aboutContent = $('#aboutContent');
+aboutContent.css('opacity', '0');
 
 // Check for Chrome on iOS and ignore scroll events.
 if(navigator.userAgent.match('CriOS')){
@@ -23,15 +23,15 @@ if(navigator.userAgent.match('CriOS')){
 	     aboutBG.css('background-color', 'rgb(' + cBg.join(',') +')');
 
 
-	//      if ($(this).scrollTop() > 390 && portraitEntered == false) {
-	// 	     portrait.velocity({
-	// 		     opacity: [1, "ease-in", 0],
-	// 		     translateY: [12, 0],
-	// 	     }, {
-	// 		     duration: 800,
-	// 	     });
-	// 	     portraitEntered = true;
-	//      }
+	     if ($(this).scrollTop() > 520 && portraitEntered == false) {
+		     aboutContent.velocity({
+			     opacity: [1, "ease-in", 0],
+			     translateY: [-18, 0],
+		     }, {
+			     duration: 800,
+		     });
+		     portraitEntered = true;
+	     }
 
 	});
 
