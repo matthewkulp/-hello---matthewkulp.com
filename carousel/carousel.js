@@ -4,7 +4,7 @@
 
 var previousHitbox = $('.previous');
 var nextHitbox = $('.next');
-var mobileGifs = $('.mobileGif');
+var mobilePictures = $('.mobilePicture');
 
 
 
@@ -16,17 +16,27 @@ if (Modernizr.touch) {
 	previousHitbox.hide();
 	nextHitbox.css('width', '100%');
 
+
+
+	// I have to pull the src attribute off the source tag
+	// Put it into a new div, which I'll style
+	// Move it out of the video div, so it doesn't mess up the pictures array
+
+	// modify goTo to keep track of the current on and the next one
+
 	// Remove mp4s
 	$('.video').remove();
 
 	// Take div attribute and turn it into an image and insert it in the div.
-	mobileGifs.map(function() {
+	mobilePictures.map(function(){
 		$(this).append('<img src="' + $(this).attr('url') + '" />');
 	});
 
+
+
 } else {
 
-	mobileGifs.remove();
+	mobilePictures.remove();
 
 };
 
@@ -309,11 +319,10 @@ function setIntervalTime (element) {
 		var video = element.children()[0];
 
 		function onEnd(e) {
-			console.log('On End.... huge big log. dark pump.');
+			// console.log('On End.... huge big log. dark pump.');
 			intervalAdvance();
 		};
 
-		console.log('video = '+video);
 		video.onended = onEnd;
 
 		autoCycleOff = function(){
@@ -322,7 +331,7 @@ function setIntervalTime (element) {
 
 	} else {
 		var timeout = setTimeout(intervalAdvance, 7000);
-		console.log('timeout called');
+		// console.log('timeout called');
 
 		autoCycleOff = function(){
 			clearTimeout(timeout);
